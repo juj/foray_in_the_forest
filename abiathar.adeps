@@ -1,0 +1,1138 @@
+VERSION v2.11.4 Beta 1
+Core
+DefaultSet: 
+MapTypeIsExtended: False
+MapType: Carmack
+MapFiles: {
+ MapHead: MAPHEAD.CKS
+ MapDict: 
+ GameMaps: MAPTEMP.CKS
+ TileInfo: 
+}
+TileInfoLoader: {
+ UseTileinfo: True
+ InMemory: False
+ InMaphead: True
+}
+GraphicsFiles: {
+ UseBitmap: False
+ EgaHead: EGAHEAD.CKS
+ EgaDict: EGADICT.CKS
+ EgaGraph: EGAGRAPH.CKS
+ InfoplaneBmp: NEW-INFOPLANE.BMP
+}
+EgaSettings: {
+ EgaHeadEntryLength: 3
+ BackTileStart: 811
+ BackTileCount: 3168
+ ForeTileStart: 3979
+ ForeTileCount: 3780
+}
+AudioSettings: {
+ PcStart: 0
+ PcEnd: 68
+ AdlibStart: 69
+ AdlibEnd: 137
+ ImfStart: 138
+ ImfEnd: 176
+ AllowMappings: True
+}
+AudioFiles: {
+ Audio: AUDIOT.CKS
+ AudioHed: AUDIOHED.CKS
+ AudioDct: 
+ ImfStart: 138
+ LevelChunkMappings: [
+  - 124
+  - 125
+  - 124
+  - 125
+  - 124
+  - 125
+  - 124
+  - 125
+  - 124
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+ ]
+ SongModifiedTimes: [
+  - {
+    ChunkID: 114
+    ModifiedTime: 132345670959361456
+    Name: Midnight v5 slow - kvee
+   }
+  - {
+    ChunkID: 115
+    ModifiedTime: 132267737159865392
+    Name: Oasis v17  bass v5 - kvee
+   }
+  - {
+    ChunkID: 134
+    ModifiedTime: 132345685365576576
+    Name: spoops (+6db) - eggsbox
+   }
+  - {
+    ChunkID: 135
+    ModifiedTime: 132345685584891936
+    Name: Summers Beach
+   }
+  - {
+    ChunkID: 129
+    ModifiedTime: 132345682317894224
+    Name: 4 (400Hz, +16db) - Theo Bishop
+   }
+  - {
+    ChunkID: 130
+    ModifiedTime: 132345715137609280
+    Name: 9 (420Hz +14db) - Theo Bishop
+   }
+  - {
+    ChunkID: 130
+    ModifiedTime: 132338795586870885
+    Name: 
+   }
+  - {
+    ChunkID: 129
+    ModifiedTime: 132338793879315541
+    Name: 
+   }
+  - {
+    ChunkID: 130
+    ModifiedTime: 132338795586870885
+    Name: 
+   }
+  - {
+    ChunkID: 114
+    ModifiedTime: 132337731841506945
+    Name: 
+   }
+  - {
+    ChunkID: 136
+    ModifiedTime: 132345685811417664
+    Name: kickkeen (530Hz -9db) - TMST
+   }
+  - {
+    ChunkID: 137
+    ModifiedTime: 132338750569138565
+    Name: Slipping Slug (-5, 8,-16db) - Joseph Collins
+   }
+  - {
+    ChunkID: 137
+    ModifiedTime: 132338750569138565
+    Name: 
+   }
+  - {
+    ChunkID: 136
+    ModifiedTime: 132338778067579381
+    Name: 
+   }
+  - {
+    ChunkID: 116
+    ModifiedTime: 132345666076039584
+    Name: slowasis v4b (+6db) - kvee
+   }
+  - {
+    ChunkID: 119
+    ModifiedTime: 132345675171918816
+    Name: Commercials v3b (-4db) - Kohntarkosz_
+   }
+  - {
+    ChunkID: 119
+    ModifiedTime: 132338677810264240
+    Name: 
+   }
+  - {
+    ChunkID: 119
+    ModifiedTime: 132338677810264240
+    Name: 
+   }
+  - {
+    ChunkID: 120
+    ModifiedTime: 132345675432193072
+    Name: Nashvill (-4db) - Kohntarkosz_
+   }
+  - {
+    ChunkID: 121
+    ModifiedTime: 132345675623868688
+    Name: Strut (500Hz, -8db) - Kohntrakosz_
+   }
+  - {
+    ChunkID: 122
+    ModifiedTime: 132345675936618400
+    Name: Tropic v2 (640Hz -4db) - Kohntrakosz_
+   }
+  - {
+    ChunkID: 122
+    ModifiedTime: 132338695183567932
+    Name: 
+   }
+  - {
+    ChunkID: 121
+    ModifiedTime: 132338699477041644
+    Name: 
+   }
+  - {
+    ChunkID: 121
+    ModifiedTime: 132338699477041644
+    Name: 
+   }
+  - {
+    ChunkID: 124
+    ModifiedTime: 132345678136782080
+    Name: Nitelite (+8db) - MrM
+   }
+  - {
+    ChunkID: 123
+    ModifiedTime: 132345678286196928
+    Name: Education (+7db) - MrM
+   }
+  - {
+    ChunkID: 123
+    ModifiedTime: 132338704058229068
+    Name: 
+   }
+  - {
+    ChunkID: 125
+    ModifiedTime: 132345679626524224
+    Name: Cruise (-4db) - IncredibleMachine
+   }
+  - {
+    ChunkID: 126
+    ModifiedTime: 132345679797570176
+    Name: Fusion (-8db) - IncredibleMachine
+   }
+  - {
+    ChunkID: 126
+    ModifiedTime: 132338823034738981
+    Name: 
+   }
+  - {
+    ChunkID: 126
+    ModifiedTime: 132338823034738981
+    Name: 
+   }
+  - {
+    ChunkID: 137
+    ModifiedTime: 132338750569138565
+    Name: 
+   }
+  - {
+    ChunkID: 137
+    ModifiedTime: 132338750569138565
+    Name: 
+   }
+  - {
+    ChunkID: 137
+    ModifiedTime: 132338750569138565
+    Name: 
+   }
+  - {
+    ChunkID: 137
+    ModifiedTime: 132338750569138565
+    Name: 
+   }
+  - {
+    ChunkID: 136
+    ModifiedTime: 132338778067579381
+    Name: 
+   }
+  - {
+    ChunkID: 136
+    ModifiedTime: 132338778067579381
+    Name: 
+   }
+  - {
+    ChunkID: 127
+    ModifiedTime: 132345681982011248
+    Name: Algeria (-5db) - MOM4Evr
+   }
+  - {
+    ChunkID: 127
+    ModifiedTime: 132338788247116837
+    Name: 
+   }
+  - {
+    ChunkID: 129
+    ModifiedTime: 132338793879315541
+    Name: 
+   }
+  - {
+    ChunkID: 129
+    ModifiedTime: 132338793879315541
+    Name: 
+   }
+  - {
+    ChunkID: 130
+    ModifiedTime: 132338795586870885
+    Name: 
+   }
+  - {
+    ChunkID: 131
+    ModifiedTime: 132345682672804560
+    Name: Colder (+8db) - Gridlock
+   }
+  - {
+    ChunkID: 132
+    ModifiedTime: 132345684838718992
+    Name: littlekeenthing (+6db) - eggsbox
+   }
+  - {
+    ChunkID: 133
+    ModifiedTime: 132345685183815216
+    Name: fonk (+6db) - eggsbox
+   }
+  - {
+    ChunkID: 134
+    ModifiedTime: 132338803286342181
+    Name: 
+   }
+  - {
+    ChunkID: 134
+    ModifiedTime: 132338803286342181
+    Name: 
+   }
+  - {
+    ChunkID: 133
+    ModifiedTime: 132338803442967397
+    Name: 
+   }
+  - {
+    ChunkID: 132
+    ModifiedTime: 132338803733384997
+    Name: 
+   }
+  - {
+    ChunkID: 125
+    ModifiedTime: 132338822737511589
+    Name: 
+   }
+  - {
+    ChunkID: 126
+    ModifiedTime: 132338823034738981
+    Name: 
+   }
+  - {
+    ChunkID: 138
+    ModifiedTime: 132345691066874640
+    Name: dopejaws (530Hz, +12db) - Lee Jackson
+   }
+  - {
+    ChunkID: 139
+    ModifiedTime: 132345691606250224
+    Name: icy_f_10rppq (+4db) - kvee
+   }
+  - {
+    ChunkID: 140
+    ModifiedTime: 132345691837082144
+    Name: MortLab (+6db) - MrM
+   }
+  - {
+    ChunkID: 141
+    ModifiedTime: 132345692117184912
+    Name: JAZZK (+6db) - unknown
+   }
+  - {
+    ChunkID: 142
+    ModifiedTime: 132352511870960732
+    Name: Keenish Tune (kvee mix 3) - TSK
+   }
+  - {
+    ChunkID: 138
+    ModifiedTime: 132338844686823828
+    Name: 
+   }
+  - {
+    ChunkID: 138
+    ModifiedTime: 132338844686823828
+    Name: 
+   }
+  - {
+    ChunkID: 139
+    ModifiedTime: 132338846915127972
+    Name: 
+   }
+  - {
+    ChunkID: 139
+    ModifiedTime: 132338846915127972
+    Name: 
+   }
+  - {
+    ChunkID: 128
+    ModifiedTime: 132345682152256048
+    Name: The Lady is Frightful (-4db, -124db) - MOM4Evr
+   }
+  - {
+    ChunkID: 143
+    ModifiedTime: 132352509730082300
+    Name: Jazzin' Them Nazis (680Hz, +10db) - Bobby Prince
+   }
+  - {
+    ChunkID: 143
+    ModifiedTime: 132342691907203504
+    Name: 
+   }
+  - {
+    ChunkID: 143
+    ModifiedTime: 132342691907203504
+    Name: 
+   }
+  - {
+    ChunkID: 143
+    ModifiedTime: 132342691907203504
+    Name: 
+   }
+  - {
+    ChunkID: 117
+    ModifiedTime: 132345671479809824
+    Name: too_hot v5b - kvee
+   }
+  - {
+    ChunkID: 118
+    ModifiedTime: 132345671777037216
+    Name: 2hot v4 - kvee
+   }
+  - {
+    ChunkID: 144
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 145
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 146
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 147
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 148
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 149
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 150
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 151
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 152
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 153
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 154
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 155
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 156
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 157
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 158
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 159
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 160
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 161
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 162
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 163
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 164
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 165
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 166
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 167
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 168
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 169
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 170
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 171
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 172
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 173
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 174
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 175
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+  - {
+    ChunkID: 176
+    ModifiedTime: 116444736000000000
+    Name: 
+   }
+ ]
+}
+InfoplaneTileCount: 198
+MapEdgeTile: 144
+ModifySignature: False
+Paths: Nothing
+InfoplaneInspector: {
+ AllowMultipleKeens: False
+ IgnoreWorldmap: False
+ Data: [
+  - {
+    AppliesTo: [
+     - 67
+    ]
+    Data: {
+
+    }
+    Resources: [
+     - {
+       ResType: Lives
+       Value: 1
+      }
+    ]
+   }
+  - {
+    AppliesTo: [
+     - 68
+    ]
+    Data: {
+
+    }
+    Resources: [
+     - {
+       ResType: Ammo
+       Value: 5
+      }
+    ]
+   }
+  - {
+    AppliesTo: [
+     - 61
+    ]
+    Data: {
+
+    }
+    Resources: [
+     - {
+       ResType: Points
+       Value: 100
+      }
+    ]
+   }
+  - {
+    AppliesTo: [
+     - 62
+    ]
+    Data: {
+
+    }
+    Resources: [
+     - {
+       ResType: Points
+       Value: 200
+      }
+    ]
+   }
+  - {
+    AppliesTo: [
+     - 4
+     - 63
+    ]
+    Data: {
+
+    }
+    Resources: [
+     - {
+       ResType: Points
+       Value: 500
+      }
+    ]
+   }
+  - {
+    AppliesTo: [
+     - 64
+    ]
+    Data: {
+
+    }
+    Resources: [
+     - {
+       ResType: Points
+       Value: 1000
+      }
+    ]
+   }
+  - {
+    AppliesTo: [
+     - 65
+    ]
+    Data: {
+
+    }
+    Resources: [
+     - {
+       ResType: Points
+       Value: 2000
+      }
+    ]
+   }
+  - {
+    AppliesTo: [
+     - 66
+    ]
+    Data: {
+
+    }
+    Resources: [
+     - {
+       ResType: Points
+       Value: 5000
+      }
+    ]
+   }
+  - {
+    AppliesTo: [
+     - 1
+     - 2
+    ]
+    Data: {
+     InvalidOnMap: True
+     IsKeen: True
+    }
+   }
+ ]
+}
+ResourceCounter: {
+ Data: [
+  - {
+    TileProperty: 21
+    Data: {
+     ResType: Points
+     Value: 100
+    }
+   }
+  - {
+    TileProperty: 22
+    Data: {
+     ResType: Points
+     Value: 200
+    }
+   }
+  - {
+    TileProperty: 23
+    Data: {
+     ResType: Points
+     Value: 500
+    }
+   }
+  - {
+    TileProperty: 24
+    Data: {
+     ResType: Points
+     Value: 1000
+    }
+   }
+  - {
+    TileProperty: 25
+    Data: {
+     ResType: Points
+     Value: 2000
+    }
+   }
+  - {
+    TileProperty: 26
+    Data: {
+     ResType: Points
+     Value: 5000
+    }
+   }
+  - {
+    TileProperty: 27
+    Data: {
+     ResType: Lives
+     Value: 1
+    }
+   }
+  - {
+    TileProperty: 4
+    Data: {
+     ResType: Drops
+     Value: 0,01
+    }
+   }
+  - {
+    TileProperty: 28
+    Data: {
+     ResType: Ammo
+     Value: 5
+    }
+   }
+  - {
+    TileProperty: 44
+    Data: {
+     ResType: Lives
+     Value: 1
+    }
+   }
+ ]
+}
+SwapBackgroundTileinfoFields: False
+TilePropertyValues: {
+ Top: [
+  - {
+    Name: Nothing
+    ID: 0
+   }
+  - {
+    Name: Flat
+    ID: 1
+   }
+  - {
+    Name: Slope: top→middle
+    ID: 2
+   }
+  - {
+    Name: Slope: middle→bottom
+    ID: 3
+   }
+  - {
+    Name: Slope: top→bottom
+    ID: 4
+   }
+  - {
+    Name: Slope: middle→top
+    ID: 5
+   }
+  - {
+    Name: Slope: bottom→middle
+    ID: 6
+   }
+  - {
+    Name: Slope: bottom→top
+    ID: 7
+   }
+  - {
+    Name: Kill
+    ID: 9
+   }
+  - {
+    Name: Flat with pole
+    ID: 17
+   }
+  - {
+    Name: Big switch (on)
+    ID: 33
+   }
+  - {
+    Name: Conveyor belt
+    ID: 41
+   }
+  - {
+    Name: Pogo vs. wood plank
+    ID: 57
+   }
+ ]
+ Special: [
+  - {
+    Name: Nothing
+    ID: 0
+   }
+  - {
+    Name: Pole
+    ID: 1
+   }
+  - {
+    Name: Door
+    ID: 2
+   }
+  - {
+    Name: Kill
+    ID: 3
+   }
+  - {
+    Name: 1/100 life
+    ID: 4
+   }
+  - {
+    Name: Infoplane switch (off)
+    ID: 5
+   }
+  - {
+    Name: Infoplane switch (on)
+    ID: 6
+   }
+  - {
+    Name: Red gem holder
+    ID: 7
+   }
+  - {
+    Name: Yellow gem holder
+    ID: 8
+   }
+  - {
+    Name: Blue gem holder
+    ID: 9
+   }
+  - {
+    Name: Green gem holder
+    ID: 10
+   }
+  - {
+    Name: Enter water from top
+    ID: 11
+   }
+  - {
+    Name: Enter water from right
+    ID: 12
+   }
+  - {
+    Name: Enter water from bottom
+    ID: 13
+   }
+  - {
+    Name: Enter water from left
+    ID: 14
+   }
+  - {
+    Name: Bridge switch
+    ID: 15
+   }
+  - {
+    Name: Helicopter floor
+    ID: 16
+   }
+  - {
+    Name: Nothing (pathing arrow icon)
+    ID: 17
+   }
+  - {
+    Name: Nothing (bridge tile)
+    ID: 18
+   }
+  - {
+    Name: Switchable zapper top (on)
+    ID: 19
+   }
+  - {
+    Name: Teleporter entrance
+    ID: 20
+   }
+  - {
+    Name: Points: 100
+    ID: 21
+   }
+  - {
+    Name: Points: 200
+    ID: 22
+   }
+  - {
+    Name: Points: 500
+    ID: 23
+   }
+  - {
+    Name: Points: 1000
+    ID: 24
+   }
+  - {
+    Name: Points: 2000
+    ID: 25
+   }
+  - {
+    Name: Points: 5000
+    ID: 26
+   }
+  - {
+    Name: Extra life
+    ID: 27
+   }
+  - {
+    Name: Ammo
+    ID: 28
+   }
+  - {
+    Name: Switchable zapper top (off)
+    ID: 30
+   }
+  - {
+    Name: Ampton console
+    ID: 31
+   }
+  - {
+    Name: Security door
+    ID: 32
+   }
+  - {
+    Name: Map elevator (left side)
+    ID: 33
+   }
+  - {
+    Name: Map elevator (right side)
+    ID: 34
+   }
+  - {
+    Name: Kill (water)
+    ID: 35
+   }
+  - {
+    Name: BWB vertical door
+    ID: 36
+   }
+  - {
+    Name: Kill (fire/electricity)
+    ID: 37
+   }
+  - {
+    Name: Character switch
+    ID: 38
+   }
+  - {
+    Name: Clone machine
+    ID: 39
+   }
+  - {
+    Name: New door tiles
+    ID: 40
+   }
+  - {
+    Name: Quick Door
+    ID: 41
+   }
+  - {
+    Name: Ammo station
+    ID: 42
+   }
+  - {
+    Name: Music trigger
+    ID: 43
+   }
+  - {
+    Name: Insomnia / no sleep
+    ID: 45
+   }
+  - {
+    Name: Wide Door (Advance 1)
+    ID: 46
+   }
+  - {
+    Name: Wide Door (Advance 2)
+    ID: 47
+   }
+  - {
+    Name: Quicksand
+    ID: 48
+   }
+  - {
+    Name: HAL Dialog
+    ID: 49
+   }
+  - {
+    Name: WorldMap Block
+    ID: 50
+   }
+ ]
+ Bottom: [
+  - {
+    Name: Nothing
+    ID: 0
+   }
+  - {
+    Name: Flat
+    ID: 1
+   }
+  - {
+    Name: Slope: bottom→middle
+    ID: 2
+   }
+  - {
+    Name: Slope: middle→top
+    ID: 3
+   }
+  - {
+    Name: Slope: bottom→top
+    ID: 4
+   }
+  - {
+    Name: Slope: middle→bottom
+    ID: 5
+   }
+  - {
+    Name: Slope: top→middle
+    ID: 6
+   }
+  - {
+    Name: Slope: top→bottom
+    ID: 7
+   }
+  - {
+    Name: Flat with pole
+    ID: 17
+   }
+  - {
+    Name: Big switch (off)
+    ID: 33
+   }
+ ]
+ Side: [
+  - {
+    Name: Clear
+    ID: 0
+   }
+  - {
+    Name: Solid
+    ID: 1
+   }
+  - {
+    Name: Drillable
+    ID: 2
+   }
+ ]
+}
+UseVeriMaps: False
+EmitPlayBat: True
+WarnUnmanagedPatches: False
+Minipalettes: [
+ - [
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+  ]
+ - [
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+  ]
+ - [
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+   - 0
+  ]
+]
+CopiedBlocks: [
+ - Nothing
+ - Nothing
+ - Nothing
+ - Nothing
+ - Nothing
+ - Nothing
+ - Nothing
+ - Nothing
+ - Nothing
+]
+}
+~.

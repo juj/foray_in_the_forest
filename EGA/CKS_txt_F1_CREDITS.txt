@@ -1,0 +1,503 @@
+^P = = = = = CREDITS = = = = =
+^cF CREDITS
+
+^cE First and foremost, big shoutouts go to the
+^cA id Software ^cE team and co-developers, the
+creators and godfathers of the Commander
+Keen series:
+
+^L, 80, 90
+^cA Tom Hall
+^L, 90, 55
+John Carmack
+^L,100, 61
+John Romero
+^L,110, 44
+Adrian Carmack
+^L,120, 61
+Bobby Prince
+
+^L, 80,150
+^cE Creative Director
+^L, 90,150
+Technical Director
+^L,100,150
+Tool Craftsman
+^L,110,150
+Master of the Pixel
+^L,120,150
+Music Composer
+ 
+^cE You guys shaped my childhood and inspired me
+to follow my childlike curiosity!
+
+
+^P
+^cF CREDITS
+^cE
+You are now playing the source code mod
+^cA "Foray in the Forest"
+
+^cE This project was started by ^cA Mr. M ^cE back in
+2009. After an unfortunate hard drive fail
+and a full data loss, I - ^cA Nisaba ^cE - took over,
+restarted the whole project from scratch,
+and soon became the creative director.
+
+But of course this mod wouldn't be possible
+without the ingenuity, skill and patience of
+a couple of very talented people.
+
+
+^P
+^cF CREDITS
+
+^cE As the  CK source code  still has not been
+released  yet,  and  spurred  by  ^cA NY00123's
+^cE decision to make the KDreams tech demo,
+^cA Lemm ^cE decided to add in the missing bits of
+the Keen source by combining the Omnispeak
+decompilation  effort,  NetKeen,  and  the
+KDreams tech demo into one big Frankenmod.
+
+Later  on,  ^cA K1n9_Duk3  ^cE joined  the  show,
+complemented and improved the code even
+further, and eventually became FitF's lead
+programmer.  The result is this very neat
+concoction.
+
+
+^P
+^cF CREDITS
+
+^cE The main team behind Foray in the Forest:
+
+^L, 70, 90
+^cA Nisaba
+^L, 80, 65
+K1n9_Duk3
+^L, 90, 90
+Fleexy
+^L,100,101
+^cA kvee
+^L,110, 70
+eggs_box
+^L,120, 42
+Kohntarkosz_
+^L,130, 97
+Mr_M
+
+^L, 70,140
+^cE Creative Director
+^L, 80,140
+Lead Programmer
+^L, 90,140
+Tool Smith
+^L,100,140
+Music Composer
+^L,110,140
+Music Composer
+^L,120,140
+Music Composer
+^L,130,140
+Music Composer
+
+
+^P
+^cF CREDITS
+
+^cE Many thanks to all additional, assisting and
+co-supporting creative participants in this
+project goes to the following list of fine
+people.
+
+All this would not have been possible without
+your  great  contribution  in  the  form of
+submissions,  ideas,  constructive criticisms,
+your knowledge and shared skills, your moral
+support,  and your creative products that I
+have joyfully rummaged through and at times
+secretly and blatantly ripped.
+
+Thanks, PCKF, for helping me make my mod
+visions come true!
+
+^P
+^cF CREDITS
+
+^cE Tool Support:
+^cA K1n9_Duk3
+Snortimer
+kvee
+Levellass
+Lemm
+
+
+^cE Co-Programmer:
+^cA Nisaba
+Lemm
+NY00123
+Spleen
+
+
+^L30,170
+^cE Story:
+^L40,170
+^cA Nisaba
+^L50,170
+nanomekia
+^L60,170
+obsidian29
+^L70,170
+Rolly
+^L80,170
+Lotte
+
+
+^L110,170
+^cE Proofreading:
+^L120,170
+^cA nanomekia
+^L130,170
+^cA Nowhere Girl
+^L140,170
+Snortimer
+
+
+^P
+^cF CREDITS
+
+^cE Music Composition:
+^cA MOM4Evr
+Joseph Collins
+Bobby Prince
+John Williams
+Koji Kondo
+TMST
+Gridlock
+TSK
+
+
+^L30,170
+^cE Music Remixes:
+^L40,170
+^cA kvee
+^L50,170
+eggs_box
+^L60,170
+TheBigV
+^L70,170
+Lee Jackson
+^L80,170
+Nisaba
+
+
+^L110,170
+^cE Sound Effects:
+^L120,170
+^cA Nisaba
+^L130,170
+Bubbatom
+^L140,170
+X-Rack Project
+
+
+^P
+^cF CREDITS
+
+^cE Sprite Art:
+^cA Nisaba
+Zilem
+Xky Rauh
+Plasma Captain
+Neorice
+Fred Ström
+siskavard_
+DoomJedi
+
+
+^cE Touch-Ups:
+^cA Nisaba
+Pandakeen
+Zilem
+^L30,170
+^cE Pixel Art:
+^L40,170
+^cA Nisaba
+^L50,170
+ProYorp
+^L60,170
+Bernie
+^L70,170
+Pandakeen
+^L80,170
+Mobiethian
+^L90,170
+Zilem 
+^L100,170
+Roobar
+^L110,170
+Awesome-Keener
+^L120,170
+Plasma Captain
+^L130,170
+Snortimer
+^L140,170
+KeenRush
+^L150,170
+Genius314
+^L160,170
+Xky Rauh
+^L170,170
+FaceLaces
+^L180,170
+Ceilick
+
+^P
+^cF CREDITS
+^CE
+Level Design:
+^cA Nisaba
+
+
+^cE Beta Testing:
+^cA Dautz
+Lotte
+Alessandro
+Hagel
+Syllypryde
+keenmaster486
+Snortimer
+The Shifted One
+
+^L30,170
+^cE Level Design Muses:
+^L40,170
+^cA Mr_M
+^L50,170 
+Mark the Candyjunk
+^L60,170
+Dr. Colossus
+^L70,170
+The Shifted One
+^L80,170
+Bernie
+^L90,170
+tulip
+^L100,170
+ChargingMoose
+^L110,170
+Spleen
+^L120,170
+Ceilick
+^L130,170
+Gridlock
+^L140,170
+Quillax
+^L150,170
+Bubbatom
+
+
+^P
+^cF CREDITS
+
+^cE Mini-Games:
+^cA K1n9_Duk3
+Spleen
+
+^cE Further Contributions:
+^cA Ceilick
+Dr. Colossus
+Gridlock
+Xky Rauh
+Roobar
+Bernie
+NY00123
+KeenRush
+55Aavenue
+Levellass
+^L80,170
+TroublesomeKeen
+^L90,170
+Lemm
+^L100,170
+Tesseract
+^L110,170
+MoffD
+^L120,170
+Plasma Captain
+^L130,170
+Spleen
+^L140,170
+ktch0/Jarno LV
+^L150,170
+A.R.
+^L160,170
+Petka
+^L170,170
+Zero X. Diamond
+^L180,170
+ckguy
+
+
+^P
+^cF CREDITS
+
+^cE Utilities Used:
+^cA Abiathar
+Borland C++ Compiler
+Geany
+GHex
+IMF Player, IMF Crusher
+imfplay, IMFVOC
+ModId
+Obsidian
+PHStar scripts
+TheDraw
+TliExtend, TliTool
+mtPaint
+uGrab
+Wolf3D Data Compiler
+^L40,170
+by Fleexy
+^L50,170
+by Borland
+^L60,170
+by Colomban Wendling
+^L70,170
+by Jaka Mocnik
+^L80,170
+by K1n9_Duk3
+^L90,170
+by kvee
+^L100,170
+by Lemm	
+^L110,170
+by Shida Li, Erica Xu
+^L120,170
+by Fleexy
+^L130,170
+by Ian E. Davis
+^L140,170
+by Fleexy
+^L150,170
+by Dmitry Groshev
+^L160,170
+by K1n9_Duk3
+^L170,170
+by Adam Biser
+
+
+^P
+^cF CREDITS
+
+^cE Inspiration Sources:
+^cA Altered Reality
+Asterix & Obelix
+Atroxian Realm
+Bio Menace
+Cloudface
+Cosmos Cosmic ADV
+Cuphead
+Earthworm Jim
+Episode Dash
+Heart of Darkness
+The Incredible Machine
+Katamari Damacy
+Keys of Krodacia
+MoM (Galaxy Mod)
+^L40,170
+Monster Bash
+^L50,170
+Mother 3
+^L60,170
+Operation Ocflore
+^L70,170
+Sam & Max H.t.R.
+^L80,170
+Secrets of Grindea
+^L90,170
+Scubaventure
+^L100,170
+Shantae
+^L110,170
+Space Quest III
+^L120,170
+Starbound
+^L130,170
+The Ruin of Roib
+^L140,170
+ToeJam & Earl
+^L150,170
+Trip World
+^L160,170
+TTfOS
+^L170,170
+Underworld Ultimate
+
+
+^P
+^cF CREDITS
+
+^cE Spiritual Ancestors:
+^cA Adirael Dean
+Bernie DeWint
+Bill Watterson
+Bob 'Mort' Thewes
+Brian Clavadetscher
+Damian
+Dragonrod
+Donatello
+Eric Idle
+Fred Ström 
+Gary Winnick
+Groucho Marx
+Kawaiik
+Kevin Adams
+^L40,170
+ktch
+^L50,170
+Namatnieks
+^L60,170
+Neorice
+^L70,170
+Paul Robertson
+^L80,170
+Sarah Williams
+^L90,170
+siskavard_
+^L100,170
+Spleen
+^L110,170
+Stefan Lohner
+^L120,170
+Steve Purcell
+^L130,170
+Tom Casey
+^L140,170
+Tom Hall
+^L150,170
+Vilya Svensson
+^L160,170
+Woody Allen
+
+
+^P
+^cF THANKS!
+
+^cE And of course thank you guys for playing
+this mod! I spent countless (!) hours and
+have poured more time into it than I care
+to think.  So I really hope you enjoy this
+project and have a wonderful time exploring
+your foray through that very forest!
+
+You  are  warmly  welcome  to share  your
+thoughts, leave a comment, report bugs and
+give me constructive feedback at:  ^cA pckf.com
+^cE Alternatively,  you  can  also  reach  me
+via email:  ^CA nisaba@pm.me
+
+^cE Again,  thanks  a  thousand  to  everyone
+involved in this project!
+^E

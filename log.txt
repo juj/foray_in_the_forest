@@ -1,0 +1,45 @@
+uGrab (BETA Version 1.011) - Log File
+=====================================
+Created: 21 Oct 2023 - 00:17:45
+
+Graphics Reader initialization:
+===============================
+
+Chunks total: 7782
+Tiles appear to start at chunk 809 (0x0329) and end at chunk 7759 (0x1E4F)
+
+Tile values from GFXINFO appear to be correct:
+  tile_8_count = 56
+  tile_8_start = 809
+  tile_8M_count = 20
+  tile_8M_start = 810
+  tile_16_count = 3168
+  tile_16_start = 811
+  tile_16M_count = 3780
+  tile_16M_start = 3979
+  tile_32_count = 0
+  tile_32_start = 7759
+  tile_32M_count = 0
+  tile_32M_start = 7759
+
+Fonts appear to start at chunk 3 (4 fonts total)
+
+Pic values from GFXINFO appear to be correct:
+  numpics   = 93
+  offpic    = 7
+  offpicstr = 0
+Reading Pic info from chunk 0
+
+PicM values from GFXINFO appear to be correct:
+  numpicm    = 3
+  offpicm    = 100
+  offpicmstr = 1
+Reading PicM info from chunk 1
+
+Sprite values from GFXINFO appear to be correct:
+  numsprites = 706
+  offsprites = 103
+  offsprstr  = 2
+Reading Sprite info from chunk 2
+
+Closed: 21 Oct 2023 - 00:17:47

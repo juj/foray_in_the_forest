@@ -1,0 +1,3445 @@
+Modifications to the "Foray in the Forest" Source Code
+======================================================
+
+- The GRAPHCKS.H and GRAPHCKS.EQU files have been rewritten to make future
+  modifications a lot easier. When adding new stuff to the ?GAGRAPH file,
+  you only need to change the number of chunks of each type (and add new
+  elements to the enum) instead of having to adjust all the START... values
+  and the absolute numbers assigned to all the elements in the enum.
+
+- Help menu and text screens use dark green backgrounds now. Also added defines
+  for default text color and page number color and copied the fixes from the
+  Atroxian Realm source into this project's CK_TEXT.C.
+
+- Copied my bugfix for VW_SetScreen from the Atroxian Realm source into this
+  project's ID_VW_AE.ASM.
+
+- Modified VW_DrawSprite and VWB_DrawSprite in ID_VW.C to use Lemm's new sprite
+  drawing code. PaddleWar didn't work correctly without it, since the paddle
+  and ball sprites all use shifts=1 in the sprite settings.
+
+- Something (OCD?) made me turn all the multi-space indentations in CK_OBJ.C
+  into tabs...
+
+- Changed color of "COMMANDER KEEN" text during the Terminator intro to cyan
+  to match the title screen. Also added the code to apply the correct color
+  before starting the fizzle fade.
+
+- Copied various other bugfixes from Atroxian Realm into this project.
+
+- Implemented Dung Beetle, Chemolain and Log Platform and adjusted LoadTheGame
+  to handle the pointer issues with the Chemolain.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- changed walking speed and hitbox for Dung Beetle
+
+- changed animation speed for Chemolain's look and lick animaion to match the
+  GIF more closely. Animations also appear less frequently.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Implemented Salamander and stunned Keen
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed implementation of stunned Keen to randomly select one of the two base
+  stunned frames (for real this time). CK_StunKeen() now takes the center of
+  the object that stuns Keen as a parameter and makes Keen hop to the left or
+  to the right, depending on Keen's position. CK_StunKeen() also makes sure
+  Keen isn't already dead, since changing a dead Keen into a different state
+  would revive him in a glitchy state (camera won't scroll).
+
+- Changed implementation of Chemolain's color cycle animation so that it won't
+  restart the animation when touched by Keen or a shot and instead just make
+  the animation take a little longer. The animation won't always end with the
+  grey frame if this happens, but that shouldn't matter.
+  The vanish countdown is also active while the Chemolain is in the color cycle
+  animation now, to avoid situations where Keen and the Chemolain keep touching
+  each other due to the level design, which would literally stun-lock Keen and
+  the Chemolain.
+
+- Changed the timing for the Salamander's vanish animation. Digging into the
+  ground takes twice as long now.
+
+- LoadTheGame() and SaveTheGame() now load and save the current camera position
+  to avoid issues with bad camera positions after loading the game. This also
+  makes it impossible to win a level by dying and abusing save/load to let Keen
+  move to the right edge of the map.
+
+- Changed USL_PlayPong to use only BALLSPR, since using two variants of the
+  ball sprite caused some slight problems with lemm's new drawing code.
+
+- Removed book reading states for Keen and added dreaming states instead.
+
+- Cache manager no longer uses huffman decompression for graphics chunks. The
+  huffman trees used by the game don't actually do anything, so executing the
+  huffman decompression code is just a waste of time.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed the code for the sprite test routine so that you can press the Enter
+  key to cache any of the uncached sprites.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added Wormouth (copied straight from Keen 4).
+
+- XkyLick now uses the 2-frame death animation.
+
+- Corrected position of stunned stars for XkyLick.
+
+- Changed code for the Treasure Eater ("Smirky") so that it won't teleport to
+  key gems and won't steal any key gems when touching them.
+
+- Added a NOHUFF define in ID_CA.C to disable all the huffman-related code
+  entirely. When NOHUFF is defined (which is the default setting for FITF), the
+  huffman routines and variables will not be added to the executable, which
+  frees up over 2k of memory. The AUDIODCT.* and EGADICT.* files are no longer
+  required for starting the game when the code is compiled with the NOHUFF
+  define, but some external tools might still need them to be able to read the
+  AUDIO.* and EGAGRAPH.* files.
+
+- Converted Council Member code into Janitor code.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Decreased walking speed for Janitor.
+
+- Added Shrubbery (still a bit buggy).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed hitbox issues with Shrubbery and adjusted idle time after touching Keen
+  or a stunner projectile. The top of the shrubbery's hitbox will now stay at
+  the same position when it gets hit by the stunner.
+
+- CK_StunKeen() now forces Keen into normal clipping mode. Keen is always in
+  noclip mode while climbing on poles or grabbing onto edges, so getting
+  stunned could cause him to pass through walls and he wouldn't be able to
+  land anywhere if he was still on noclip mode.
+
+- CK_StunKeen() won't stun Keen while invincibilty ("Door Protection") is
+  active or God-Mode is on. If you ever get stun-locked, you can turn on God-
+  Mode to get out of that situation and continue playing.
+
+- Added Bounder (still a bit buggy).
+
+- Added Tentacle. Requires some hitbox/offset changes, but works fine.
+
+- CK_StunKeen() and CK_KillKeen() now remove any existing dream bubbles from
+  the level because Keen might have been dreaming when he was stunned/killed.
+
+- Added Poleknawel. Requires some hitbox/offset changes, but works fine.
+
+- Added Kitten. Doesn't have different movement speeds yet. Some frames still
+  need some hitbox/offset changes to avoid glitches.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Keen's ammo is now limited to 25 shots max. When Keen's ammo is full, he will
+  not be able to pick up any more ammo. If a pickup would increase Keen's ammo
+  to more than 25, the ammo count will be set to 25 instead. The ammo limit is
+  defined by the MAXAMMO macro in CK_DEF.H
+
+- CK_StunKeen() will now kill Keen when he gets stunned 3 times in a row without
+  recovering.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Tentacle is now drawn in front of Keen (changed zLayer from 1 to 2).
+
+- Touching the temporarily "stunned" Bounder will now kill Keen. Bounder will
+  now stop chasing Keen after 9 seconds.
+
+- Implemented GellyGhost
+
+- Implemented collectibles
+
+- Added sitting frame and meow animation for Kitten. Hitbox and offsets still
+  need some fine-tuning (Kitten might end up on the other side of walls when it
+  stops rolling).
+
+- Implemented Roots (sprites and offsets still need some fine-tuning)
+
+- Implemented Yeti.
+
+- Implemented Cloud.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Cloud Offset adjustments.
+
+- Kitten speed adjustments. Changed start/stop rolling values.
+
+- Yeti needs now 5 shots before bursting into small Yetis. Adjusted update frames.
+  Changed cloud spawning X position.
+
+- Tentacle Offsets adjustments + animation speed adjustments + think x-distance
+  adjustments
+
+- Gellyghost floating left and right values.
+
+- Log spwaning hight adjustment + making Keen fall off at a different hight
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed all code related to platform blocking icons to use the PLATFORMBLOCK
+  define. Makes the code easier to read and allows modders to change the tile
+  number of the platform block icon more easily.
+
+- Shrubbery doesn't start the falling animation anymore when it is hit while
+  standing still or looking around. Also adjusted the sprite offsets for the
+  walking sprites so that the shrubbery won't start walking in the wrong
+  direction after standing up.
+
+- Poleknawel now throws projectiles while on the ground instead of leaving
+  little puddles like the poison slug. Added a new sprite for that.
+
+- Touching the inflating kitten no longer kills Keen. Only the explosion kills.
+
+- Roots now only take 2 shots to destroy instead of 3. Also changed sprites
+  to the new version.
+
+- Yeti now blocks Keen. Also changed the code for the tiny yeti and the yeti
+  cloud to only push Keen if Keen is in regular collision mode, i.e. not on a
+  pole, not grabbing or climbing a ledge, not entering a door or using a switch.
+  Added some checks to make sure multiple big yetis can be placed in the same
+  level without causing any issues.
+
+- Added basic implementation for Molet. Molet can dig into walls that have the
+  left or right side set to 2 instead of 1. Block icons at the other side of
+  the wall turn the noclip mode off and make it move normally again.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Molet can now walk off edges and fall down.
+
+- Tiny yetis now merge one at a time, so one of them practically grows every
+  time it touches one of its siblings to eventually form the big yeti again.
+  Added three growing sprites for this. The growing sprites might need some
+  finishing touches, especially the third one (I just did a quick and dirty
+  resize since my code needed three sprites, not just two).
+
+- Water (tile type 35) now kills Keen on touch -- to be replaced with a unique
+  death animation later...
+
+- Changed deadly water tile from tile type 3 (deadly) to tile type 35 (deadly
+  water) and made the top of that tile non-blocking. It used to have the top
+  set to 35, which didn't make any sense.
+
+- Fixed a quirk in CK_KeenJumpThink that occasionally prevented Keen from
+  grabbing onto edges when the game runs at 70 fps (the original Keen games are
+  limited to a maximum of 35 fps). Also changed MINTICS in ID_RF.H to 1, so the
+  game will actually run at up to 70 fps if the system is fast enough, probably
+  making it the smoothest scrolling Keen game that ever existed for DOS. Note
+  that the modified VW_SetScreen is the main reason why 70 fps can actually
+  work correctly in this mod. Without it, you would see lots of issues like
+  sprite flickering and other screen update issues. At least I hope that my
+  VW_SetScreen fixed these issues... need a lot of playtesting to verify.
+
+  Also set MAXTICS to 5 so that Keen can still pogo high enough even if the
+  frame rate happens to be very low. Setting MAXTICS to 5 instead of 6 means
+  that once the frame rate drops below 14 fps, the game runs in slow motion
+  rather than trying to adapt to the very low frame rates. In the old version
+  that had MAXTICS set to 6, Keen couldn't pogo up high enough once the frame
+  rate dropped below 14 fps (MAXTICS 6 means the game adapts to frame rates
+  of 11.666 or above).
+
+- Shrubbery now has two different looking styles: a quick peek and a longer
+  look (twice the length of the old looking animation).
+
+- Implemented Sneaky-Tree and fixed the major hitbox/offset issues for its
+  sprites.
+
+- Added a new custom clipping mode that allows objects to use a hard-coded
+  hitbox for tile collisions without having to use "full" clipping. CLIP_full
+  can't be used for objects that should stick to the ground. Use CLIP_custom
+  instead and add the custom hitbox in CK_CustomClipRects in CK_PHYS.C.
+
+- Fixed push-related issue (Yetis) that prevented Keen from landing while being
+  pushed (try pogoing towards a big Yeti in the old version and you'll see it).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Implemented Bird and Eggs.
+
+- Changed hitbox & offsets for some egg sprites to make sure midx is the same.
+
+- Added new restriction (not more than 5 eggs present at the same time) to
+  avoid the "RF_PlaceSprite: No free spots in spritearray!" error.
+
+- Tentacle's final "attack" action (a.k.a. the pause after each attack) no
+  longer kills Keen.
+
+- Tiny Yeti Master now uses a delay of 0.1 seonds between absorbing other Tiny
+  Yetis. The old code used a delay of 1 frame, which was way too short when
+  running the game at 70 fps and made the animation barely noticeable. Also,
+  the master can only absorb other Tiny Yetis when it is at its target position.
+  This is to make sure the big Yeti appears at the correct position and that
+  there is no weird movement after absorbing a Tiny Yeti.
+
+- Tiny Yetis now jump a little while waiting to get merged. Only the Tiny Yeti
+  Master doesn't jump anymore once he starts growing.
+
+- Tiny Yetis now also do their countdown while jumping, so the time before
+  they merge into a big Yeti is a bit less radom. They also won't move too far
+  away from the target position when jumping, so they will be less likely to
+  fall into pits.
+
+- The non-masters are allowed to jump and roll around 2 seconds longer than the
+  Tiny Yeti Master, to make it far less likely that a couple of non-masters
+  reach the target position and have to wait for the master to arrive.
+
+- I also noticed another bug with the Tiny Yetis where the hitbox seemed to
+  be messed up after absorbing another Tiny Yeti. That should be fixed now.
+
+- Included Nisaba's graphics & hitbox changes. I had to tweak the offsets for
+  the Yeti growing sprites slightly to make sure the midx value stays the same
+  while growing. Also had to tweak the hitbox for the big Yeti sprites to make
+  sure Keen can't pogo past them in the test level.
+
+- Sneaky Tree now moves at the maximum possible speed and uses a higher fricton
+  setting to make it stop faster.
+
+- Added the new sprite for Sneaky Tree and implemented it. Sneaky Tree will now
+  turn inactive (eye not visible) when Keen is either too far away or looking
+  at the Sneaky Tree. The tree also randomly closes/hides its eye when Keen is
+  standing on the tree.
+
+- Ran uGrab's new "Optimize sprites" code on the EGAGRAPH file, so a ton of
+  sprites have been changed slightly to reduce memory usage.
+
+- Added new debug keys:
+
+  Y + F10 - WallDebug (temporarily adds collision grid to tile images)
+
+  F + F10 - Erases the foreground attribute of all tiles so you can see what's
+            hidden inside the walls.
+
+  U + F10 - Undo the other two cheats by re-loading the tile graphics and the
+            MAPHEAD file.
+
+  Also added the tile graphics required for the WallDebug cheat.
+
+- Changed the type of 'poleGrabTime' from 'int' to 'long'. 'poleGrabTime' is
+  compared to 'lasttimecount', which is also a 'long' variable. The old version
+  caused issues when playing a level for more than 7.5 minutes (Keen
+  immediately grabs a pole again when holding the up and jump keys at the same
+  time while climbing a pole).
+
+- Modified ID_SD.C to do delays via port I/O instead of the clunky SDL_Delay()
+  routine. On fast CPUs (tested at 533 MHz), the SDL_Delay() function doesn't
+  work correctly anymore. AdLib sounds and music should now work correctly on
+  fast systems. This is also exactly how the delays are handled in Keen 4-6.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed Tentacle's zLayer to 1 to make it appear behind Keen.
+
+- Changed delays for Sneaky Tree's extend and slide-retract animations.
+
+- Added a little hack to allow the Sneaky Tree to move away from a wall when
+  the wall is to the right of the tree, so it won't get stuck there. Keen has
+  to be as close to the wall as possible for this to work, though.
+
+- Changed Bird to make sure there is always enough space for Keen to avoid the
+  attack by ducking.
+
+- Changed the animation sequence of the broken egg, so that the long pause is
+  at the penultimate (2nd to last) frame.
+
+- Fixed some issues (caused by unsigned 16 bit integers) that prevented the
+  bird from operating correctly at the left edge of the level.
+
+- Increased the distance at which the Kitten becomes inactive again. With the
+  old code, the Kitten would constantly switch back and forth between idle and
+  rolling states when Keen was right at the edge of the Kitten's range.
+
+- Implemented Crocodent. Had to adjust the sprite offsets and hitboxes to make
+  it work even remotely correctly.
+
+- Adjusted hitbox for one Shrubbery sprite and modified the code to make sure
+  it won't get stuck on slopes.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- If multiple identical collectibles are placed in one level, the game will
+  only keep one of them. Upon spawning a new instance of the same collectible,
+  the game has a 50% chance of keeping the old one instead of removing it and
+  spawning the new one.
+
+- Changed number of map slots in the cache manager from 3 to 100. I think the
+  game was actually corrupting memory with the old setting, since we were using
+  level 4 for testing stuff.
+
+- Crocodent trap now looks away from Keen every now and then to make it less
+  static.
+
+- Implemented Tentacle Nest. It's just an animated deadly object right now.
+
+- Two-button firing now works correctly.
+
+- The game now draws the loading screen before loading the map and waits for
+  the loading sound to finish before fading to black (so the player doesn't
+  have to stare at a black screen while the game waits for the sound to end).
+  This should be enough to make sure the player actually gets to read the text
+  in the loading screen. Since we're using uncompressed EGAGRAPH data, loading
+  the graphics takes almost no time at all, so the loading screens would be
+  almost invisible in DOSBox, even at 3000 cycles.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Crocodent now leaves "trap" mode after 8 seconds.
+
+- Score now resets when restarting the current level or exiting to the world
+  map.
+
+- Removed some parts of the gamestate struct (keyGems etc.) and grouped them
+  in a new struct called ck_mapState. This should make some modifications a
+  little easier in the future.
+
+- Added the basic code to support using different maps based on the difficulty
+  setting (i.e. completely different maps for easy, medium & hard).
+
+- Saving while not on the world map now costs a life, except when playing on
+  easy difficulty.
+
+- Collecting a tile-based 1UP now actually gives Keen an extra life.
+
+- Collecting all point items in a level now causes the level to be marked with
+  a different flag on the world map. Also added the new sprites for that.
+
+- Added checkpoint support, but there are no checkpoint objects in the game yet.
+  You need to use H + F10 to save a checkpoint.
+
+- Added code to unlock the "bonus level" when a certain score is reached. For
+  now, level 4 counts as the bonus level and you need over 9000 points to gain
+  access to that level. (Over 9000 points means 9001 points or more.) These
+  numbers are just placeholders and should be replaced with the actual level
+  and score numbers later.
+
+- Molet now spawns dirt when digging into or out of a wall.
+
+- The tip of the Molet's drill/nose will now kill Keen on touch.
+
+- The Molet now destroys bonus objects and tiles when touching them. It will
+  never destroy key gems.
+
+- Adjusted spawn position for XkyLick to prevent it from getting stuck in the
+  air if it immediately switches to shuffle mode.
+
+- GellyGhost now turns invisible when Keen is too far away and becomes visible
+  again when Keen get close enough. It still moves and can be shot while it is
+  invisible.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed a bug in CK_IncreaseScore (check should be '>=', not '>').
+
+- Removed the Game Over state. Now the game just resets score, ammo and lives
+  to the default values and kicks Keen back to the world map.
+
+- Flags on the world map are now spawned as foreground sprites.
+
+- XkyLick now spawns in a falling state. so it shouldn't get stuck mid-air
+  anymore.
+
+- Picking up the 5000 points item (teddy) now spawns the correct number sprite
+  instead of the 500 one.
+
+- The BWB level now stays available even after it has been "completed".
+
+- Modified VW_WhiteMaskBlock to perform shifting on-the-fly. The old version
+  required pre-shifted sprites and therefore didn't work correctly in FITF.
+
+- Added another zLayer for sprites so that the flags on the world map can
+  appear in the foreground but still behind the score box.
+
+- Imported the new sprites for the GellyGhost's vanish animation.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Modified the fizzle-fade code so that it can be re-used for the "game over"
+  sequence (or any other purpose, really). Fizzle-fade can now run at different
+  speed settings.
+
+- Game now fizzle-fades to a black screen with the "Game Over!" window when
+  the player runs out of lives.
+
+- Score now resets correctly after a "game over". Drops are also set to 0 now.
+
+- Janitors will now spawn in either the first or the second level they appear
+  in. The Code supports up to 16 different "unique" janitors (numbered 0 to 15)
+  but there is no code to spawn any janitor other than janitor number 0 at the
+  moment.
+
+- Cheats are now reset when starting a new game. God mode, slow motion and
+  no clipping are now part of the saved games (and checkpoints) and will be
+  restored to the correct state when loading that game/checkpoint. WallDebug
+  cheats will be reset when starting a new game or loading a game/checkpoint
+  that hasn't used any cheats yet.
+
+- Added optimized code for copying checkpoint data from one file to another.
+
+- Just a quick test: Tiny Yetis now turn into a smoke cloud when they merge,
+  instead of just vanishing.
+
+- Yeti now shakes and animates at triple speed for half a second after getting
+  shot.
+
+- Implemented a selection menu after game over that allows the player to quit
+  or continue playing.
+
+- Imported some new sprites.
+
+- Implemented checkpoint mushrooms and removed the H+F10 checkpoint hack.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Modified Loading and Saving code once again. Instead of saving/loading each
+  object individually, the code now saves/loads the entire object list, along
+  with the anchor pointers for managing the used and unused parts of the list.
+  This means any pointer references to other objects stored in the object's
+  user variables stay valid after loading a game or a checkpoint.
+
+- Added code to draw Tile8 graphics at any pixel position. The tile graphic is
+  temporarily converted into a masked graphic and then drawn using Lemm's
+  "shiftless" masked block drawing routine.
+
+- Added code to draw sprite graphics in a "clipped" mode, meaning that the top
+  and/or bottom part of the sprite may be skipped and only parts of the full
+  sprite image are drawn. The code also supports different drawing modes, like
+  drawing the non-transparent parts of the sprite as fully white shapes.
+
+- The floating "CHECKPOINT" sprite now spawns further down.
+
+- Highscore demo has been re-recorded and now uses the same level as the code
+  that lets you enter a new name into the highscore list.
+
+- Implemented Leavea Trip.
+
+- Changed layout of the Continue/Quit window and moved the joke into a separate
+  window that only shows up when selecting the Continue option. The Quit option
+  is now selected by default and the timeout aborts after pressing a key.
+
+- Tiny Yetis don't turn into a a smoke cloud anymore.
+
+- Keen is now invincible for one second after loading a checkpoint.
+
+- Level objects (including Keen) now notice when the ground they're standing on
+  vanishes. That means Keen can no longer stand on thin air while looking up or
+  down, for example.
+
+- Added string manager and modified all game code (CK_*.C) to load strings via
+  the string manager instead of using hard-coded string literals in the code.
+
+- Modified options menu code to get rid of a couple of string that are not
+  exactly needed. The small windows when toggling one of the options are also
+  gone for now, to save some memory. Also added the "fix jerky motion" option.
+
+- Added option to select difficulty for the "tedlevel" mode from the command
+  line. Just pass "easy", "normal" or "hard" as an additional parameter to
+  select the corresponding difficulty. The difficulty is normal by default if
+  no difficulty parameter has been passed to the game.
+
+- Modified sprite drawing code to support drawing sprites upside down.
+
+- Skypests can now land on ceilings. This uses the new sprite drawing code to
+  draw the skypest upside down while it is sitting on the ceiling. There are
+  some offset issues that could be fixed by adding a few blank lines in the
+  sprite bitmaps. That makes the sprites a little bigger, but still takes up
+  less memory than adding dedicated "upside down" sprites.
+
+- Implemented Warble
+
+- Added an option to turn the score box on or off during the game without having
+  to open the menu. The current key for this is BackSpace, but I want to make it
+  customizable via the buttons menu in the future.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Slugs now use the correct sprite for sliming while moving to the right.
+
+- Leavea leaves now move back and forth a little while falling and also have a
+  much lower falling speed. They now turn towards Keen upon landing and will
+  now keep walking in that direction regardless of Keen's position. They turn
+  around when hitting a wall and will now start falling when they reach an
+  edge.
+
+- Added sprite for squished leaves. Squished leaves vanish after a while, even
+  when they are still in the visible screen area.
+
+- Changed animation speed for warble.
+
+- Changed animation speed and one sprite offset for checkpoint mushroom.
+
+- Skpest can only land on ceilings if the ceiling is flat.
+
+- Implemented item detector window. For now, you need to press SHIFT+ENTER to
+  display the item detector, but I want to make the button customizable via the
+  buttons menu in the future.
+
+- Removed the "ALPHA STATISTICS" window that was shown after completing a level
+  and also removed all the unnecessary statistics code.
+
+- Removed all the unnecessary tiles from the TILE8 tileset.
+
+- Added some code to (hopefully) avoid any divide by 0 errors during joystick
+  calibration.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Maximum frame rate can now be selected from the option menu. This is mainly
+  intended to give players the option to play at the "classic" 35 fps instead
+  of the new 70 fps that FITF uses by default. It's also good for playtesting,
+  as it makes some quirks that may happen at low frame rates easier to detect.
+  For example, Keen can sometimes just walk through the yeti clouds when the
+  game runs at the slowest speed (14 fps), so we may have to change the speed
+  or the hitbox of the clouds or increase the maximum frame time to 4 tics
+  (17.5 fps) to avoid this issue.
+
+- Fixed a bug in Quit() that caused the system to lock up when Quit() was called
+  before VW_SetScreenMode() initialized the screenseg variable.
+
+- Changed time for stunned bounder to 200.
+
+- Added Nessi sprites (no code for it yet).
+
+- Imported new tilesets.
+
+- Modified the BWB level (was not wide enough) and made the "edge of map" tiles
+  fully blocking.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Dream bubbles now move if Keen's position changes while the bubble is active.
+
+- Added unique death animation for water tiles (Nessi). Note that if there is
+  not enough room for the Nessi sprite, the regular death animation is used
+  instead.
+
+- Added messages for the janitor.
+
+- Added code to spawn a static sprite for the Bean-with-Bacon and also added
+  an icon for it in the infoplane bitmap.
+
+- Fixed a minor graphical glitch that occured when the status window scrolled
+  up at 14 fps (or less).
+
+- Modified the text-based startup and exit screens to show the correct title
+  instead of Atroxian Realm.
+
+- Disabled debugging information in Borland C++ to get a much smaller .EXE file.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Re-arranged both background and foreground tilesets.
+
+- Updated world map flag graphics which mark if all point items in a level got
+  collected
+
+- Updated PatPat, BWB and Leavea graphics
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Updated tilesets.
+
+- Updated BWB sprite graphic.
+
+- Created BWB level.
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added warp tiles (INTILE value 36). Touching a warp tile immediately warps
+  Keen to the location indicated by the value in the info layer. If the value
+  in the info layer is 0, Keen will not teleport. If Keen touches multiple
+  warp tiles that have different values assigned in the info layer, Keen will
+  not teleport at all.
+
+  Note that having warp tiles without a destination is something to avoid at
+  all cost. The engine may put a non-zero value in the info layer while the
+  game is running, which would result in Keen warping to a bad spot.
+
+  Also keep in mind that you can't have any tile animation at the warp-tile's
+  location, since this will overwrite the value in the info layer.
+
+- Added another unique death animation (Keen turns to ashes). This is triggered
+  when Keen touches a "fire hazard" tile (INTILE value 37).
+
+- Changed the layout of the BWB level to make the warping look less awkward.
+
+- Changed some tile attributes to add "warp" tiles and "fire hazard" tiles
+  in the BWB level.
+
+- Removed the "One Moment" window when entering a level from the world map.
+  Since we now draw the loading screen BEFORE loading the map planes, that
+  window is no longer required.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Enlarged BWB sprite graphic.
+
+- Changed the layout of the BWB level to guarantee an exit to the right.
+
+- Updated fore- and background tilesets.
+
+- New test level (#1).
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Flags on the world map now "rise" out of the ground instead of being thrown
+  from Keen's position.
+
+- The BWB-Icon now spawns a second object to place a black background sprite
+  (with lowest priority) behind the cockpit window.
+
+- Implemented Efree. Efree is spawned when Keen's second idle animation starts
+  while Keen is touching a "mooning" tile (INTILE 16), but only if the Efree
+  sprites are cached. That means you have to place an Efree icon somewhere in
+  the level or the Efree will never appear.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added new animation frames for Efree and modified the code to make it blink
+  at random while flying up or down.
+
+- Added Nisasi sprites and implemented basic behavior for jumping around and
+  sliding down on walls. Also added code for grabbing onto Keen's head and all
+  that stuff. Still missing lots of sprite offsets.
+
+- Changed position and font color for the high scores.
+
+- Tile-based hazards now always kill Keen even when he is "invincible". That
+  means "door protection" only protects against objects such as enemies and
+  their projectiles.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Adjusted Nisasi sprite position for all relevant Keen Sprites.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added an icon for Nisasi in the infoplane bitmap.
+
+- Rearranged tiles in the tile16 and tile16m sets.
+
+- Updated level 2 plus some tile properties to have a better test setting for Nisasi.
+
+- Keen graphics (Efree lift) updates.
+
+- Overhauled Nisasi graphics.
+
+- Added an extra Nisasi graphic for floor contact.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Nisasi now uses the new sprite for sitting on the floor.
+
+- Nisasi can't grab onto Keen anymore if Keen already has a Nisasi on his head.
+
+- Crocodent can now eat Skypests.
+
+- Tentacle nest can now swallow Keen and Skypests.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added fixes for the door glitches (setting Keen's yDirection to 1)
+
+- XkyLicks can now lick the full-size checkpoint mushroom. Three conditions
+  must be met for this to initiate: If the XkyLick is not chasing Keen and
+  its countdown has reached 0, the US_RndT() function is called. If the result
+  is < 0x80 (50% chance right now, for testing), the XkyLick starts chasing
+  the checkpoint mushroom instead of trying to chase Keen. If the mushroom is
+  too far away or the XkyLick cannot reach the checkpoint fast enough (in 4
+  hops or less), the countdown is restarted.
+
+- A pointer to the current checkpoint is now stored in ck_mapState. This makes
+  it a lot easier for the XkyLicks to access the mushroom object. It also
+  speeds up the checkpoint saving and loading code a little bit.
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- XkyLick is now drawn in front of Keen and the checkpoint mushrooms (changed
+  zLayer from 0 to 2).
+
+- Added optional wrap-around scrolling mode. Place tile icon 31h (infinity
+  loop) somewhere in the level to use this scrolling mode.
+
+- Modified Level 6 to use the new scrolling code and illustrate the different
+  section of the level. Parts with dark blue background are repeated at the
+  other side of the level. The pink border is space that is required for the
+  scrolling but will never be visible in the game. The center area can be used
+  to place goodies.
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Drawing sprites upside-down (Skypests on ceilings) now ignores the sprite's
+  yoff value. This works for the skypests, but it would be better to have a
+  separate yoff value for drawing the sprite upside-down. But that would mean
+  changing the EGAGRAPH format, which would make most EGAGRAPH tools
+  incompatible with this game.
+
+- Touching platform objects (clouds, platforms, logs) no longer causes Keen to
+  fall if Keen was climbing a pole or grabbing/climbing an edge.
+
+- Climbing down on a pole while standing on a platform now works correctly.
+
+- Modified the wrap-around scrolling code. The invisible border around the level
+  is only 1 tile instead of 3 tiles. That means less memory is wasted on the
+  invisible parts of the level.
+
+- Nisasi can now grab onto Janitors, Slugs, XkyLicks, Poleknawels, Crocodents
+  and Chemolains. The behavior of the grabbed objects is modified, but the
+  sprite positions for the Nisasi still need to be adjusted.
+
+- Added a sprite position test routine. This appears directly after the startup
+  screen (before the terminator intro), but only if the game was NOT started
+  with the /TEDLEVEL parameter. This is for figuring out (and testing) the
+  position of a sprite in relation to a "master" sprite. Use this to figure out
+  where the Nisasi sprite should be placed on top of "grabbed" sprites.
+
+  Controls are as follows:
+
+  Arrow keys  : move the Nisasi sprite
+  WASD keys   : move both sprites
+  R           : select "grab right" Nisasi sprite
+  L           : select "grab left" Nisasi sprite
+  Q / E       : change master sprite
+  PgUp / PgDn : change Nisasi sprite
+  Escape      : exit
+
+  There are some bugs with the drawing position when the sprite touches the
+  borders of the screen, so make sure both sprites are in the center to get
+  accurate and reliable results.
+
+- Keen getting swallowed by the tentacle nest should no longer lead to rare
+  crashes ("placed uncached sprite: 1"). The animation code was executed after
+  Keen's sprite was set 0 to to make him invisible, which was what caused the
+  crash.
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Offset adjustemns for the Bird and Nessi.
+
+- Updated Nessi graphics.
+
+- The sprite positions of the Nisasi got adjusted for the following objects:
+  Janitors, Slugs, Poleknawels, Crocodents and Chemolains.
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Updated and added a ton of Nisasi-related code. (Way too much to list here.)
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed XkyLick/Mushroom licking bug
+
+- zLayer for stunned Bird and XkyLick is now set to 0
+
+- Kitten doesn't drop the Nisasi at the end of the "meow" animation anymore
+
+- Nisasi now disappears when grabbing onto Keen while Keen is dreaming. This
+  also triggers a new dream sprite to appear, but it still needs some work.
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Adjusted Nisasi's sprite position when grabbing the Kitten.
+
+- Updated one Kitten graphic.
+
+- Updated all dream-bubble graphics. One of which now displays Nisasi.
+
+- Defined the desired starting worldmap sprite (Keen is now facing down).
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Nisasi now turns into a small smoke cloud instead of just disappearing when
+  touching a sleeping Keen. Also made sure the smoke cloud won't push Keen and
+  that the cloud sprites are cached along with the Nisasi sprites.
+
+- Added RF_PlaceSpriteAfter to refresh manager. This routine allows you to
+  place certain sprites AFTER the parent sprite, so that they will always be
+  drawn on top of the parent sprite. This is useful for avoiding zLayer errors
+  like sprites being drawn between a Nisasi and the object grabbed by the
+  Nisasi.
+
+- Fixed a bug in CK_KillKeen(). I had added some code to prevent Keen from
+  switching to a regular death state while the Nessi death animation or the
+  "burned" death animation was playing. This caused errors when Keen drowned
+  and there was no room for the Nessi sprite.
+
+- Dream bubbles are now removed after loading a checkpoint. Also added code to
+  remove the dream bubbles when Keen drowns or turns into ash or is pushed off
+  a ledge while dreaming.
+
+- Added a menu item to access the help menu from the main menu. Also adjusted
+  the position of the main menu items keep them centered. Graphics were NOT
+  modified (there was just enough space to add one item to the menu).
+
+- Janitor now shows an entirely different message if he touches Keen while
+  Keen is sleeping. The code randomly selects one of two messages. The message
+  is displayed for 8 seconds, then the game continues automatically, but you
+  can also press a key/button to make the message disappear. If the Janitor
+  already said his normal message, touching a dreaming Keen does nothing.
+
+- Bird now moves in a random direction while Keen is grabbed by an Efree or in
+  another unkillable state (type is not CT_Player). The bird also won't start
+  any attacks during this time.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added new janitor messages for touching Keen while Keen is grabbed by a
+  Nisasi. Also added a new picture for Keen's dialog window and a flipped
+  version of the default font (used for Keen's reply).
+
+- Messages for the Janitor touching a dreaming Keen are now shown in order
+  instead of selecting a random message. Also changed the contact code so that
+  the janitor can still show the messages after the regular message was shown.
+
+- Efree will now vanish if Keen gets killed or grabbed by a Nisasi.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed order of the menu items in the main menu
+
+- Added new text command (^H) for showing the high scores in any of the help
+  texts. See TEXT6 ("The Game" in the help menu) for an example.
+
+- Renamed "/WAITVBL" parameter to "/JERK" for consistency and compatibility
+  with Keen 4-6. The entry in the options menu is labeled "FIX JERKY MOTION",
+  so using the same parameter name as Keen 4-6 seems logical.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Updated the whole help section: rearranged order, new text sheets, imported
+  new graphics.
+  This is still WIP. Especially the computer wrist section needs some work.
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Modified the code that handles tabs in the help texts. The old code had tab
+  stops every 8 pixels, the new code uses 16 pixels. This value can be changed
+  by modifying a #define at the beginning of CK_TEXT.C.
+
+- The "END GAME" option on the main menu now turns into "VIEW SCORES" when not
+  in a game. Selecting "VIEW SCORES" plays the highscore demo and then
+  continues the demo loop as usual.
+
+- Fixed a few typos in the help text files.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed a bug in CK_LoadLevel. The code now stops the music and makes tiles and
+  sprites purgable BEFORE trying to draw the loading screen. This should make
+  it far less likely to encounter an "Out of memory" crash directly after the
+  "Not enough memory to load level" message is shown.
+
+- Added code to "defrag" memory blocks. The code tries to merge as many unused
+  memory blocks as possible into one big block of unused memory. This should
+  make it far less likely to encounter an "out of memory" situation when the
+  game *should* have enough memory to load something but fails because the
+  memory is too fragmented.
+
+- Also added an option to "lock" memory blocks in a movable state. This means
+  the memory blocks will never be purged, but they can be moved around to make
+  room for bigger blocks. This is used to make sure the default font, TILE8,
+  TILE8M and the masked pics for the status window are always kept in memory.
+
+- Removed some unused code from ID_CA.C (Keen Dreams style loading screens) to
+  make some more memory available.
+
+- The "VIEW SCORES" option on the main menu now returns to the main menu after
+  the highscore demo ends (or is aborted) instead of continuing with the rest
+  of the demo loop.
+
+- Modified statup code in ID_US_1.C so that the memory for the startup screen
+  can be reclaimed by the memory manager a little earlier.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed syntax of the ^B command in text files. New syntax is:
+  ^By,x,w,h,c
+  c is the hexadecimal color digit, the rest are decimal digits for y, x, width
+  and height. If the line ends before the parser can find a hex digit, the code
+  will use the background color (for compatibility with Keen 4-6 texts).
+
+- Implemented Council Page. The Page can walk left and right and use switches.
+  Switching control from Keen to the page (and back) is not implemented. You
+  cannot have Keen and the Page in the same level (both are player characters).
+  If the current level lets you play the page, you can use the fire key to make
+  the page active or inactive to test the animation.
+
+- Modified Keen's dream bubble code to add the dream bubbles for the Page.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added teleporter graphics + sliding door sprites
+
+- Adjusteded minor help screen things (text allignment, new images, etc.)
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Implemented character switching via mind machines (INTILE value 38).
+
+- Implemented sliding doors for the mind machines (red and blue).
+
+- Added a neutral/centered standing sprite for Keen (replaces the second "look
+  at wrist watch" sprite that wasn't used anyway).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added an additional delay for the character switch via mind machine. The code
+  now waits until the machine's door is closed before switching from one
+  character to the other.
+
+- Also Keen can no longer try to use a mind machine that is not linked to a
+  page in the level.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed the timing fo the closing door (mind machine)
+
+- When a mind machine is used, the camera always scrolls to the target now,
+  even if the target is off-screen.
+
+- Keen now walks up into the mind machine if he's not already standing inside
+  the machine. Mind machines can now be placed further in the "background" like
+  regular doors. Tile attributes have been changed to make this behavior
+  possible - now all 4 tiles "inside" the machine must have the correct INTILE
+  value (38) and they must all have a valid link to a page object in the level.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Switches can now toggle multiple things. Place the additional coordinates
+  directly below the initial switch to use this feature.
+
+- Switches can also toggle keygem doors now. The topmost tile of the door must
+  have the INTILE value 40 to allow the switch to detect that it's supposed to
+  operate a door at that point.
+
+- Switches can also close doors now (play the door animation in reverse). This
+  behavior is triggered when the topmost tile has the INTILE value 40, but does
+  NOT have a "next" tile.
+
+  Note that flipping the switch again while the door is still opening or closing
+  will cause issues. Doors should only be linked to one-use switches (the switch
+  tile must turn into a non-switch tile when used).
+
+- Added clone machine. Clone machine must be placed on a tile with INTILE value
+  39, otherwise there's no way to activate it. The object that is supposed to
+  be scanned and cloned must be placed 5 tiles to the left of the clone machine
+  (see example in level 8).
+
+- Added a temporary animation for the scanning/cloning process. The animation
+  uses the small cloud sprites for now.
+
+- The cloned objects do nothing right now, they are not even animated. The
+  cloned objects fall straight down when they are not on solid ground. If they
+  are on solid ground, they slide to the right. Once the bottom of a cloned
+  object touches a platform block icon [B], the cloned object is removed from
+  the level.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Cloning machine now shuts down after spawning 8 janitor clones and wins the
+  game 2 seconds later.
+
+- Janitor clones now turn into real janitors when touching a [B] icon. Janitor
+  clones are never removed from the level.
+
+- Added support for custom color palettes. In theory, each level can have its
+  own color palette. The menus and demo loop animations (Terminator, Star Wars)
+  still use the default EGA palette. Does NOT work on EGA cards, only on VGA.
+
+- Added C0.ASM from the Wolf3D source to the project. I have been compiling the
+  code using 286 instructions for a while now and the C0.ASM from Wolf3D has
+  some code that checks for the CPU type and quits with an error message when
+  no 286 or above is detected.
+
+- Help menu code now uses the correct height of the cursor pic to erase the old
+  cursor.
+
+- Disabled the sprite position test code for now. I don't think we need it at
+  the moment, and it's easy to enable it again when we need it.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed an error in SpawnScore that caused the system to lock up when playing
+  the highscore demo while testing on my new 386 DX 40 board. The scorebox
+  object's action pointer was set to NULL in the old code, which is not allowed
+  or supported by the update code. ATROXIAN REALM has the same bug, but I guess
+  it never caused any problems so far.
+
+- Gem door height calculation is now based on INTILE values, not on the tile
+  number itself. All gem door tiles must have INTILE value 40.
+
+- Keen's position when walking through doors/teleporters is moved two pixels to
+  the left.
+
+- Keen's pogo can break/toggle "fuse" tiles. The top of the fuse tile must be
+  set to number 57 (fuse). The tiles must be arranged in a 4x2 tiles rectangle
+  with the two fuse tiles being the two tiles in the middle of the bottom row.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Modified clone code. Clones now start rising up when they touch a [B] icon.
+  The rising clones are removed when they hit the ceiling.
+
+- Nisasi cannot grab Keen while Keen is invincible ("door protection").
+
+- Pogo-breakable tiles (fuses) can now have multiple stages. Keen's pogo didn't
+  bounce after breaking the fuses, which caused Keen to break all stages in one
+  go. Now the code checks if the tiles are still solid after "breaking" them
+  and makes Keen bounce if they are still solid.
+
+- Stunned Keen can now interact with object based bonus items, checkpoints,
+  janitors and so on. Also added a dedicated janitor message for touching
+  stunned Keen.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added Nipnap sprites. Programming needed. Should hang from the ceiling and
+  grab after Keen when he is near. Should be deadly.
+
+- Added Corona sprites. Programming needed. Should function like Keen 4's Dart-
+  Gun. Should be placed on walls and on ground and fires deadly viruses on a
+  regular basis. Viruses and the Corona itself should be deadly.
+
+- Added clone maschine scanner sprites. Still WIP though.
+
+- Also minor tileset and help text changes.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Implemented Corona plant and changed the order of the Corona plant sprites
+  to make the code a little smaller.
+
+- Implemented Nipnap and added an extra sprite with a closed eye to indicate
+  that the Nipnap is harmless/sleeping for a few seconds after each attack.
+
+- Finished the implementation of the new clone machine mechanics and made all
+  five types of clone machines available as InfoPlane icons. After the most
+  recent changes, the icon marks the position of the master-object. The clones
+  will appear 5 tiles to the right. The clone machine icons must be placed on
+  a clone machine tile in order to get activated by a switch. Only type 5
+  (the machine that creates Janitor clones) doesn't need this. The Janitor-
+  cloning machine can be activated by a Janitor that walks across the spot
+  where the clone machine is placed.
+
+- Added another Janitor icon. The new icon (with the ! symbol on it) means
+  that this Janitor will always be spawned and doesn't use the random spaning
+  mechanics that the other janitor icon uses. This is intended to be used in
+  the final level, so that there will always be a janitor in that level that
+  can walk into the clone machine.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Adjusted offset values, posY and the pause tick base for the NipNap.
+
+- Graphics updates for Corona, Levar, Crab/Bug/Beetle, Scanner and the
+  NEW-INFOPLANE.BMP bitmap.
+
+- Added one extra scanner graphic. Also changed the clone animation sprite
+  from the medium cloud to the scanner.
+
+- CKS_sprite.txt adjustemts for the Crab, Corona and the scanner sprites.
+
+- Added further information to CKS_txt-text3.txt.
+
+- Minor level design and tile property updates for additional testing reasons.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Modified sprite placing code in refresh manager. Sprites can now have their
+  top or bottom pixels clipped off.
+
+- Cloning animation now uses the new refresh manager code to make parts of the
+  clone sprite invisible. Now the cloning animation doesn't need to hide parts
+  of the sprite anymore, as those parts can in fact be made invisible by the
+  code. This also means that the background of the clone machine doesn't have
+  to be a plain color anymore.
+
+- Adjusted hitbox and offset values for the Crab enemy. Had to replace three
+  sprites (the wall climbing sprites all need to face upwards) to make it all
+  work and look good. The turning animations for the corners are still missing
+  at the moment.
+
+- Nisasi does not cache all the Yeti sprites anymore, only the cloud sprites.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Crab enemy now has animations for climbing around a corner (both for inner
+  and outer corners). That means it can now climb on pretty much anthing.
+  Other behavior (including checking for [B] icons) is NOT implemented.
+
+- Some hitboxes and offsets for the Crab's corner sprites had to be adjusted.
+
+- Clone machine can now spawn the clones walking to the right or walking to the
+  left. The direction can be set in the call to "CK_SpawnCloneMachine". See
+  CK_MISC.C for more. Right now, all clone machines spawn clones that move to
+  the right (for compatibility with level 8), but changing the final parameter
+  from "motion_Right" to "motion_Left" will change that. Using different
+  directions for the same clone type requires two separate info layer icons.
+
+- Other minor changes across multiple source files. Mainly just the copyright
+  stuff at the top of the files.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Foreground tileset graphic and tileinfo update.
+
+- Added one new Nisasi graphic (NISASIFLOOR2SPR). It's meant to turn Nisasi
+  when spawned in a clone-machine into semi-static movement. This behaviour is
+  NOT implemented.
+
+- Added one new NipNap graphic (NIPNAPGRAB4SPR). Purpose hasn't been discussed
+  yet. In future updates NipNap should turn into something not harmful but
+  instead grab after Keen. Keen needs to shake himself to free himself from
+  NipNaps control.
+
+- Minor level design changes to better observe the Crabs behaviour in action.
+  Added also variations to those giant donuts.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Crab now reacts to [B] block icons and turns around (floor, ceiling, walls).
+  Crab starts falling when hit by a stunner shot while climbing on a wall or a
+  ceiling.
+
+- Clone machine now has a bunch of #define lines at the beginning that can be
+  used to fine-tune the scanning/cloning animation.
+
+- Corona plant is now deadly (and blocks Keen's shots).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- The game now plays a little cutscene of the BWB landing when the world map
+  is loaded for the first time. The game automatically switches into the BWB
+  level once the ship has landed.
+
+  To use this feature, the destination of the BWB must be placed as an info
+  plane value directly to the right of the MapKeen icon on the world map. This
+  also means that the MapKeen icon can no longer be placed with another icon or
+  a levelentrance directly to the right of it in the level editor, as that will
+  also trigger the landing sequence.
+
+  When the landing sequence is triggered, the code will erase two tiles from
+  the foreground layer at the destination point (the destination must be the
+  left part of the BWB tiles on the worl map).
+
+  Note that the level that will be loaded after landing is hard-coded as level
+  5. The landing animation ignores the level entrance value on the world map.
+
+- Keen can now have two different spawn points in the BWB level. The second
+  spawn point is marked with the letter I in the icon. The I-Keen must be
+  placed after (below) the normal spawn point in the level or it won't work.
+
+  Note that dying in the BWB level and exiting to the world map will mark the
+  BWB level as done. This is used to determine which spawn point should be
+  used. Marking the level as done means that Keen won't spawn in the cockpit
+  when re-entering the level later. The BWB level can always be re-entered from
+  the world map even when it's already done.
+
+- Added dedicated level messages for entering the world map for the first time
+  and for entering the BWB level for the first time.
+
+- Added the animation for the Nisasi clone.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed the actionTimer for CLONE_CHEMOLAIN and CLONE_NISASI.
+
+- Mirrored the BwB sprite plus tile graphics for consistency reasons.
+
+- Minor GAMESTR.CKS text adjustments.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Moved some more strings from the main executable into GAMESTR.CKS (mostly
+  the error messages from ID_RF.C and ID_US_1.C). The only strings left are the
+  ones in ID_US_2.C and moving them into GAMESTR.CKS requires a rewrite of the
+  menu code.
+
+- Removed the loading screen upon starting a new game i.e. entering the world
+  map for the first time and thus starting the BWB landing animation.
+
+- The Star Wars text is now stored in the EGAGRAPH file instead of being hard-
+  coded in the executable. But the game will also try to load the text from a
+  file named STARWARS.TXT if it exists. That should make it easier to edit
+  the text and check if it works correctly without having to recompile the game
+  or edit the EGAGRAPH file all the time. The text must end with a ^ character.
+
+- The "US_CPrintLine() - String exceeds width" error now displays the line that
+  was too wide. That should make it easier to find and fix those errors.
+
+- FONT0002 (the font for the Star Wars scroller) has been modified. The glyphs
+  are now all in the same spot as in the other fonts. That makes it easier to
+  add new glyphs (like the question mark) and it also means that the strings
+  for the Star Wars text don't have to be "encrypted" to make them display
+  correctly. Without this, the new US_CPrintLine error handling wouldn't be
+  very useful for the Star Wars text.
+
+- Nisasi can now grab the Corona Plants.
+
+- Enabled the sprite position testing code again to assist in figuring out the
+  best relative position for the Nisasi and the Corona Plant sprites.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Collectible sprites are now drawn along with the high scores.
+
+- Made all 7 collectibles available as InfoPlane icons (icons 82 - 88). They're
+  still missing the correct icons in NEW-INFOPLANE.BMP, though. Icon 13
+  (collectible test) will still spawn the Mort item for now, but this will be
+  removed in the future to make room for other things.
+
+- Added two arrays in CK_SpawnCollectible() in CK_OBJ.C that allow the objects
+  to be moved by a few pixels away from the tile position they are spawned at.
+  The arrays are currently filled with 0 values (no change), except for the
+  entry of the Keen puppet.
+
+- All seven collectibles have been placed in level 1 for testing. They have
+  also been placed in the cockpit in level 5 (BWB).
+
+- The code for warping inside the BWB (front and back) had to be changed a bit.
+  The collectibles in the cockpit were invisible for one frame after warping
+  with the old code, now they will always be visible right away.
+
+- Removed a few useless variables in ID_SD.C to reduce memory usage.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- NEW-INFOPLANE.BMP now shows icons for all 7 collectibles.
+
+- Updated all scrolling intro pictures (CKS_pic_0023 - CKS_pic_0026). As the
+  height of graphic CKS_pic_0026 is too large, it remains on screen until the
+  end of the intro. This issue has yet to be solved.
+
+- Most of the values in both terminator palettes have been changed. The
+  COMMANER KEEN lettering is now displayed in dark and light green colours.
+  For some reason, the shrinking text at the end of the intro is still
+  displayed in dark cyan. This issue has yet to be solved.
+
+- Overhauled all NipNap sprites (CKS_sprite_0665 - CKS_sprite_0670)
+  respectively their hitbox and offset values.
+  It is requested that NipNap should be assigned a different behaviour than it
+  currently has: NipNap should not be harmful but stuns Keen by touch and
+  pushes him aside. When inactive (blinking) NipNap should be overall harmless.
+ 
+- Updated the help text section with one new graphic plus some text adjustments.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Changed the COMMANDER KEEN text colour for the finish page of the titlescreen
+  to dark green.
+
+- Adjusted the Y-position of the last terminator credit sheet.
+
+- Positioned the spawning points of all seven collectibles in the cockpit of
+  the BwB Level.
+
+- Added another donor to the credit sheet.
+
+- Added another Janitor conversation.
+
+- Improved fore- and background tileset graphics as well as dream bubble
+  graphics.
+
+- Minor pixel corrections for some Princess Lindsey and Keen sprites.
+
+- Created two new Smirky graphics. The rest isn't needed anymore and only stay
+  in as placeholders at least for the moment. Smirky's behaviour has yet to
+  been discussed.
+
+- Added three new "brain-fucl" graphics for an alternative ending plus one
+  Voodoo Keen graphic as well. Purpose of those has yet to be discussed.
+
+- Rearranged the order of the Collectible sprites.
+
+- Modified the order of the collectible icons of the NEW-INFOPLANE.BMP.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Modified Terminator intro code to support credit pics that are more than 80
+  pixels high.
+
+- Nipnap will now stun Keen on contact, except when its eye is closed. Also
+  increased the speed of the NipNap's reaching down animation to make sure Keen
+  can't just walk past it without getting stunned.
+
+- The "RF_PlaceSprite: Placed an uncached sprite" error now shows the sprite
+  number, not the chunk number. That should make the error message more useful.
+  The "Sprite Test" debug feature also displays the sprite number instead of
+  the chunk number now.
+
+- Modified the last credits pic. It's "Kohntarkosz_", not "Kohntrakosz_".
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Arranged the position of every collectible in the highscores. Also adjusted
+  the offset values.
+
+- Modified a few offset values of the Crab. Now it bounces while walking,
+  except when walking along the ceiling.
+
+- Added another donor to the credit sheet.
+
+- Revised all Gretenta sprites.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Keen can no longer get swallowed by the tentacle nest when Keen is already
+  dead.
+
+- Added basic support for different ending texts.
+
+- Implemented BrainFucl (replaces the old Mort puppet InfoPlane icon).
+
+- Fixed some bugs in USL_HandleError and USL_DialogSetup
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Adjusted BrainFucl cutscene.
+
+- Game now quits to DOS after showing the BraqinFucl ending.
+
+- Dead Keen no longer bounces off deadly water tiles.
+
+- Added condition checking for help and end texts. Use ^I x to check condition
+  x where x is a number from 1 to 6, representing the following conditions:
+
+  1 - all 7 collectibles found
+  2 - all 6 basic collectibles found
+  3 - at least one collectible found, but not all 6 or 7
+  4 - no collectibles found
+  5 - bonus level completed
+  6 - bonus level NOT completed
+
+  When the ^I command is encountered, the code checks the condition and skips
+  to the next ^I command if the condition is false. Use "^I 0" to continue
+  with normal text (condition 0 is always true). There should always be one
+  "^I 0" command between the last "^I x" command and the "^E" command.
+
+  Note: You can start new pages in the conditional part of a help text, but this
+  will cause problems when you try to go backwards through the pages. It's fine
+  for end texts, however, since you can't go backwards through the end text.
+
+- Added basic code to support a third end text for cheaters, but that's disabled
+  for now, since there's no text chunk for it yet.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added cheater's end text chunk and enabled it in the code.
+
+- Added an additional B800 screen chunk for the bad ending and made the game
+  display it instead of the default one when the bad ending was triggered.
+
+- Touching Lindsey now triggers a dialog. For now, Lindsey stays in the level
+  after the dialog instead of just disappearing like in Keen 4. This can be
+  changed in CK_KEEN.C (search for "CT_Lindsey").
+
+  Note: The Lindsey dialog pic was replaced with a pic of the Council Page at
+  some point. Don't know if that's supposed to be used for something else in
+  the future.
+
+- Bonus level now ends when all items in that level have been collected. Also
+  added a few items in that level for testing.
+
+  Note: Due to unforeseen side effects, you can't warp to the bonus level when
+  there are no items left to collect in the current level. This only affects
+  the level warp cheat, so I left it as-is.
+
+- The "brainfucled" variable is now saved to and loaded from the config file.
+
+- The new minigame is in there for testing. It now shows the score and high
+  score, the speed increases every 10 points and it has some sound effects
+  (just re-using some paddle war sounds for now).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Minigame is more customizable now (movement delays are now defined at the top
+  of MINIGAME.C). Also modified the code to avoid infinite loops and to make
+  sure the game will eventually end. In theory, the highest possible score is
+  now 169, but it's highly unlikely that anybody will actually get that many
+  points.
+
+- Modified the dream bubble code to make sure it won't show the same dream two
+  times in a row.
+
+- Disabled the sprite position testing code again.
+
+- Keyboard handler now skips LShift prefix codes. The left shift key can now
+  be used for keyboard controls without issues.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Each of the 4 credits pics in the Termionator intro now has its own color
+  palette. The colors are defined in AdvanceTerminatorCredit() in CK_INTER.C
+  in the "palettes" array (3 byte values per pic for less redundancy).
+
+- Hacked up the sprite drawing code to allow shading effects.
+
+- Lindsey now uses the shading effects for disappearing. Also added a second
+  Lindsey that appears when the first Lindsey disappears and has it's own
+  message text.
+
+- Fixed a bug in the low-level text drawing code. Trying to draw a character
+  that doesn't exist in the font (i.e. it has a width of 0) won't cause the
+  game to crash anymore. Zero-width symbols of the fonts simply aren't drawn.
+
+- Scorebox now moves to the top-right corner of the screen when Keen on the
+  left side of the screen.
+
+- Minigame's MAXMOVEDELAY is now 7.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Lindsey now turns into a smoke cloud when she disappears.
+
+- Removed/disabled the code for the shading effects.
+
+- Disabled the code that moves the scorebox to the top-right corner.
+
+- BrainFucl now drains the player's score.
+
+- Music number for a level can/must now be defined in the level itself. The
+  InfoPlane values for the music must have the low byte set to 255 (that means
+  the last two digits in the hexadecimal number must be FF) since the low byte
+  is also used for the y coordinate for links. The levels cannot be more than
+  200 tiles high, so 255 is never a valid y coordinate in any level.
+
+  Here's a lookup table:
+
+  value | music number
+  ------+-------------
+   00FF |  0
+   01FF |  1
+   02FF |  2
+   03FF |  3
+   04FF |  4
+   05FF |  5
+   06FF |  6
+   07FF |  7
+   08FF |  8
+   09FF |  9
+   0AFF | 10
+   0BFF | 11
+   0CFF | 12
+   0DFF | 13
+   0EFF | 14
+   0FFF | 15
+   10FF | 16
+   11FF | 17
+   12FF | 18
+   13FF | 19
+   14FF | 20
+   15FF | 21
+   16FF | 22
+   17FF | 23
+   18FF | 24
+   19FF | 25
+   1AFF | 26
+   1BFF | 27
+   1CFF | 28
+   1DFF | 29
+   1EFF | 30
+   1FFF | 31
+   20FF | 32
+   ...  | ...
+
+  If there are multiple music numbers in the level, only the last one will be
+  used by the game. But to make things easier to edit, I would recommend that
+  the music number should always be placed in the top left corner of the level.
+
+- Janitor now cleans up the slug's slime (slime is removed when touched by a
+  Janitor). Same goes for the slime left by the Poleknawel/Levar.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Lindsey now appears in a smoke cloud right next to Keen when Keen collects
+  the final item in the bonus level. The level ends when enough time has passed
+  for the smoke to clear. Lindsey also shows a dialog right before the level
+  ends.
+
+- Implemented flying donuts. They're currently worth 5000 points, since there
+  are no pickup sprites for 10000 points. The donuts fly left and right (and
+  also a little bit up and down) around their starting position. They also have
+  a random chance of changing their direction.
+
+- Implemented balloon Smikry.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Minor adjustments for Flying Donut and Balloon Smirky.
+
+- Implemented ammo station (INTILE value 42). When used by Keen it sets Keen's
+  ammo to 5 if the ammo is less than 5.
+
+- Implemented "Quick Doors" (INTILE value 41). They work like regular Doors
+  (INTILE value 2), except that Keen doesn't walk into the door. The screen
+  fades to black when Keen would normally start to walk up/back into the door
+  and Keen is teleported to the new position. The screen fades back in with Keen
+  already at the new position. Used for entering and exiting the BWB megarocket.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Minor adjustments for BrainFucl. (Concerning offset and code values as well
+  as graphics.)
+
+- Minor NEW-INFOPLANE.BMP update.
+
+- Removed minigame text reference for now. They will be reinserted in the future
+  after beta testing.
+
+- Minor helptext updates.
+
+- Updated a couple of tileset and sprite graphics. (Mainly point items.)
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Modified some code to make sure objects (including Keen) don't accidentally
+  move at double speed when the animation changes. A quirk in the engine means
+  that when an object changes its state (i.e. its animation frame), the think
+  function might be executed twice (once for the old state and once for the new
+  one), causing the object to move at double speed. The Mad Mushroom in Keen 4
+  is an example where this bug can be observed in action.
+
+  The most important side effect of this change is that the impossible pogo
+  jump now has a pretty much constant height and isn't cut short by low frame
+  rates anymore (all of Keen's jumps are actually a little higher on low frame
+  rates now). I think that being able to jump a little higher is not much of a
+  problem in most cases. Jumps being not high enough is definitely worse.
+
+- The music for the bonus level now stops AFTER the Lindsey dialog is finished.
+
+- Implemented music triggers (INTILE value 43). When Keen touches these tiles,
+  the music number is changed to the value found in the InfoLayer at this
+  position. The value in the InfoLayer must have the low byte set to 254 (0xFE)
+  to distinguish it from the regular music numbers.
+
+  That means the hex value 00FE stands for the number 0, 01FE stands for 1 etc.
+
+  If there is no valid number in the InfoLayer, the music trigger will be
+  ignored.
+
+- The ammo limits for the ammo stations can also be modified by placing a number
+  (in the same ..FE format as for the music triggers) in the InfoLayer. If no
+  number is present, the ammo station will use 5 as default.
+
+  The Ammo station also "charges" Keens gun one shot at a time now. It doesn't
+  spawn the ammo pickup sprite anymore.
+
+- Modified the normal in-level scrolling code to make the camera scroll up when
+  Keen's head is about 16 pixels away from the top of the screen. That means
+  Keen can't look down as far as in Keen 4-6, but at least you get to see
+  hazards scroll onto the screen before they kill Keen.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed Nisasi bugs. The new code for fixing the double speed issue prevented
+  Nisasi from moving up or down. Moved a few lines of code around to fix that.
+
+- Implemented thruster sprites for the platform and also added the sprites for
+  them.
+
+- Ammo stations and music triggers now use InfoPlane number icons (red numbers
+  in the INFOPLANE bitmap) instead of the weird mashups of hex digits. The hex
+  digits for the default level music are gone as well. Now the number icon in
+  the top left corner of the level defines the music. The number icon must be
+  placed at coordinate 0, 0 for this to work. If there's no number icon at 0,0
+  the the level uses song number 0 by default.
+
+- Added (and implemented) spawn points for all 16 regular versions of the
+  janitor. The janitor code supports up to 16 different janitors, but you don't
+  have to use all of them. I just wanted to have all of them in a row to make
+  the spawning code as simple (and as small) as possible. The janitors are
+  numbered 0 to 15 (F in hex) in the icon bitmaps. Number 0 is the same as the
+  old janitor icon. I added red background for the old icon to make it clear
+  that it shouldn't be used anymore (use number 0 instead).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Imported 22 music tracks in total. Two of which got corrupted while
+  converting. This is because one of them seems to use all nine available
+  channels which conflicts with the capacity of the OPL chip. The second file
+  is just to big >64kb and need to be stripped down. Also the loudness
+  throughout the soundtrack still needs to be adjusted.
+  Also level 1 and 2 got temporary setup for music testing reasons.
+  And Abithars adeps file got updated as well.
+
+- Added and updated a couple of graphics: New ammo stations, some BWB
+  Adjustments, dung beetle corrections, and some other minor updates.
+
+- Adjusted once again the spawning height and position of all collectables.
+
+- Overhauled the INFOPLANE bitmap. Things should look and feel more corporate
+  design like.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added support for my custom IMF format called KMF. The game can now play
+  regular IMF music as well as KMF music.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Once again optimized and rearranged both tilsets. Also added a couple of
+  graphics inter alia a clone machine prototype. It seems like it isn't
+  possible to add further tile properties to a tile with the value
+  "39: clone machine". If done the cloning mechanism won't get activated in
+  game. This bug needs to be addressed.
+
+- Updated some collectable sprite graphics.
+
+- Added a 3UP sprite graphic.
+
+- Added a 10000 points shadow spite. (POINTS10000SHADOWSPR,) It is designed to
+  be connected to the flying donut.
+
+- Added two further music tracks to the list.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Leveled the volume of all music tracks. The soundtrack should be now well-
+  balanced. Also all songs got crushed.
+  (We still need a tool to import KMF files to further reduce the filesize of
+  the whole soundtrack.)
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Pretty much any code handling INTILE values (switches, clone machines etc.)
+  will now ignore the foreground attribute of that tile.
+
+- Flying donuts now add 10000 points when collected and spawn a matching score
+  sprite.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added another music track and adjusted the volume.
+
+- Updated the credit sheet.
+
+- Updated Princess Lindsey's profile image.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added code and InfoLayer icons for invisible clouds.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Modified the CK_KeenRidePlatform code a bit more to make sure Keen's subpixel
+  position only adapts to the subpixel position of the platform when Keen didn't
+  move left or right during that frame. This means Keen should now be able to
+  walk left and right with the same speed while on a platform.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Tileset updates. Donut heaven is done.
+
+- Dialogue updates. (Lindsay + Keen)
+
+- Sprite updates. There is now a 3up graphic. The code for this item needs to
+  be created though.
+
+- Soundtrack adjustments.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- 1UP items (objects) have been turned into 3UP items. 1UP tiles are still just
+  1UPs.
+
+- Third Lindsey dialog now has an additional message from Lindsey at the end.
+
+- Other Lindsey dialogues now end with Keen's thumb pic, like the janitor
+  dialogues.
+
+- The ammo scanner will now point to ammo stations as well as regular ammo
+  pickups.
+
+- Flying donuts now add to the points in the detector window.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Lindsey dialogue updates plus a new Keen dialogue graphic.
+
+- Some minor graphic updates.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Third Lindsey dialog now uses the new Keen pic.
+
+- Refresh Manager now uses the old non-shifting drawing code for sprites that
+  don't need shifting. This will speed up the drawing process for things like
+  the big BWB sprite (at least for the current version of that sprite).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Designed and created two new levels. Current status: 5/19
+
+- Updates on tilesets, sprite offset values, F1 text sheets, infoplane.
+
+- Reduced the likelihood that Xkylick gets stuck on slopes.
+
+- Fixed a Skypest/Wormouth bug which causes both creatures to unintentionally
+  get spawned simultaneously.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed a bug in the hitbox of one of Keen's falling sprites that caused Keen
+  to fall through platform objects instead of landing on them.
+
+- Modified the 500 points item to do no animation, and also added another
+  500 points item that uses the second sprite and also doesn't animate.
+  Note: The new InfoPlane icon replaces the old janitor icon.
+
+- Modified the FizzleDown code. I finally figured out what was causing the
+  problems with the view panning and now it works perfectly.
+
+- Modified the screen scrolling code. Keen can now make the screen scroll down
+  a little further than in Keen 4-6 when looking down. As soon as Keen stops
+  looking down, the screen scrolls back up to make sure Keen's head is at least
+  16 pixels from the top of the screen again.
+
+- Fixed a bug in ammo distance calculation for the detector window.
+
+- Changed XkyLick code to make it more likely to attack Keen.
+
+- Added an INTILE value for 3UP tiles (INTILE 44).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added a new creature called FungusAmongus. The behaviour needs to be added.
+  The idea is to have an Arachnut like creature. But as things are still work
+  in progress this isn't quite determined at the moment.
+
+- Right-left reversed the thumbs-up animation graphics.
+
+- Configured Abiathars resource accountant to match all FitF relevant values.
+  Same goes for the InfoplaneInspector which is partly done by now.
+
+- Updated a couple of tileset elements.
+
+- Fine tuned some level design elements.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- A couple of help section texts got copy-edited.
+
+- Redrew the thumbs-up graphics and also reduced the height by 4 pixels.
+
+- Fixed the value which let's Keen sink into clouds.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Finishing the bonus level now shows a special loading screen (and message)
+  for returning to the world map. All loading screens now draw Keen on the
+  right side of the window, same as the in-game dialogues.
+
+- Modified the code for the "thumbs up" part of in-game dialoguge to use the
+  same graphics as the loading screen (drawing two pics instead of just one).
+
+- GellyGhost is now spawned in its invisible state.
+
+- Implemented Fungus enemy (replaces Earlfish).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- All help section texts got copy-edited by now. Mainly typos, grammar & style.
+
+- Help section images got revised.
+
+- Fixed the value which let's Keen sink into clouds. This time for real.
+
+- Did some level improvements.
+
+- Minor tileset revisions.
+
+- Minor Fungus movement behaviour adjustments.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed a minor bug in the XMS startup code. Any UMB bigger than 65520 bytes
+  will now add the correct size value to the meminfo struct. The old code used
+  all of the available XMS memory correctly, but the XMS size was stored and
+  displayed incorrectly.
+
+- Fungus can no longer be hit by shots while it's idle or stunned, and it will
+  now do a little jump when it gets shot.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added a new INTILE value for harmless water tiles (45) and changed Keen's
+  idle code to prevent him from going to sleep while touching a water tile.
+
+- Changed the way the lump definitions are handled in GRAPHCKS.H and CK_MISC.C
+  to reduce the chance of errors that the compiler can't detect.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Tileset updates, copy-editings, creature overhaul, level layout fixes, and
+  new level designs.
+
+- Worldmap loads with an extra colour-palette.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- F10+C now also displays the number of used and unused sprite slots.
+
+- Added some code to remove sprites that aren't visible. This should greatly
+  reduce the amount of used sprite slots, especially in levels that have moving
+  platforms or other enemies that are always active.
+
+- Added a new InfoPlane icon that allows the crab enemy to be spawned on
+  ceilings.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Cleaned up AUDIOCKS.H to make it easier to edit.
+
+- Changed any sound names in the code to match the sound naming scheme.
+
+- Added a sound test debug feature (F10 + O, copied over from Atroxian Realm).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Level design adjustments plus general level design overhaul.
+
+- Updated the credits section.
+
+- Minor tileset edits.
+
+- New and rearranged sound effects. A lot of sound design choices plus a couple
+  of sound mappings: new or revised sounds for the Wormouth, Vitalin, Extra
+  Life, Level enter, Level done, hit the ceiling, open a gem door, get a gem,
+  click a switch, Optiquat, Corona, Status up & down, Kitten and Slug.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Kitten now plays the explosion sound when it explodes, not when it starts to
+  inflate.
+
+- Reduced the probability of the Kitten's meow animation.
+
+- The first two frames of the XkyLick's lick animation are not deadly anymore,
+  so the game has a small time frame to play at least the first bits of the
+  lick sound before Keen dies and plays KEENDIESND, which usually stops any
+  other sound.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- New sounds for the "cloud blowing" yeti, the meowing kitten, the whipping
+  tentacle, the shaking bird. And lot's of small sound adjustments for the
+  entire SFX set.
+
+- Major tileset updates: Pink tiles are finished by now.  Same goes for the
+  yellow pyramid stones.  Refreshed a bunch of worldmap tiles.  Also fixed a
+  couple of nitpicks here and there.
+ 
+- Rough test layouts for the worldmap and a pinkish underworld level map.
+
+- Worldmap colour palette pick.
+
+- Replaced 3ups indicator sprite (CKS_sprite_0118.bmp) with a Worldmap-Nessi
+  sprite.  This creature is suppose to appear on the worldmap behind a
+  foreground tile as soon as Keen touches a "Can't swim" tile.  When triggered
+  it moves up and down 20 pixels at a time.  Code needed.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Removed all 3UP code. 3UP objects are now 1UP objects again, 3UP tiles don't
+  do anything anymore.
+
+- Changed timing of tentacle attack sound, shaking bird sound.
+
+- Kitten can only start the meow animation when it's visible.
+
+- Game now plays a sound when the last points item in a level is collected.
+  Using DOPEFISHBURPSND for now, to be replaced with a proper sound later. The
+  code is in CK_KEEN.C in two places (tiles and objects). Just search for the
+  sound name.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Expanded the SFX set by 10 additional sounds. Assigned a Stunned, a Root and
+  a Refill Unit sound.
+ 
+- Major tileset updates: Shifted a lot of fore- and background tiles.
+
+- Minor level design changes.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- XkyLick now just starts falling when it no longer touches the ground.
+
+- Keen can no longer use warp tiles (INTILE 36) if he's already dead.
+
+- Keen's stun counter and cooldown are no longer reset immediately when Keen
+  recovers from the stunned state.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Enemies can turn right again.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- New finalized level #7 called "Asparagus Roots".
+
+- Additional colour palette for level 3, 7 and 9.
+
+- Three additional sound effects. One for the goodies, another for that tree-
+  hanging-grabbing-dude, plus one checkpoint sound effect.
+
+- Again a number of tileset updates.
+
+- Fungus sprite fine tuning.
+
+- Changed Bounders stunned time.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added code to play a second sound effect as soon as the first sound ends.
+  Use SD_PlayTwoSounds() for this and make sure no other SD_PlaySound() calls
+  interfere with it.
+
+- Skypest now has a minimum delay before it can land on floors or ceilings.
+
+- Bonus level now requires 314000 points.
+
+- Council Page can now enter and leave mind control machines just like Keen
+  does (going up into the machine and falling out of it when leaving).
+
+- Added worldmap nessie (infoplane icon 46).
+
+- Wormouth and Poison Slug can and will now fall down when the ground they're
+  walking on vanishes. Falling Slugs will kill Keen on touch and can be shot
+  mid-air. Falling Wormouths are completely harmless and cannot be stunned.
+
+- Reverted the code for updating the text-based startup screen back to the
+  original version. The new code didn't work correctly on my DOS laptop.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- NEW-INFOPLANE.BMP now comes with a Nessi icon.
+
+- F1 sheets overhaul, including typo checks, new story related images, story
+  line elements and other minor stuff. Also added song to the help menu screen
+  as a background tune.
+
+- Finalized the StarWars scrolling text plus the respective background
+  image. Also included to draw the StarWars scrolling text upfront the start
+  of a new game.
+
+- Replaced the font maps "$" sign with a "pi" letter.
+
+- Tileset updates, of course.
+
+- Finalized level number 9 aka "Donut Dome".
+
+- Equipped different game ending scenarios with different songs.
+
+- Assigned fitting songs to some levels.
+
+- Wrote the bad ending story line and implemented a couple of animations plus
+  the respective images. Also added a new bad ending ANSI text file.
+ 
+- A colour-palette bug occurred. Whenever a save game gets launched from within
+  a running game, the wrong (standard) colour palette gets loaded. This needs
+  to get addressed. 
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Restored the "$" glyph in the default font (the Game Over joke needs it!) and
+  moved the "pi" glyph over to where the "\DF" character would be ( 0xDF / 223 ).
+  The story text has been changed to use "\DF" instead of "$"
+
+- The text handling code in CK_TEXT.C has been changed to use unsigned char
+  comparisons, thus allowing the texts to use character codes 128-255.
+
+- Color palette is now applied correctly after loading a saved game from within
+  a game.
+
+- B800 end screens have been reduced to 4000 bytes, cutting out the useless
+  extra data. The Dreams screen has been modified a bit (added punctuation
+  and fixed the color of one letter).
+
+- Startup screen has been updated
+
+- Added a SD_SetMusicRate function to change the playback speed of the music.
+  The game always resets the music rate to 560 Hz when starting a song. If Keen
+  is grabbed by a Nisasi, the CK_PlayLoop function changes the music rate to
+  350 Hz (for now), and shaking the Nisasi off restores the music rate back to
+  the default value (560 Hz).
+
+- The Input Manager now stores tree button states in the demo datastream. Any
+  demo will now be recorded and played back with two button firing DISABLED.
+  Note that you can still record a demo while playing with joystick controls,
+  but you will have to use the keyboard to shoot.
+
+- Added new text commands:
+
+  ^Mxxx  - start playing music number xxx
+  ^Sxxx  - play sound number xxx
+  ^W     - wait until the current sound is done (does not update the screen)
+  ^Dttt  - wait ttt tics (screen will be updated)
+  ^Q     - "quiet" - stops sounds and music
+
+- Updated background pic for the Star Wars text and also set custom EGA and VGA
+  palettes for it.
+
+ 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added some more text commands:
+
+  ^MOxxx - "Music Once" (play music without repeating)
+  ^MP    - "Music Pause" (stops music and allows you to resume it later)
+  ^MR    - "Music Resume" (resumes music paused by ^MP)
+
+- Changed control panel code to set the name of a saved game to the current
+  date and time when the name was left blank. Such games are also marked as
+  "timestamped", so saving in the same slot defaults to a blank name instead of
+  the timestamp string for the name input prompt.
+
+ 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Keen can now pick up sprite-based bonus items while climbing poles or
+  grabbing/climbing ledges.
+
+- The game now supports hundreds of game over messages and jokes and adjusts
+  the window size automatically to make the messages fit into the window.
+
+- Fixed a bug in CK_MeasureMultiline that prevented the code from calculating
+  the width correctly. The original Keens never used the width value, so this
+  bug didn't cause any harm. My new code uses the width value, so it needed to
+  be fixed.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ 
+- CKS_ansi_endgame.bin now also mentions K1n9_Duk3 as creator of this mod.
+
+- Restored the "\DF" glyph in the default font and moved the "pi" glyph over to
+  where the "#" character would be.
+  Also introduced an "\E4" character and placed it where the "\F6" character would
+  be (0xE4 / 228), as the character sheet isn't big enough to feature up to 246
+  slots to include the "\F6" character on its genuine slot. This is because one
+  name in the credits sheet requires a diaeresis.
+ 
+- The main story text and StarWars scrolling text got finalized.
+
+- The credits section comes with new info updated.
+
+- Changed the terminator colour for the last entry to yellow. Also changed this
+  very text chart image.
+ 
+- Sprites tweakes for worlmap Nessi, Patpat, Leavea Trip, Keen on pole, point
+  items, moving platform, and more.
+
+- Further new level desgins are in.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- User can now override the AdLib detection code with the /ADLIB parameter.
+  This should allow the user to use AdLib sound and music on extremely fast
+  systems on which the regular AdLib detection might fail. I have seen this
+  happen when running th game in DOSBox with a dynamic core and max CPU cycles.
+
+- User can now pass non-standard OPL port numbers with the /OPLPORT xxx
+  parameter, where xxx is the hexadecimal port address of the OPL chip. This
+  should make the code compatible with OPL2LPT and OPL3LPT devices.
+
+  Example: FITF.EXE /OPLPORT 388
+
+- Sound settings automatically fall back to the defaults if the current system
+  configuration (i.e. the presence or absence of an AdLib-compatible device) no
+  longer matches the previous configuration stored in the config file.
+
+  That means removing the sound hardware (or using /NOAL) turns the music off
+  and enables PC Speaker sounds. Adding AdLib-compatible sound hardware (or
+  either NOT using /NOAL or using /ADLIB) turns the music on and enables AdLib
+  sound effects.
+
+- Modified the Keen code to eliminate rare bugs which might have prevented Keen
+  from firing a shot when the shooting animation started while Keen was falling
+  and Keen landed right when the shot was about to be spawned.
+
+- All of the settings in the Options menu are now saved to and loaded from the
+  config file.
+
+ 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Crocodent now reacts to direction arrows placed in the infoplane.
+
+  East/West arrows mark regions in which the croc can randomly start a small
+  jump. Regions work like this:
+
+          [->]          [<-]
+          [->]          [<-]
+  no jump [->] can jump [<-] no jump
+  ==================================
+
+  The region markers should be placed in a way that makes it impossible for the
+  croc to jump over the markers.
+
+  Northeast/Northwest arrows allow croc to start a big jump from that position.
+  It doesn't matter if the croc is in a jump or no jump area when touching one
+  of these arrows.
+
+- After snapping, the croc now walks towards Keen in 70% of all cases and walks
+  away from Keen in the other 30%.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+ - A number of tileset updates.
+
+ - Kitten sprite hitbox adjustments.
+
+ - New colour palette for level 12.
+
+ - Took care about level names and entry texts.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed some tile to global unit conversion errors (signed/unsigned values)
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Shrubbery no longer gets stuck if it touches Keen while falling.
+
+- Chemolain can only teleport to log platforms that are no more than 16 tiles
+  away.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Text message updates: Game over joke text sheets, Morts text SGA message and
+  new level (entrance) names.
+
+- Tileset adjustments.
+
+- Fixed a goodie spawning y-position.
+
+- Lot's of level desgin improvements.
+
+- Build two more levels.
+
+- Added three additional point items.
+
+- A bunch of sprite pixel adjustments. Mainly nitpicking about details.
+
+- Music track reassignments. Each level got its respective track.
+
+- Added a SFX to play when the last point item in a level is collected.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Fixed the Yorps goody sprite y-offset value.
+
+- Changed the Shrubberies eye rolling pattern. Also worked on some graphic
+  details for the Shrubberies walking animation.
+
+- Fine tuning on the Salamander sprite. Increased the critical reaction
+  distance when Keen comes near.
+
+- New Checkpoint sound effects.
+
+- Tileset updates: new graphics, tileinfo fixes, tile property adjustments
+  and a number of edits here and there. For e.g.: new level entrances, a new
+  set of platform tiles, new doors, new background elements and so on.
+
+- Updates on level names and level entry texts.
+
+- A couple of music tracks were corrupted or blown up with unnecessary data.
+  The music files in question got probed, crushed and converted. The broken
+  files have been exchanged by overhauled and fixed versions.
+  Also to make things more accessible for the future, the human-editable sound
+  list .asnds file now contains a proper list of names for all song files.
+  This should make future fixes a lot more feasible.
+
+- Even more names for the credits section.
+
+- All main story images are implemented and arranged with the text pieces. By
+  now the main story is in its final state. This also means that the game now
+  contains three more graphics (pics).
+   
+- Level 16 received its own colour palette.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added a new key combination for debugging: ALT-DEL-CTRL
+  This key combination will instantly quit to DOS and print the address of the
+  code segment and instruction pointer as an error message.
+
+  The Keyboard interrupt service is what checks for this key combination. Since
+  interrupts are (usually) still being serviced even when the regular code has
+  entered an infinite loop and "locks up", pressing this key combination should
+  help us track down the code that caused the game to "lock up".
+
+  CTRL-ALT-DEL, contrary to what you might think at first, will NOT reboot the
+  PC when running this game in pure DOS. The BIOS keyboard handler is
+  responsible for that, but since the game hooks up its own keyboard handler,
+  the BIOS doesn't get to see this key combination and can't cause the computer
+  to reboot.
+
+  Note that the CTRL-ALT-DEL combo seems to be recognized by the BIOS or the
+  operating system ONLY when the Delete key is hit while the Control and Alt
+  keys are already held down. Any other sequence (ALT-DEL-CTRL, DEL-ALT-CTRL
+  etc.) does not count as CTRL-ALT-DEL for the OS / BIOS, even when running in
+  pure MS-DOS 6.22.
+
+  The Borland C++ project file has also been modified to produce a map file
+  for the executable. This map file can be used to get the general idea of what
+  the address displayed by this key combination is used for by looking up that
+  address in the "Publics by value" section of the map file.
+
+- Added a new kind of keygem-operated doors. If the tile pointed to by the gem
+  socket has INTILE value 46 or 47, this indicates a door that is two tiles
+  wide. INTILE 46 means placing the keygem will open the door by one frame,
+  INTILE 47 opens the door by two frames.
+
+  The tile attributes and the infoplane pointers in Level 16 have been adjusted
+  to make this door animation work correctly with the existing tile graphics.
+
+  It is also possible to link a regular switch to these door tiles.
+
+- CK_PhyClipVert now uses signed comparison to avoid infinite loops when the
+  object is at the top of the level.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- All level maps were put into order. This also applies to level names and
+  level entry texts, colour palettes as well as to specific constants that
+  define the BwB level, the Bonus level plus the High-Score level. In addition
+  to that the soundtrack was put in order as well. By now music track numbers
+  match level numbers. In this regard the code was adjusted likewise to make
+  certain music track constants match again as well, like the music files for
+  the Starwars scrolling text, the help section, and all three game ending
+  segments. (Win, Cheat and Bad Ending.)
+ 
+- The map for level 1 was overhauled.
+
+- A new level map was created. (Level 7.) Therefore the tilesets were enhance
+  by a number of necessary additional tiles. By now 14/19 maps are done. The
+  remaining levels are already drafted out and need to be included next.
+
+- Some colour palette fine tuning adjustments were made, to make different
+  level settings visually more distinguishable. Even tough some of these
+  adjustments are subtile, this gives every level a even more unique look and
+  feel.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- The ^G command in the help/end texts can now use sprites and both types of
+  16x16 pixel tiles (TILE16 and TILE16M) in addition to the regular pictures.
+
+- Fixed a bug in the VW_DrawTile16M macro (the original games never used this
+  type of tile graphics for anything other than drawing the actual level).
+
+- Chemolain no longer removes itself from the map if it can't find a new log
+  platform. It just waits until a usable log platform is close enough.
+
+ 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- BrainFucl now slows down the music playback as it attaches to Keen's head.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Bad ending now exits the EndText loop when the music ends (but only if music
+  is enabled in the game). Bad ending also no longer uses looped music playback
+  so that the music can actually end.
+
+- SD_MusicPlaying() now returns true when music is playing, instead of always
+  retuning false.
+
+- Implemented a frog sprite that jumps in random intervals. Uses infoplane icon
+  number 47 (old XkyLick 2 icon).
+
+- Tiny Yeits now merge correctly when the frame rate is extremely low.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ 
+- The BadEnding ANSI text was copyedited and finalized. Also other bad ending
+  elements are in.
+ 
+- A couple of bad-ending glitch animation finetuning were done. 
+
+- New worldmap level entrances graphics were made. (Lost mind, concealed ruin,
+  donut dome and sukkah skov)
+
+- A new sprite graphic for a frog + its respected animation code is in. It
+  randomly jumps up and down. Its main purpose is to be just eye candy.
+
+- The credits section mentions the frogs creator.
+
+- Help sheet typos were fixed.
+
+- Other spirtes were finetuned to make their animation behaviour look more
+  smooth.
+
+- A broken sound got fixed
+
+- Two music tracks were exchanged with new more fitting tunings.
+
+- The asnds sound list now comes with detailed information about sound effects
+  and music tracks. Of the same tenor was the AUDIOCKS.H files rearranged. It
+  shows the corresponding music titles in correct order.
+
+- A lot of level map fixes were made.
+
+- A new level map was designed. As this expandes the number of level maps up
+  to 20, all associated constants were updated as well.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Implemented another version of the council page (infoplane icon number 48)
+  that walks around on its own and turns around when hitting a [B] icon.
+
+- Modified the dream bubble code for the new coucil page stuff. Also fixed a
+  different bug that might have caused problems with the player-controlled
+  council page's dream bubble.
+
+- Implemented a new action for Keen to block any input during the interaction
+  with the Page.
+
+- Modified the code for the loading screens. The screens now try to make sure
+  the final pic of the "thumbs up" animation is shown at the end, caching in
+  the pic if needed.
+
+- The game will now start Keen Dreams when the bad ending is triggered. If
+  Keen Dreams can't be started, it shows the DOS endtext for the bad ending
+  instead.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Refresh Manager has 2 new functions: RF_SaveState and RF_LoadState. These
+  save and load some Refresh Manager variables to and from saved games. Saved
+  variables include the origin (camera position) and the state of all the tile
+  animations (which tile each animation currently uses and how much time is
+  left until the animation changes to the next tile).
+
+- Savegame and Checkpoint routines now use RF_SaveState and RF_LoadState.
+
+- Added a new INTILE value (48) for quicksand tiles. When Keen falls or walks
+  down into a quicksand tile, an invisible platform object will be spawned at
+  Keen's feet and slowly lower Keen into the quicksand. If Keen doesn't sink
+  with the platform, the platfrom will rise back up to Keen's feet.
+
+  Keen cannot jump or use the pogo while touching quicksand tiles and Keen's
+  walking speed is cut in half.
+
+  Once Keen's feet have sunken below the first row of quicksand tiles, the
+  death animation starts and makes Keen sink in even further (and faster).
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Dead Keen can no longer interact with quicksand.
+
+- Implemented falling block (INFOPLANE icon 115). Currently uses the scorebox
+  sprite for testing.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     
+- A number of text adjustements plus additional info was added to
+  CKS_ansi_endgame.bin, CKS_ansi_badend.bin, CKS_txt_ENDTEXTLOSE.txt and the
+  credits section.
+
+- Several level design updates, fixes and testings were done.
+
+- Lots and lots of tileset changes were done. Both tileset are serously
+  cramped by now and might suffer one last expansion.
+
+- INFOPLANE.BMP now features a sand block icon.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Added a screen shaking affect. Used by falling blocks, but could also be used
+  by other objects (like the exploding kitten).
+
+- Assigned temporary sound effects for the falling block (falling sound and
+  landing sound).
+
+- Changed a few tile attributes for the vanishing yellow bricks to prevent Keen
+  from grabbing their edges.
+
+- ClipToSprite routine now ignores invincibility when squishing Keen. The code
+  has also been changed to push the target object out of the solid object no
+  matter how the object has moved or how its hitbox has been changed.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Level 15 is now complete.
+
+- Changed the council pages dream bubble TickBase to make it last only round
+  about five seconds.
+ 
+- Added two more sprite graphics. One of which is the falling block. The other
+  one is meant to be used for a death animation if Keen sinks into the
+  quicksand. The respective code for the last sprite still needs to be written.
+
+- Reduced the shakiness of the falling block a little bit.
+
+- Some info were added to the credits section.
+
+- Again a number of updates to both tilsets were made.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Keen's quicksand death uses the correct sprite now.
+- Camera stops scrolling when Keen changes to the death sprite.
+- Death sound is played shortly before Keen is fully submerged in the quicksand.
+
+- Added a second sprite for falling block.
+- Falling block now uses two sprites with different zLayer settings.
+- Falling block now uses different hitboxes for tiles and objects.
+- Position and hitbox size of the block have been adjusted.
+
+- Frequency of the screen shaking effect has been adjusted. Instead of trying
+  to run at 70 Hz, the effect now runs at the same speed as the frame rate to
+  avoid issues due to dropped frames.
+
+- Kitten now sets timeUntillThink to 0 when it starts to explode. It should no
+  longer skip playing the explosion sound.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ 
+- Updated the credits section.
+- Updated the story text sheets.
+- Fixed the bad ending animations. A couple of sprite number shifts needed to
+  be done after three new sprites have been added to the set.
+
+- Added a new colour palette for level 14.
+
+- Replaced song 14 with a tune that fits the pyramid theme even better.
+
+- Changed the FallBlockContact sound effect.
+
+- Reduced the priority of the kittens exploding sound to not conflict with the
+  dead sound effect. 
+
+- Adjusted some hitboxes and optimized some sprites by shrinking their graphic
+  heights.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Keen now interacts with falling blocks while on a pole or grabbing/climbing
+  edges.
+
+- Keen is no longer considered standing on a platform if there are any blocking
+  tiles that prevent Keen from moving down with the platform. The old code
+  would have warped Keen straight down to the platform once the blocking tiles
+  were no longer in the way.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Tileset and level design updates.
+
+- Set the falling blocks MASKEDTILEPRIORITY to -1
+
+- Replaced the Mario Goody sprites with Obelisk sprites. ATM the Obelisk is
+  static.
+
+- New Lindsey dialouge elements that no longer mention the Mario Goody.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Memory Manager is now able to allocate high memory from DOS. If DOS is set
+  to allocate and use UMBs (DOS=UMB is set in CONFIG.SYS), the memory manager
+  cannot allocate any XMS memory (it allocates XMS via UMBs and all UMBs have
+  already been grabbed by DOS). This modification is mainly for convenience,
+  meaning that you won't have to modify CONFIG.SYS to allow the game to use
+  XMS/UMB memory (but you might still need to do that anyway to free up some of
+  that high memory).
+
+- Keen's shot spawning code has been modified to check object collisions right
+  when the shot is spawned. This should help avoid issues when an enemy is
+  extremely close to Keen and ends up killing Keen and then getting stunned in
+  the same frame. With the new code, the enemy should get stunned first and let
+  Keen survive.
+
+- Help menu now uses the sprite of the walking Council Page as the menu cursor.
+  The old cursor pic can be replaced with something else.
+
+- Implemented the sinking Obelisk and combined both sprites into one. The
+  bottom sprite can be replaced with something else or removed entirely.
+
+- Pogoing into the quicksand now makes Keen land 8 pixels deeper than with a
+  normal jump.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ 
+- Modified the pogo-quicksand landing code a bit to push Keen down into the
+  quicksand to the desired depth.
+
+- Finishing the bonus level now also counts as collecting a seventh collectible
+  and will show an icon in the high score screen.
+
+- Added code to count the number of collected slug cans. Slug cans must use
+  masked tile number 0x005C or 0x006E (see CK_KeenCheckSpecialTileInfo in
+  CK_KEEN.C). The number of collected cans is shown in the status window for
+  playtesting, but I guess it should be removed for the final version.
+
+- The "^I 1" text command now checks if at least 15 slug cans have been
+  collected.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Replaced one song with a more sophisticated remix
+- Also adjusted the volume of some tracks to even things out
+
+- Replaced the OBELISKBOTTOMSPR with another donut sprite for the High-Scores
+- changed the position along the x-achsis of the donut collectible in the
+  High-Scores
+ 
+- the level's colour palettes got improved and complemented
+
+- again a number of tileset updates
+
+- further level design fixes and updates
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- New sprite graphics for the mummy creature were added.
+
+- A collectibles sprite position for the BWB level was adjusted.
+
+- One music file was replaced with a remix
+
+- Both tileset got updated
+
+- Level 14 got finalized.
+
+- F1 text info adjustments were made.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Slope speed adjustment for Keen is now cut in half if Keen's walking speed
+  is cut in half. This fixes the janky movement when trying to walk out of a
+  quicksand pit with a low frame rate.
+
+- Keen's falling speed is now set to 0 when he lands. This means Keen can no
+  longer make blocks fall by walking into them from the side.
+
+- The obelisk's shaking time no longer adds up if it gets hit while shaking.
+
+- The refresh manager now skips useless sprite redraws. This greatly improves
+  the performance, for example when multiple falling blocks that have already
+  landed on the ground are visible at the same time.
+
+- The janitor's bucket now draws its sprite with RF_PlaceSpriteAfter to make
+  sure no other sprites can ever be drawn in between the janitor an its bucket.
+  The bucket sprite temporarily vanishes when the janitor puts the mop in the
+  bucket, which looked wrong when another sprite was drawn between the janitor
+  and the bucket.
+
+- The mummy and its spawners have been implemented. The main behavior for the
+  mummy is ready for testing, but the wrap/unwrap animations for Keen are still
+  missing.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- The main struture for level 11 was created.
+- Therefore the colour palette got adjusted
+- Additional tiles were added to both sets as well.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Water tiles now require Keen's hitbox to touch the bottom 8 pixels of the
+  tile in order for Keen to be considered "in water".
+
+- Keen's maximum pogo jump height has been reduced to a minimum if Keen starts
+  the pogo jump while "in water".
+
+- Keen can only walk at half the speed while in water (same as quicksand and
+  Nisasi). The effect does NOT stack.
+
+- Keen can now also exit levels by cimbing out at the top.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Further progress on level 11 was achieved.
+- This also contains an overhauled colour palette.
+- And again additional tiles were added to both sets.
+
+- Two additional mummy sprites were added.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Four more mummy sprites were added and the sprite handles have been adjusted.
+
+- Sprite images have been optimized by uGrab.
+
+- Refined mummy behavior and animations have been implemented.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- One of Lindsey's message texts got updated.
+
+- Minor level design updates were made here and there.
+
+- Mummy sprite graphics were reconfigured to give a even more smooth warping
+  animation impression.
+- The Mummy's behaviour and animation speed got adjusted.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Mummy now reacts to getting shot while its eyes are open.
+
+- Mummy will always start chasing Keen if Keen is close by while the Mummy is
+  standing and looking around, even when its eyes are closed or it's facing the
+  other direction.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Mummy movement speed finetuning.
+
+- Added new Janitor texts elemets.
+
+- A number of minor level design adjustments.
+
+- Further tileset updates.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- The about-to-be-mummyfied Keen can now land on falling blocks.
+
+- Mummy no longer moves in one direction while facing the other direction for
+  one frame when it walks past Keen, which should prevent it from getting stuck
+  on edges.
+
+- Delay between the bandages falling and the camera scrolling to Keen's new
+  position now works as intended.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Level 11 is done by now and in its final stage.
+
+- Level was 18 overhauled extensively. It now features an additional
+  subterranean area. Therefore a couple of additional tiles got added to both
+  tilesets.
+
+- Colour palette changes were made for level 6, 7 and 8.
+
+- All point item graphics were revised.
+
+- Point items placement in all levels got revised.
+
+- The MUMMY_RESPAWNDELAY value was changed to 5.
+
+- Abiathars *.adpes file was adjusted to calculate extra lives correctly.
+
+- The ASCII bitmap character sheet got extended by two umlauts \E4, \F6 and the
+  extra letter \E6. 
+
+- Switched to XkyKeen sprites as the main character and ditched the original
+  Keen sprite set. As a byproduct some offset value glitches appeared that
+  need to be addressed.
+
+- A King Slug background graphic was added to level 2.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Both tilesets have undergone a massive expansion. As a byproduct, some
+  graphics in the end maps and in some story elements have shifted and were
+  adjustmed.
+
+- New music compositions were added. In total, the soundtrack now currently
+  contains 34 unique songs. Also, the transitions of songs that change in the
+  level at certain trigger points have been adjusted.
+
+- The number of levels was increased and the order was redefined. The game now
+  contains 21 level maps. The additional maps will be interconnected in a next
+  step. This concerns the levels 16+22+23 as well as the levels 18+24.  
+
+- All maps have been intensively tested and updated where necessary. For e.g.
+  the tile memory usage scores have been adjusted to save some memory.
+
+- The overall level of difficulty has been adjusted. Enemies have been
+  balanced and their placements have been fine-tuned. 
+ 
+- Fine adjustments to sprites (offset values etc.) have been made.
+
+- The color palettes for all maps have been refined.
+
+- Text elements were revised. Story elements like graphics were added.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+- Both tilesets have undergone an expansion again. Necessary adjustments were
+  made accordingly.
+
+- The spawning position for each cloned creature was defined to optimize
+  the memory usage scores for the respective level. The janitor clone machine
+  is now deactivated by default. It can be switched on by the player.
+
+- Cloning eight janitors results in starting an ending sequence. Which ending
+  sequence is triggered depends on certain events that preceded it. If cheated,
+  the cheat end is triggered, else   win end starts or the perfect ending is
+  shown, if all points got collected.
+
+- Each janitor is assigned to a very specific location. The janitor dialogs
+  are in their finished state   and are assigned to corresponding places
+  appropriately. The length of the dialogs are adjusted and appropriate
+  graphics are selected.    All ingame dialogs are now considered to be done.
+
+- The dreaming logic when Keen is bored was modified for level 11 (aka the
+  Dopefish level). In this very environment Keen now exclusively dreams of the
+  Dopefish.
+
+- For level 16 and 23, it is determined that Keen could not use the Pogo. For
+  level 16, it is additionally determined that the neural stunner cannot be
+  used.
+ 
+- Level 18 and 24 are interconnected to each other. Winning level 18 moves
+  Keen directly into level 24 without having to pass through the world map.
+  The transition serves as a checkpoint. If Keen dies in part two he restarts
+  from part two. When successfully passing both chained levels, they get
+  marked as done and trigger the ending sequences.
+ 
+- Also level 16 and 22 are interconnected to each other. In this case however
+  touching an object will lead to the transition of ending level 16 and
+  starting level 22 immediately. If the player dies in part two they restart
+  from part two. When successfully passing both chained levels, they get
+  marked as done and a flag is put on the holster for level 16.
+ 
+- Level 22 contains an optional entrance to a secret level. When touching this
+  object, level 22 and level 16 respectively are marked as done, and the player
+  will be warped to the conjoint level 23. Winning level 23 will return the
+  player to the worldmap and put a flag on the holster for level 16.
+ 
+- Added a new sprite object (JediBoot) which functions as a trigger point to
+  access interconnected levels. Depending on the environment (level 16 or 22)
+  and the given circumstances (has the player been cheating or not?) touching
+  this object will trigger the transition between two levels (from level 16 to
+  22,   and/or from level 22 to the secret "Tardis" level 23).
+
+- Added a new creature, the Lemon Shark. It floats from right to left and
+  sinks slowly into the water. This creature functions just as eye-candy. 
+
+- Added a worldmap object, the Donut Cloud and its shadow. It appears if a
+  certain amount of points (500000) is collected and disappears again when
+  more than 800000 points are written on the score board. It functions
+  as a visual representation for the entrance of the bonus level. 
+  
+- Hardcoded the values for the nextKeenAt logic.  
+
+- Added a sound effect to the breakable fuse object.
+  
+- Added further condition checking for help and end texts. The ^I x conditions
+  where x is a number from 1 to 12, representing the following conditions:
+
+   1 - collected all 17 slug cans
+   2 - all 6 basic collectibles found
+   3 - at least one collectible found, but not all 6
+   4 - no collectibles found
+   5 - bonus level completed
+   6 - bonus level NOT completed
+   7 - bonus level completed but not all Slug Cans found
+   8 - bonus level completed and all Slug Cans found
+   9 - TARDIS level completed
+  10 - TARDIS level NOT completed
+  11 - Slug-Busts level completed
+  12 - Slug-Busts level NOT completed
+
+ The ^I 0 command functions as a bracket and ends an activated condition. It
+ is mandatory to add at least one ^I 0 command between the last ^I x and the
+ ^E command.
+ 
+- The main story and all in game texts are 100% done (proofreading included).
+  There are now 5 differing ending sequences which are:
+ 
+  i)   cheater end
+  ii)  bad end
+  iii) win end but NOT all points collected
+  iv)  win end and all points collected
+  v)  game over
+ 
+  For the ending sequence iii) a number of variations depending on certain
+  conditions are included as well.
+
+- Credits section was updated.
+
+- Stripped down Leavea sprites to the minimum needed, and reused freed up
+  sprite slots for Slug Cans.
+  The Slug Cans are displayed in the BWB level, depending on how many cans
+  have already been collected (7, 11 or 17). The player cannot interact with
+  these sprites. They solely function as eye-candy.
+
+- Skypest does not land on fuse tiles when in level 11 (MAP_DOPEFISHLEVEL).
+
+- Added another INTILE value (49) to trigger a HAL Dialog when activated.
+
+- Fixed a bonus level bug. Now one can exit the level as intended.
+
+- All sound effects are in. Same is true for the PC speaker sounds. They got
+  assigned to the respective creatures.
+ 
+- Finalized all level maps.
+
+- The game now features a perfect score which is 1,000,000 points. If the
+  player reaches this score a special ending sequence will be triggered.
+
+- Inserted the final title screen.
+
+- Added another sub entry for the help menu to decludder "randomly" arranged
+  information buckets.
+
+- Added a new object, the Big Shroom. It functions as eye-candy in level 16
+  and spawns a pile of smoke clouds.
+
+- Added 4 demo recordings to the game.
+
+- Final fix of all Keen sprites. The vanilla Keen sprites are all replaced by
+  the more sophisticated XkyKeen sprites. Therefore all offset values have
+  undergone an extensive overhaul.
+
+- Saving while not on the world map or in the BwB level costs a life, except
+  when playing on easy difficulty.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+BETA PLAY-TESTING PHASE I
+
+The game got handed to a number of beta testers. The analysis of the recorded
+footage lead to a number of smaller and bigger adjustments throughout the whole
+game, which are:
+
+- A number of unfair areas are more balanced / obvious to reach. Pixel-perfect
+  jumps got cut out entirely. Signs got added where needed.
+
+- The colour-palettes for each level are updated in a more assertive manner. 
+ 
+- Lifewater Flasks give 2Up's on normal difficulty mode and 1Up on Easy and
+  Hard mode.  This is because the Normal and the Hard difficulty weren't really
+  distinguishable. This new logic gives the option to either play with no saving
+  restrictions (Easy mode), or with more limited ability to save from time to
+  time (Normal mode), up to a very limited option to save the game while in a
+  level (Hard mode).
+
+- Fixed the faulty music piece for level 16, that crashed after the first loop.
+  Also replaced the StarWars scrolling music piece which now fades out the
+  moment the text has scrolled through.
+
+- The high score table now features an additional difficulty level indicator
+  sprite for each entry. Therefore one Salamander sprite frame got removed and
+  reused for this purpose.
+
+- The world map object representing level 12 received noticeable touch-ups.
+
+- Added a fifth credits picture to the Terminator scrolling screen.
+
+- HighScore bug was removed, which had caused false and mixed up entries.
+
+- Dialogues were further adjusted in the interest of clarity and player
+  guidance.
+ 
+- Added a sixth ending sequence that is triggered if the player manages to
+  finish the game with less than 3140 Points collected.
+ 
+- The overall difficutly got balanced. Unfair areas were cut out entirely.
+
+- In the interest of clarity and player guidance a few ingame dialogues were
+  rewritten.
+ 
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+BETA PLAY-TESTING PHASE II
+
+- A major SVGA compatibility mode bug is fixed. Therefore the RF_FixOfs() logic
+  got replaced with an updated version.
+
+- Replaced the unstable JERK parameter check with the new parameter NOBORDER
+  to prevent coloring of the overscan border to reduce problems on some systems.
+
+- Fixed a gamestate score mishmash that incorrectly read out wrong values.
+ 
+- Ensured that all automatically cached special death sprites can be deleted
+  after loading a checkpoint.
+ 
+- The final memory requirements were updated to "468000-BUFFERSIZE".
+
+- The memory manager can now stop the music at any time and release its used
+  memory space. The reason behind this is to deal with hypothetical crashes
+  when there is not enough memory left. Aborted music should free enough
+  available memory to avoid crashes.
+
+- Prevented data from being written beyond the buffer, which would overwrite
+  random memory parts and may cause major problems. This concerns the final
+  credits image at the end of the terminator intro. It was not released and
+  9.5 kilobytes of memory thus remained permanently occupied.  This bug made
+  the Terminator credits graphics to be displayed incorrectly. With this fix
+  all credits graphics can be released from memory.
+
+- Stabilized the Terminator FizzleDown effect to avoid possible rendering
+  problems.
+
+- Ensured that scaler-code block will not be shifted when the music is loaded
+  later in the level.
+
+- Replaced unsafe _seg * variables with grsegs[I_KEENEXTERN] and
+  grsegs[I_COMMANDEREXTERN], as they just use a different type to provide
+  access to the header information.  But unlike the grsegs values, these
+  pointers don't get updated when the memory manager sorts memory blocks.
+
+- An extra bit for the donut level icon interfered with a handle condition,
+  so that the ending sequence wasn't displayed as intended. This got fixed.
+ 
+- The Janitor sprite is now rendered directly behind the bucket sprite.
+
+- The TARDIS level receives its seperate worldmap object and is no longer
+  conjoined with the gamestate status of level 22. This prevents the
+  possibility of farming infinite points.
+ 
+- The toggled clone machine switches in the final level are now counted. An
+  associated text condition for the ending sequence has been added.
+ 
+- In the mushroom level, a no-weapons zone has been established. When you try
+  to shoot, Keen crumbles to ashes. The screen flashes white briefly and an
+  explosion sound is played.
+ 
+- Added a hint dialog that informs when the bonus level has been unlocked
+  after accumulating 500,000 points.
+ 
+- When Keen is grabbed by Nisasi, he cannot collect any items until he shakes
+  Nisasi off again.
+
+- The scroll speed during the mind control character switch in level 24 has
+  been halved.  In addition, it is checked whether the door to be switched to
+  is in visible range.
+
+- After the page talks to Keen, he now shrugs his shoulders for a moment. A
+  new sprite was created for this.
+
+- It is defined how many lives and shots are available at the beginning of a
+  new game session, depending on the selected difficulty level:
+  Easy:   5x lives, 10x shots
+  Medium: 3x lives,  5x shots
+  Hard:   2x lives,  3x shots
+ 
+- It turns out that there there were undetected problems when loading, saving
+  and copying checkpoint files. Since the copied checkpoint files are up to
+  406 bytes too small, not all objects in the level are loaded correctly when
+  loading the checkpoint. In the worst case the last 6 object slots are not or
+  not completely loaded. This problem has been solved.
+ 
+- Beautified the Increase-Score code segment.
+
+- If an error occurs when changing music in the middle of a level, the game
+  screen is now redrawn.
+ 
+- Sprites are simply not displayed if they cannot be loaded due to insufficient
+  free memory. This prevents possible program crashes.
+ 
+- In addition to the tiles of the foreground layer being removed when levels
+  are finished, a new function has been added. Instead of deleting the tile,
+  it is now switched to the transparent blocking foreground tile #35. To use
+  this function, the value D1xyh must be used in the level editor instead of
+  the info layer value D0xyh, so that when the level "xy" is finished, the
+  tile #35 is placed in this position instead of being removed.
+
+- Numerous smaller graphic updates and fine tunings were made.
+
+- In the final part of the last level, there was a possibility that the game
+  could not be completed if Keen flipped the switch too early, before the
+  Janitor entered the clone machine. The first button of the power-up sequence
+  is now locked until the Janitor has entered the machine and is ready
+  to clone. Also, the Janitor Dialog 10 will be triggered even if the Janitor
+  is already standing in the clone machine.
+ 
+- Colors were swapped for level 8 to avoid false colors of the goodies.
+ 
+- Vertical doors that can be opened/closed with a switch can now only be
+  operated again with a switch after all active door animations have been
+  completed.
+ 
+- Some grammar fixes.
+
+- Lot's of sprite hitbox adjustments and pixel corrections were made.
+
+- In bonus level 19 slugs now can carry point items (donuts). When the slugs
+  are shot, they release those point items so that they can be collected by
+  the player.
+
+- Made deadly tiles slightly less deadly by giving a tolerance margin of four
+  pixels to each side.
+ 
+- Tileset optimization, partial removal of unused tiles, and bug fixes of
+  wrongly assigned intile values have been made. In that regard a number of
+  graphic updates have been made.
+ 
+- Faulty music piece were fixed and/or replaced.
+  Other music pieces got fine tuned (fade outs for e.g.).
+  The overall loudness level for the whole soundtrack was leveled.
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+BETA PLAY-TESTING PHASE III
+
+- A large list of bug fixes and code optimizations have been implemented. If I
+  had more time, I would list them all here. Unfortunately, this project
+  exceeds my available capacity. So for now we have to make do with the
+  indirect reference. It should be noted that almost all bullet points
+  submitted have been taken into account. Yadda-yadda.
+
+- The transition between Level 16 & 22 was tweaked. Now the mushroom level
+  trigger turns Keen into a smoke cloud followed by and explosion that throws
+  ammo sprites in a bow. Meanwhile, Keen's ammo supply is reduced to zero. This
+  is followed by a fade to black as Keen moves into the next mushroom level.
+
+- Included the Mini-Game SNAILAS which basicaly functions as a screensaver
+  animation and can't be interacted with, besids being started and exited.
+
+- Added numerous animated crossreference tiles to the game. They serve as just
+  eyecandy, Easter eggs, jokes and basically fan service.
+
+- Added a special gravity for Keen in easy mode which basically gives a gravity
+  halfway between mid and high / easy and normal mode.
+
+- Overhauled all PC-Speaker sounds. Two sounds don't quite fit as perferct as
+  intended, but will be used either way.
+  In this regard the Abiathar sound list was rewritten in a human-readable way.
+
+- Made usage of the new difficulty-specific map mechanic that allows to generate
+  adjusted level structures for each difficulty mode. By now 13/25 easy mode 
+  maps as well as 6/25 hard mode levels are being created.
+ 
+- Expanded both tiles once again, and also added two sprite graphics.
+
+- Added a new music file. The soundtrack now contains 39 tracks.
+
+- The BwB level now features a hidden section. The tiles are borrowed from
+  spleens mondochrome mod.
+ 
+- On the worldmap a hidden trigger point was created. When touched a dialog
+  pops up to inform about further secrets the game holds. The trigger gets
+  is only unlocked towards the end of the game and informs. 
+
+- Fixed a false in-tile value that caused a game freez in level 14.
+
+- Added the missing Donut-Heaven worldmap sprite to be propper displayed when   
+  entering the bonus stage.
+ 
+- Adjusted the jump hight for the easy difficulty. Meaning that we lowered it
+  a little bit.
+
+- In the 1000000 points ending, the case when you haven't collected a single
+  plushie is now also taken into account as a small Easteregg. For this purpose,
+  an intermezzo dialog with custom graphics has been added.
+
+- Added an alternate loading screen image for the transition from Mushroom
+  level 1 to Mushroom level 2.
+ 
+- As an EasterEgg, a new entry "SUMMON DOPEFISH" has been added to the
+  Action Button menu area, but it remains switched as permanently disabled.
+
+- A new smooth VGA fading routine has been built in, which is used for the
+  black fade when entering and/or leaving a level and for other places in the
+  game.
+
+- Fixed an erroneously active no-clipping entry for the JediBootContact on the
+  world map.
+ 
+- Optimizations have been made at various levels to reduce the file size for
+  1,44 MB floppy disks as much as possible. The savings in the amount of data
+  was obtained as follows.
+  - PKZIP2 compression:         2,976,249 bytes
+  - Compiler optimization:          1,142 bytes
+  - Sprite/graphic optimization:      615 bytes
+  - Text file optimization:           587 bytes
+  - Level design optimization:      1,033 bytes
+  - Disable unused code:              230 bytes
+ 
+ 
+- Players are now rewarded with an extra life for collecting all point items
+  per level.
+ 
+- In the help menu the info about the difficulty levels as well as hints about
+  the new hotkeys F2, F3, F5, F9 have been revised.
+ 
+- Added another bonus level map. Therefore some adjustments were made to both
+  tilesets.
+ 
+ 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+BETA PLAY-TESTING PHASE IV
+
+- Added a new text command:
+  ^Fn sets the font number to n
+
+- All new text commands at one glance:
+
+  ^Mxxx  - start playing music number xxx
+  ^Sxxx  - play sound number xxx
+  ^W     - wait until the current sound is done (does not update the screen)
+  ^Dttt  - wait ttt tics (screen will be updated)
+  ^Q     - "quiet" - stops sounds and music
+  ^MOxxx - "Music Once" (play music without repeating)
+  ^MP    - "Music Pause" (stops music and allows you to resume it later)
+  ^MR    - "Music Resume" (resumes music paused by ^MP)
+  ^H     - for showing the high scores in help or end texts
+  ^By,x,w,h,c - render regular pictures
+  ^^G    - display sprites and both types of 16x16 pixel tiles (TILE16/TILE16M)
+  ^Ix    - condition checking for help or end texts
+
+- The source code was revised in a way that commenting out elements were
+  replaced by #ifdef ... #endif statements. This has to do with the fact that
+  some interactions between certain "actors" in the game were programmed but
+  ultimately never used in the official Foray in the Forest levels and therefore
+  have been disabled to reduce the code size and make more memory available.
+  The Code can re-enable by uncommenting the following line located in CK_DEF.H:
+	//#define EXTRA_INTERACTIONS
+  
+- Spellings have been standardized. British spellings have been replaced by
+  American spellings.
+ 
+- The Jedi trigger object on the World Map has been reworked to fix an existing
+  glitch.
+
+- The overly aggressive behavior of the PuffPuff has been slightly mitigated.
+
+- A number of code fixes were made.
+
+- The difficulty differences between different levels have been balanced and
+  harmonized.
+
+- A new BwB secret level section has been added as a small bonus.
+
+- Added a hint about the current difficulty level in the text for the perfect
+  ending.
+
+- Fixed placement of points to increase the chance of reaching the minimum ending
+
+- Corrected typos on the obelisk.
+
+- A number of minor level map adjustments have been made.
+
+- A number of speed optimizations have been made.
+
+
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+DISTRIBUTION OF THE GAME
+
+- A substantial game manual is added to the download package. It explains new
+  features and mechanics of the game and also contains edutainment elements
+  like comic stripes, templates for batches or a quiz.
+
+- A physical cardboard-box prototype is in the making. It will contain the
+  game burned onto a 3.5" Floppy Disk (1,44MB) and a printed 18 page manual.
+ 
+- To fit the game onto a Floppy Disk (1,44MB), all files get compress with
+  PKZIP version 2.04g and converted into a self extracting EXE. This results
+  in a ~1.44MB large file. In addition a batch file is added to the Floppy to
+  semi automate the installation from the Floppy to a hard-drive location of
+  choice.
+ 
+ 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+
+
+Notes:
+-------
+
+Acceleration and deceleration change the speed by 1 every 2 tics, so if speed
+is 16, you need 32 frames to decelerate to 0. While decelerating, the object
+keeps moving at the current speed, so the object will move
+
+16 + 15 + 15 + 14 + 14 + 13 + 13 + 12 + 12 + 11 + 11 + 10 + 10 + 9 + 9 + 8 + 8
++ 7 + 7 + 6 + 6 + 5 + 5 + 4 + 4 + 3 + 3 + 2 + 2 + 1 + 1
+
+= 256 units!!! (= 16 pixels = 1 tile)
+
+In general: the objects move by speed*speed units while decelerating to 0.
+
+--
+
+Maximum Speed (velX and velY): 47!  (or 39 if MAXTICS is 6 like in Keen Dreams)
+
+Objects cannot move by more than 239 units (14.9375 pixels) in one frame due to
+the way clipping is handled. That, in combination with the maximum tics per
+frame value of 5, means that the maximum speed value (velX and velY) should
+never exceed 47, otherwise the engine will not be able to move the object far
+enough in one frame if the frame rate is rather low, leading to unexpected
+results like Keen not being able to jump/pogo high enough.
+
+The fact that the velY value for Keen's pogo states is -48 suggests that we
+really shoud set MAXTICS to 5 and not 6 in the source mod. MAXTICS was set to
+5 in Keen 4-6 anyway.
+
+--
+
+Memory usage per managed Sprite in Refresh Manager: 50 bytes
+
+The sprite list entries take up 34 bytes per sprite. Each erase list entry is
+8 bytes, but there are two entries per sprite because of the double buffering.
+
+So 34 + 8*2 = 50 bytes per sprite.
+
+
+CKSRCMOD uses 50 sprites, so that's 2500 bytes.
+
+The object list has 100 entries @ 76 bytes each, so that's 7600 bytes.
+
+  50 sprites + 100 objects = 2500 + 7600 = 10100 bytes
+
+If we set the number of sprites and the number of objects to 80, that gives us
+4000 bytes for the sprites and 6080 bytes for the objects, which is still 20
+bytes less than the previous setup.
+
+  80 sprites + 80 objects = 4000 + 6080 = 10080 bytes
+
+Even better:
+
+  88 sprites + 75 objects = 4400 + 5700 = 10100 bytes
+
+This version means we have the same memory usage as in the old CKSRCMOD, but we
+can have all 75 objects visible at the same time, and up to 13 of them could be
+using two sprite slots (stunned objects need two slots). So unless there are
+more than 13 stunnable creatures in the level, we will never encounter the
+"RF_PlaceSprite: No free spots in spritearray!" error.

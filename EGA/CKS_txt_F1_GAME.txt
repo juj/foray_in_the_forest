@@ -1,0 +1,363 @@
+^P
+^cF ITEMS COMMANDER KEEN CAN GET
+^G25,10,80
+
+^cE Shikadi Soda (100 points)
+
+Three-Tooth Cannamellas (200 Points)
+
+Shikkers Candy Bars (500 points)
+
+Stickypops (500/1000 points)
+
+Frozen Fudgsicles (1000 points)
+
+Ice Cream Cones (2000 points)
+
+Addictive Doughnuts (5000 points)
+
+Banana? Banana!
+
+
+^P
+^cFITEMS COMMANDER KEEN CAN GET
+^G48,18,81
+^cE
+And there are some useful items, too.
+
+Raindrops (collect 100 for an extra life)
+
+Neural Stunner (gives 25 shots max)
+
+Gems (open doors)
+
+Lifewater flask (extra Keen)
+
+Goodies (collectibles to take back home)
+
+Secret Slug Slime Soda (well hidden)
+
+On the next page you will learn more about
+^L180, 116
+these items...
+
+
+^P
+^cF ITEMS COMMANDER KEEN CAN GET
+
+^cE Floating in the sky are ^cAraindrops.  ^cESince the
+water of  Gnosticus #  has  life-sustaining
+energy, if Keen collects a hundred raindrops,
+he gets an extra life!
+
+^cA Goodies!  ^cEThat's  what  Keen  is  here  for.
+Somehow,  someone  pilfered  his  beloved
+stuffed animals. Make sure to catch 'em all.
+
+Note that Keen's ammo is now limited to 25
+shots max. When Keen's  ^cANeural Stunner  ^cEis
+fully charged,  he won't be able to pick up
+any more ammo. But don't worry, there is
+plenty of ammo hidden here and there. How
+do you find it?  Well, keep on reading...
+
+
+^p
+^cF SPECIAL STATUS WINDOW
+
+^G30,8,82
+^cE While in game you
+can press the ^cARIGHT SHIFT ^cE key
+in order to open
+a special status
+window, which
+scans the area
+for items you
+have not collected
+yet.
+The red arrow down below points towards
+the next set of Neural Stunners nearby. 
+If you use diligence,  you might receive a
+little bonus...
+
+
+^p
+^cF SCORE BOX
+
+^G30,8,83
+^cE In  game,  try  pressing
+^cABACKSPACE ^cEon your keyboard.
+It turns the score box on
+or  off  during  the  game
+without having to open the
+menu. This comes in handy when you want to
+make use of the entire screen to check for
+enemies or secret areas. Your score is nice
+to have there, but it can block your view
+sometimes!
+
+
+^p
+^cF CHECKPOINTS
+^G92,16,79
+ 
+^cE Keen can reach checkpoints in levels.  When
+you  come  across a  hopping  little  magic
+mushroom, just touch it and the checkpoint
+is activated. If you die during the level, you
+can restart from the checkpoint.
+
+
+^p
+^cF CHECKPOINTS
+
+^cE Beware, however. If you run out of lives and
+reach a game over, you will lose all of your
+level progress and have to start that level
+over.
+
+Checkpoints can only be used once per level,
+and  only  the  most  recent  checkpoint is
+counted. Use your checkpoints carefully! Don't
+be afraid to save one for later.
+
+May the magic power of mushrooms be with
+you!
+
+
+^p
+^cF QUICK-SAVE / QUICK-LOAD
+
+^cE Another neat feature is quick-saving and
+quick-loading the game with just a single keystroke.
+
+^L70,24
+Quick-save: ^cA F5 ^cE
+^L70,164
+Quick-load: ^cA F9 ^cE
+
+Note,  however,  that saving outside the
+worldmap on  ^cA normal ^cE and ^cA hard  ^cE difficulty
+costs one life.  You can learn more about
+this in the "COMPUTERWRIST" help section.
+
+
+^P
+^cF DISPENSERS
+
+^G, 30,112, 78
+^B, 30,112, 84, 62,2	## green box
+^G,  0,  0,  9
+
+^L 30, 10
+^cE Along the way you'll find dispensers. They are
+^L 40, 10
+said to contain highly	concentrated Slug Slime.
+^L 50, 10
+If you should ever run low on ammo,  you
+^L 60, 10
+can always return to one of these and refill
+^L 70, 10
+your Neural Stunner.
+
+
+^p
+^cF CAST OF CHARACTERS
+^G65,16,71
+
+^cE There are quite a few foes in the Valley of
+Foreshadowing.  Here is a list of the most
+common ones:
+
+^cA CHEMOLAIN. ^cE These stoic buddies
+love to surf on flotsam.  They
+don't really like to give way to
+you.  On touch they react with
+a change of skin coloration.
+^c3 (c) by Neorice
+^cA CROCODENT. ^cE This tiny darling
+seems  pleasant,  but
+appearances are deceptive.
+Before you know it, it's gonna
+trap and snap after you.
+
+
+^P
+^cF CAST OF CHARACTERS
+^G30,16,72
+
+^cA DICKIE "DIG" DIGGENS. ^cE Also known
+as notorious D-I-G.  Beware of
+its spinning nose.  It will drill
+its way through anything, no
+matter what.
+^c3 (c) by Neorice
+
+
+
+^cA FAT RED CAT. ^cE Miaows like a cutie.
+But make sure to steer clear
+of it. Otherwise this kitten will
+demonstrate its atomic impact.
+^c3 (c) by siskavard_
+
+^P
+^cF CAST OF CHARACTERS
+^G30,16,73
+
+^cA GELATIN SPOOPS. ^cE These jellylike
+creatures appear and disappear
+unexpectedly.  If Keen makes
+contact  with  their  stunning
+skin, he will feel muzzy for a
+short moment.  Will he find a
+way to bypass them?
+
+^cA THE JANITOR. ^cE  He tries to clean
+up the shemozzle. While mopping
+up,  he shares his elaborate
+gnostic knowledge.  Being the
+only person on this planet, he
+still has a lot of work to do. If
+only he had some companions...
+
+
+^P
+^cF CAST OF CHARACTERS
+^G30,16,74
+
+^cA LEGBERY. ^ce Inside this shrubbery
+dozes a four-eyed spy. It will
+follow your footsteps only to
+shove you around.
+
+
+
+
+^cA LEVAR. ^cE This  tousled  mini  FSM
+fellow slides down poles.  Its
+ball  of  noodly appendage  is
+coated with a dangerous toxin.
+So you better watch out when
+it throws little ravels at you.
+
+
+^P
+^cF CAST OF CHARACTERS
+^G30,16,75
+
+^cA NISASI. ^cE These lively loons are
+very clinging and really know
+how to turn someone's head.
+They will follow you till you
+change direction. You better
+shake them off.
+
+
+^cA OPTIQUAT. ^cE One eye,  big mouth,
+even bigger tongue. Woe betide
+the hero that  wanders  near
+one of these.  They will hound
+you and  lick  you  to  death.
+Avoid, avoid, avoid!
+
+^P
+^cF CAST OF CHARACTERS
+^G30,16,76
+
+^cA PUFFPUFF. ^ce Seems like this good
+ol' fellow mutated somehow.
+You better not nettle it or it
+flies into a rage. Remember: Its
+venomous spines are deadly to
+the touch.
+
+
+^cA PURPLE TENTACLE. ^ce It is attached
+to a water lily via its suction
+cup, pretending to be a flower.
+But beware, it has an excellent
+sense  of  touch  and  a
+megalomaniac desire to take
+over the world.
+
+
+^P
+^cF CAST OF CHARACTERS
+^G30,16,77
+
+^cA SNEAKY TREE.  ^ceSomething shy
+seems to be hidden inside this
+tree trunk.  It avoids human
+contact but can be helpful in
+certain places.  If you  only
+knew how to make it move...
+
+
+^cA WADDLE.  ^ceThis cozy,  frugal,
+hirsute  creature  puffs  Keen
+aside  if he  comes  too  close.
+You might want to tickle it a
+little bit to find out what is
+hidden in its pelt.
+
+
+^P
+^cF CAST OF CHARACTERS
+^G30,8,78
+
+^L, 30, 96
+^cA ZIBBLINX. ^ce  Shying away from
+^L, 40, 96
+daylight, these never-fully-seen
+^L, 50, 96
+subterranean menaces sneak a
+^L, 60, 96
+nervous peek -always in pairs-
+^L, 70, 96
+at what is  going on  above
+^L, 80, 96
+ground.  Their  signal  colour
+^L, 90, 96
+indicates danger.
+
+^B, 92, 8, 88,86,2	## green box
+
+^cE
+^L, 130, 10
+There are way more monsters out there. We
+^L, 140, 10
+haven't even covered half of them yet, but
+^L, 150, 10
+discovering them for yourself is half the
+^L, 160, 10
+fun, isn't it!
+
+
+^P
+^cF STANDARD GALACTIC ALPHABET
+^G140,48,84
+
+^cE Along the way Keen will come across textual
+signs and directions which are depicted in
+an alien language.  As every great traveller
+through space knows, all these signs are
+written in the ^cAStandard Galactic Alphabet.
+^cE Throughout the galaxy, this is a guaranteed
+way to get in contact with other sentient
+races.  So it is of highest importance that
+you get your homework done.
+Here is a list that will help you decipher it.
+
+
+^P
+^cE
+^B79,135,50,66,0
+^G80,140,48
+^G124,140,41
+
+^L30,125
+That's all!
+^L50,65
+Now go play Commander Keen!
+^E

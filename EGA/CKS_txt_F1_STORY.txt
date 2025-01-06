@@ -1,0 +1,196 @@
+^P = = = = = MAIN STORY = = = = =
+^;
+^cFCOMMANDER KEEN in... "Goodbye, Galaxy!"
+Keen Episode # : Foray in the Forest!
+^cE
+Billy Blaze has just come back home from
+window  shopping  at his  most  favorite
+confectionery kiosk.
+
+He's still daydreaming about candies, cookies,
+cakes, the like; if it's sugar, it's a sure bet
+it will attract his attention, and an equally
+sure bet that he'll be told he had best eat
+his veggies before he gets any dessert.
+
+
+^P
+^cE
+But darn it, Billy doesn't care for
+seeds and greens!  The smell of
+freshly fried dough,  the flavour
+of sweet icing,  the sticky feel
+left on his fingers as he clutches
+the precious doughnut he imagines
+himself eating...
+
+Mmm, now he's definitely hungry.
+
+^B 21,255, 50,66,0
+^G 22,260, 51     ## Keen donuts
+
+
+^P
+^cE
+^L,20,10
+But the minute he steps into his bedroom,
+still daydreaming about the delicious sweets
+he  just  saw,  it  becomes  clear  that
+something is very wrong.
+
+^B 67, 15,154,108,0
+^G 68, 20, 90     ## Big bed + letter
+
+^cE Much  to  Billy's
+alarm,  six of his
+very  favorite
+plushies seem to
+have  vanished,
+leaving nothing but
+empty space where
+they should be.
+
+
+^P
+^cE
+^G 10,10, 85     ## letter
+It doesn't take
+him  long  to
+find  a  clue
+
+^c2xxxx ^cE-
+
+a piece of paper
+on  his  bed,
+with words in a
+very  familiar
+language which
+he recognises as
+the  Standard
+Galactic Alphabet.
+
+
+^P
+^cE
+Reading the message, Billy discovers that the
+loss of his plushies is no mere coincidence...
+
+
+^cF--"What evil mastermind could have
+^L, 70,30
+done something so despicable?"
+^L,90,10
+--"Who would be so cruel as to
+^L,100,30
+kidnap my intergalactic friends?!"
+
+^B 56,255, 50,68,0
+^G 57,260, 47     ## Keen sceptical
+^B113,255, 50,12,2
+^B113,255, 50,1,0
+
+^cE
+^L,130,10
+It looks like it isn't time for Commander
+Keen to take a break just yet.
+
+
+^P
+^G 10,135, 85     ## letter
+^cEStudying  the
+letter intently,
+especially  the
+drawings  that
+appear to be of
+various planets
+and nebulae,
+Keen comes to
+the  conclusion
+that  he  must
+pass through the
+Dream Nebula and
+make his way to
+a  planet  with
+strange  rings...
+
+^L,160,18
+^cF Gnosticus # !
+
+
+^P
+^cE
+One thing's for sure  -  this won't be any
+half-baked  adventure  that  would  make
+anyone's eyes glaze over.
+
+But first, he needs to prepare for another
+trip into deepest space, and it looks like this
+one won't be over before dinner time...
+
+Hastily,  taking the portable parent monitor
+receiver,  and making sure his parents are
+occupied,  our intergalactic hero of justice
+dons his brother's football helmet,  straps
+himself into the Bean-with-Bacon Megarocket,
+and  blasts  off  to new  and  unsuspected
+adventures to rescue his friends.
+
+
+^P
+^cEOn board,  Keen sets the ship's autopilot
+coordinates to  Gnosticus #  and locks in
+on the signal of his favored intergalactic
+streaming service:
+^G 60, 10, 87     ## Donut Galaxy
+^L,40,194
+^c2Pause ^D150
+^L,50,194
+^cFbrrzzz... ^D50
+shhhhgg... ^D45
+
+fssshhh... ^D40
+need ^D9
+to ^D9
+dust ^D9
+your ^D9
+planet? ^D70
+We ^D9
+beam ^D9
+& ^D9
+clean!  ^D70
+Place ^D9
+an ^D9
+order ^D9
+tonight ^D70
+and ^D9
+the ^D9
+^cAIntergalactic ^D70
+Planetary ^D70
+^L,120,258
+Cleaning
+^L,120,305
+, ^D60
+Inc. ^D70
+^cFwill ^D9
+make ^D9
+your ^D9
+planet ^D9
+look ^D9
+brand ^D9
+new ^D9
+again ^D60
+^L,160,194
+for ^D9
+a  ^D9
+special ^D5
+^L,170,194
+price ^D9
+tag ^D9
+of ^D9
+only ^D9
+^L,180,194
+...
+
+^E
+TL:DR
+Yr a kid with a pogo stick.

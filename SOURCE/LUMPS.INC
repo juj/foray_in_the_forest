@@ -1,0 +1,72 @@
+/* "Foray in the Forest" Source Code
+ * Copyright (C) 2022-2023 Nisaba
+ * Copyright (C) 2019-2021 K1n9_Duk3
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+
+//
+// LUMP LIST DEFINITION FOR "FORAY IN THE FOREST"
+//
+
+MAKELUMP(KEEN),
+MAKELUMP(WORLDKEEN),
+MAKELUMP(PLATFORM),
+MAKELUMP(SLUG),
+MAKELUMP(SMIRKY),
+MAKELUMP(SKYPEST),
+MAKELUMP(PATPAT),
+MAKELUMP(COUNCIL),
+MAKELUMP(LINDSEY),
+MAKELUMP(XKYLICK),
+MAKELUMP(FUNGUSAMONGUS),
+MAKELUMP(DUNGBEETLE),
+MAKELUMP(CHEMOLAIN),
+MAKELUMP(SALAMANDER),
+MAKELUMP(KEENKNOCKBACK),
+MAKELUMP(WORMOUTH),
+MAKELUMP(SHRUBBERY),
+MAKELUMP(BOUNDER),
+MAKELUMP(TENTACLE),
+MAKELUMP(POLEKNAWEL),
+MAKELUMP(KITTEN),
+MAKELUMP(GELLYGHOST),
+MAKELUMP(ROOTS),
+MAKELUMP(YETI),
+MAKELUMP(YETICLOUD),
+MAKELUMP(MOLET),
+MAKELUMP(TREASUREPOOF),
+MAKELUMP(BIRD),
+MAKELUMP(SNEAKYTREE),
+MAKELUMP(CROCO),
+MAKELUMP(GRETENTA),
+MAKELUMP(CHECKPOINT),
+MAKELUMP(SMIRKYPOOF),
+MAKELUMP(LEAVEA),
+MAKELUMP(WARBLE),
+MAKELUMP(EFREE),
+MAKELUMP(NISASI),
+MAKELUMP(PAGE),
+MAKELUMP(PAGEDOORS),
+MAKELUMP(CORONA),
+MAKELUMP(NIPNAP),
+MAKELUMP(CRAB),
+MAKELUMP(SCANNER),
+MAKELUMP(BRAINFUCL),
+MAKELUMP(FLYDONUT),
+MAKELUMP(SANDSTONE),
+MAKELUMP(MUMMY),
+MAKELUMP(LEMONSHARK),
+MAKELUMP(SLUGCANS),

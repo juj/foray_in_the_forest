@@ -1,0 +1,223 @@
+^P = = = = = CHEATER = = = = =
+
+^B,12, 15,50,66,0
+^G,13, 16,42		## Janitor
+^cB "Good job out there today, young
+Einstein. That was really incredible
+to see.  I'm besides myself."
+^cE says one of the cloned janitors
+approvingly in Keen's direction.
+
+^B, 82,255,50,66,0
+^G, 83,256,48  	## Keen
+^G,127,256,38  	## Victory fingers
+
+^L 90, 26
+^cF "Thanks. I felt invincible at times.
+^L100, 40
+I get the feeling  I had a little
+^L110, 21
+extra help." ^cEKeen replies pensively.
+^L120, 66
+^cF "Anyways,  now that there
+^L130,123
+are eight of you..."
+
+
+^cB "...nine!  Actually, there are nine of us."
+^cE All janitors correct Keen in chorus.
+
+
+^P
+^B, 21,255,50,66,0
+^G, 22,256,47  	## Keen
+
+^L, 20, 24
+^cF "All right, nine then.  Fortunately,
+^L, 30, 43
+the machine was low on toner.
+^L, 40, 56
+Can't imagine having more of
+^L, 50, 12
+these know-it-alls, these wanna-be
+^L, 60, 178
+Gnostics..."
+^L, 70,150
+^cE Keen complains.
+^L, 80, 38
+^cF "But listen, you're all individuals.
+^L, 90,124
+You're all different."
+
+^B,116, 15,50,66,0
+^G,117, 16,43		## Janitor
+
+^cB "Yes, we're all individuals.
+^L,130, 117
+We're all different."
+^cE repeat the janitors simultaneously,
+
+^L,160, 125
+^c4 "I'm not!"
+^cE intervenes one of the members.
+
+
+^P
+^B, 21,255,50,66,0
+^G, 22,256,47 		## Keen
+
+^L, 20, 32
+^cF "Now listen to this.  Hearing you
+^L, 30, 16
+talk like that, I get the impression
+^L, 40, 25
+that you are all possessed by the
+^L, 50, 10
+mysterious intergalactic divine F10+G
+^L, 60, 27
+mind controlling entity,  everyone
+^L, 70,165
+talks about."
+^L, 80, 66
+^cE Keen notes in astonishment.
+
+
+^B,112,15,50,66,0
+^G,113,16,49 		## Keen + Nisasi
+
+At that moment, long arms wrap
+around Keen's head and clasp him.
+
+^cF "!§{]$ %&#'=?}\@S Y2038: unix y2k
+CK_DialogExit(8*TickBase, true);"
+
+
+^P
+^MP
+^S059
+^B, 0,  0,320,200,3
+^D008
+^B, 0,  0,320,200,2
+^D008
+^B, 0,  0,320,200,3
+^D008
+^B, 0,  0,320,200,2
+^D008
+^B, 0,  0,320,200,3
+^D008
+^B, 0,  0,320,200,2
+^W
+^MR
+^B, 0,  0,320,200,f
+^B,23,  3,314,174,2
+^B,25,  5,310,170,3
+^L,10,15
+^cc/\/\/\/\/\ COMMERCIAL BREAK /\/\/\/\/\
+
+^cbYou don't want to miss out the upcoming
+sensational,  startling  and  mind-blowing
+episode set in the greatest theme park of
+all time, with an incredible and extraordinary
+plot in which you are:
+
+^L,90,56
+^caA  KID  WITH  A  POGO-STICK!
+
+^cbBe like your hero and grab one of the brand
+new generation of Pogo-Sticks:  GALACTIPOGO!
+This limited edition now comes with a never
+seen before magnificient sliding feature. ^ca
+^L,150,110
+This is New!
+^L,160,90
+This is Surpreme!
+^L,170,110
+This is Keen!
+
+
+^P
+^B, 0,  0,320,200,f
+^B,23,  3,314,174,2
+^B,25,  5,310,170,3
+^L,8,15
+^cc/\/\/\/\/\ COMMERCIAL BREAK /\/\/\/\/\
+
+^G,24,32,99    ## weird no1: "Galactipogo"
+
+
+^P
+^G,10,80,98   ## weird no2 "Title Screen"
+Welp, we'
+re actuall
+y unsure
+what hap
+pend her
+e. Seems
+like cheat
+ing has c
+aused se
+rious tro
+uble. Best
+to resta
+rt the g
+ame agai
+n before
+somethin
+g even w
+eirder happens. Back to our commercial break
+
+
+^P
+^MP
+^S059			## Glitch Sound
+^B, 0,  0,320,200,9
+^D008
+^B, 0,  0,320,200,2
+^D008
+^B, 0,  0,320,200,9
+^D008
+^B, 0,  0,320,200,2
+^D008
+^B, 0,  0,320,200,9
+^D008
+^B, 0,  0,320,200,2
+^W
+^MR
+^B, 0,  0,320,200,f
+^B,23,  3,314,174,1
+^B,25,  5,310,170,9
+^G,61,130, 95        ## Dope fish
+^L,8,15
+^cc/\/\/\/\/\ COMMERCIAL BREAK /\/\/\/\/\
+^L,30,10
+^caDo you often feel like you're stuck?
+^L,40,10
+Tired of using F10+G to make progress?
+^L,60,10
+The ^cBIntergalactic
+^L,70,10
+^cAis here to help.
+^L,100,10
+Contact us today
+^L,110,10
+at ^c8nisaba@pm.me
+^L,120,10
+^cAor  join  the
+^L,130,10
+community hub
+^L,140,10
+at ^c8pckf.com
+^L,180,10
+^c8 and don't forget
+
+
+^P
+
+^G 86, 56, 91     ## tumbling in the depth of space
+^G 86,104, 91     ## 
+^G 86, 80, 91     ## 
+^B124, 48, 220, 37,2	## green box
+
+^L,60, 66
+Let's go for another round...
+^E

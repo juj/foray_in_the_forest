@@ -1,0 +1,588 @@
+^p = = = = = WIN ALL POINTS = = = = =
+
+^B, 57,247, 50,66,0	## black box
+^B, 58,248, 48,62,f	## white box
+^G, 61,248, 48		## Keen
+^G, 87,248, 97		## small plushie Box + parent monitor
+^B,123,247, 60,60,2	## green box
+
+^L 60,24
+^cF "Oops!  What have I done now?"
+^L 80,24
+^cE Keen shouts in nervous tension.
+^L100,46
+^cF "Sheesh... if that doesn't
+^L110,64
+cause any trouble."
+
+
+^P ## ## ## ##  The Janitor & his ToDo List
+
+But to Keen's surprise,  no-one seems to have noticed him fiddling with the switches and buttons.
+
+On the contrary, the "High Council" seems to continue unperturbed with the plan of action.
+
+
+
+^B,108, 15,50,66,0
+^G,109, 16,42		## Janitor
+
+^cB "...sweets can be crossed off the to-do list. Good, good...
+For stubborn stains and disinfecting we still need Slug Slime Remover."
+
+
+^P ## ## ## ##  Instructions for the Page
+^B,11, 15,50,66,0
+^G,12, 16,42		## Janitor
+
+^cB "Toilet paper also seems
+to be out of stock, which
+is what you can take care
+of, my young helper."
+
+
+^B,76,247, 50,66,0
+^G,77,248, 96		## Page
+
+^L,100,92
+^c7 "Inffompffrehenpffible
+^L,110,134
+murmurmimggh."
+
+^B,125, 15,50,66,0
+^G,126, 16,43		## Janitor Mob
+
+^cB "And this time, don't
+forget to clean the
+micr-O-wave machine
+before the next use."
+
+
+^P ## ## ## ##  Conversation about Multiplier
+
+^B, 12,255,50,66,0
+^G, 13,256,47		## Keen
+
+^L 20, 38
+^cF "How can one be so passionated
+^L 30, 42
+when it comes to  cleaning up?
+^L 40, 46
+Whereas, not to think if a bat
+^L 50, 46
+would slip into the multiplier..."
+^L 60, 72
+^cE mumbles Keen thoughtfully.
+
+
+
+^B,106, 15,50,66,0
+^G,107, 16,42		## Janitor
+
+^cB "Speaking  of  the  "multiplier"
+incident.  We have to thank you,
+young fellow,  for  your  great
+service  in  picking  up  all  this
+stuff. We owe you a great debt
+that we hope to repay one day."
+
+
+^P ## ## ## ##  Janitor mentions Plushies
+^I 2
+
+^B,11, 15,50,66,0
+^G,12, 16,42		## Janitor
+
+^cB "And I see you got your plushies
+together again.  By the way,
+a new order load..."
+
+^L, 90,35
+^cE But Keen doesn't even listen anymore
+^L,100,33
+and instead wanders off into thought:
+
+
+^B, 122,255,50,66,0
+^G, 123,256,51		## Keen
+
+^L 140,32
+^cF "How nice it would be to be able
+^L 150,10
+to multiply all the sweets & candies 
+^L 160,15
+with the cloning machine."  *drool*
+
+
+^P
+^I 0
+^; ## ## ## ##  Zero Plushies
+^I 4
+^B,11, 15,50,66,0
+^G,12, 16,42		## Janitor
+^cB "But how come you collected all
+this candy junk and didn't even
+manage to save a single one of
+your plush friends?
+Some hero you are...  I wouldn't
+want to have to wait for you to
+come to MY rescue."
+
+^B,82,255,50,66,0
+^G,83,256,47		## Keen
+^L100,108
+^CF"Er...  I  was  hoping
+^L110,108
+there  would  be  an
+^L120,94
+achievement for that?"
+
+
+^B,124, 15,50,66,0
+^G,125, 16,43		## Janitor Mop
+^CB"Achievement?!"
+
+
+^P
+^B,11, 15,50,66,0
+^G,12, 16,42		## Janitor
+^cB "But how come you collected all
+this candy junk and didn't even
+manage to save a single one of
+your plush friends?
+Some hero you are...  I wouldn't
+want to have to wait for you to
+come to MY rescue."
+
+^B,82,255,50,66,0
+^G,83,256,47		## Keen
+^L100,108
+^CF"Er...  I  was  hoping
+^L110,108
+there  would  be  an
+^L120,94
+achievement for that?"
+^L,150,72
+^CC"Achievement?!"
+
+^B,124, 15,50,66,0
+^G,125, 16,43		## Janitor Mop
+^S063
+^T, 83,256,48,7	## Keen Five
+^T, 83,256,47,6	## Keen
+^T,125, 16,42,5	## Janitor
+^L,150,72
+^C7"Achievement?!"
+^T, 12, 16,42,7	## Janitor
+^T, 83,256,53,6	## Keen Mask
+^L,150,72
+^CD"Achievement?!"
+^T,125, 16,44,7	## Lindsey
+^T, 12, 16,43,6	## Janitor
+^L,150,72
+^CF"Achievement?!"
+^T, 12, 16,42,6	## Janitor
+^T,125, 16,96,5	## Page
+^L,150,72
+^C1"Achievement?!"
+^T, 83,256,51,6	## Donuts
+^T,125, 16,43,5	## Janitor Mop
+^L,150,72
+^C3"Achievement?!"
+^T, 12, 16,43,6	## Janitor
+^T, 83,256,49,5	## Nisasi
+^T,125, 16,42,4	## Janitor
+^S061
+^D,20
+^B  0,  0,320,200,0	## Black
+^D,40
+^B  0,  0,320,200,8	## Dark Gray
+^B  2,  2,316,196,0
+^B  4,  4,312,192,8
+^D,14
+^B  0,  0,320,200,7	## Light Gray
+^B  2,  2,316,196,0
+^B  4,  4,312,192,7
+^D,10
+^B  0,  0,320,200,F	## White
+^B  2,  2,316,196,0
+^B  4,  4,312,192,F
+^G,50,  0,27		## Calvin & Hobbes
+^G,50,  0,27		##
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^G,  8,320, 11    	## out of bounce border stripe
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+^D50
+^L30,40
+^c5 It's amazing
+^L40,20
+what they do with
+^L50,10
+corrugated cardboard
+^L60,42
+these days.
+
+^D140
+^L80,300
+^cD Isn't it?
+
+
+^P
+^B  0,  0,320,200,F
+^B  2,  2,316,196,0
+^B  4,  4,312,192,F
+^G,50,  0,27		## Calvin & Hobbes
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^G,  8,320, 11    	## out of bounce border stripe
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^D10
+^L20,229
+^cD Imagine,
+^L30,193
+you can turn into
+^L40,190
+anything you want.
+^L50,192
+All you have to do 
+^L60,193
+is nibble away the
+^L70,185
+entire candy stash,
+^L80,193
+put aside plushies
+^L90,213
+for toddlers,
+^L100,226
+and poof!
+
+^D220
+^L70,18
+^c5 You're sure
+^L80,8
+this will work?
+^L90,15
+The developer
+^L100,22
+must be a
+^L110,35
+genius.
+
+
+^P
+^S059
+^B  0,  0,320,200,F
+^B  2,  2,316,196,0
+^B  4,  4,312,192,F
+^G,50,  0,27		## Calvin & Hobbes
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,112,27,10	## Nisaba & K1n9_Duk3
+^G,50,  0,27		##
+^B 50,  0, 96,124,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,  0,27,3		## Calvin & Hobbes
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,112,27,3		## Nisaba & K1n9_Duk3
+^G,50,  0,27		##
+^B 50,  0, 96,124,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,  0,27,6		## Calvin & Hobbes
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,112,27,3		## Nisaba & K1n9_Duk3
+^G,50,  0,27		##
+^B 50,  0, 96,124,F	## white box left
+^B 50,208,112,124,F	## white box right
+^G,  8,320, 11    	## out of bounce border stripe
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^D70
+^L30,18
+^c5 Oh look, I have
+^L40,20
+a crown now.
+^L50,31
+Intriguing!
+
+^T,50,  0,27,70	## Calvin & Hobbes
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^L50,31
+Intriguing!
+
+^T,50,112,27,6		## Nisaba & K1n9_Duk3
+^G,50,  0,27		##
+^B 50,  0, 96,124,F	## white box left
+^B 50,208,112,124,F	## white box right
+^G,  8,320, 11    	## out of bounce border stripe
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^L50,31
+Intriguing!
+
+^D40
+^L50,240
+^cD Hold it!
+^L60,222
+I'm receiving
+^L70,223
+intergalactic
+^L80,225
+brainstorms
+^L90,220
+directly from
+^L100,222
+the universe:
+
+
+^P
+^B  0,  0,320,200,F
+^B  2,  2,316,196,0
+^B  4,  4,312,192,F
+^G,50,  0,27		## Calvin & Hobbes
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,112,27,6		## Nisaba & K1n9_Duk3
+^G,50,  0,27		##
+^B 50,  0, 96,124,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,  0,27,3		## Calvin & Hobbes
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,112,27,6		## Nisaba & K1n9_Duk3
+^G,50,  0,27		##
+^B 50,  0, 96,124,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^S65
+^D10
+^L10,10
+^; Message to our dear modders and devs:
+^ca ^F3".emag eht fo ypoc lacisyhp detimil a niw dna
+^; We expected that you would use a backdoor
+laog siht hcaer ot sreyalp 3 tsrif eht fo eno
+^; and are therefore prepared.
+era uoy fi tuo dnif ot su tcatnoC .ecneuqes
+^; In order to participate in the prize game,
+gnidne terces eht dekcolnu ev'uoY  !stargnoC" ^F0
+^; you need to send a copy of your savegame.
+
+
+^P
+^B  0,  0,320,200,F
+^B  2,  2,316,196,0
+^B  4,  4,312,192,F
+^G,50,  0,27		## Calvin & Hobbes
+^G,50,112,27		##
+^B 74,  0, 96,100,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B 50,  0,208, 24,F	## white box middle
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+
+^T,50,112,27,6		## Nisaba & K1n9_Duk3
+^G,50,  0,27		##
+^B 50,  0, 96,124,F	## white box left
+^B 50,208,112,124,F	## white box right
+^B  2,  2,  2,196,0	## black strip left
+^B  2,316,  2,196,0	## black strip right
+^G,  8,320, 11    	## out of bounce border stripe
+
+^D20
+^L20,25
+^c5 Breaking the
+^L30,8
+fourth wall, huh?
+^L40,8
+I wonder to whom
+^L50,12
+this message is
+^L60,32
+addressed.
+
+^D100
+^L60,194
+^cD And I feel the
+^L70,189
+insatiable desire
+^L80,207
+to cling to
+^L90,211
+someone's
+^L100,226
+head.
+
+
+^P
+^B  0,  0,320,200,F	## White
+^B  2,  2,316,196,0
+^B  4,  4,312,192,F
+^D,6
+^B  0,  0,320,200,7	## Light Gray
+^B  2,  2,316,196,0
+^B  4,  4,312,192,7
+^D,16
+^B  0,  0,320,200,8	## Dark Gray
+^B  2,  2,316,196,0
+^B  4,  4,312,192,8
+^D,16
+^B  0,  0,320,200,0	## Black
+^D,20
+^L90,100
+^CA IN THE MEANTIME...
+^D,10
+^L90,100
+^CD IN THE MEANTIME...
+^D,10
+^L90,100
+^CA IN THE MEANTIME...
+
+
+^P
+^I 0
+^; ## ## ## ##  Lindsey's Dentist Dialog
+
+^B,17, 15, 50,66,0
+^G 18, 16, 44     ## Lindsey
+^cB "Congratulations indeed!  With your
+unbridled sugar cravings, you have
+done a commendable job of finding
+ALL the dropped sweets.  You are
+the King of Candy. But donut have
+your dentist crown your teeth."
+
+^B,99,255, 50,66,0	# black
+^G100,256, 51     ## Keen donuts
+^G124,260, 52     ## more donuts
+^B165,255, 50,66,2	# green
+^B204,255, 50, 2,e	# yellow
+^B206,255, 50, 1,0	# black
+
+^L,110,114
+^cF "I swear the tooth,
+^L,120,140
+the whole tooth
+^L,130,72
+and nothing but the tooth.
+^L,140,194
+Yummy!"
+
+^G 192, 10, 13    ## border
+
+
+^P ## ## ## ##  Janitor's ToDo List
+
+^B,12, 15,50,66,0
+^G,13, 16,42		## Janitor
+^cB "You unraveled nearly all secrets
+Gnosticus # holds. But there are
+still some last joyful mysteries
+to worm out - which are:
+
+^L 70,70
+^cA [ ] talk to HAL
+^L 80,70
+^cA [ ] BAT to the end
+^L 90,70
+^cA [ ] nap near one of us
+
+^L110,70
+^cA [ ] defeat permadeath
+^L120,70
+^cA [ ] stow the plushies in the BwB
+^L130,70
+^cA [ ] find Waldo. Waldo? Where's Waldo?
+^; ## ## ## ##  Note on difficulty
+^I 15
+^L150,70
+[ ] Play on a higher difficulty mode
+^I 0
+
+^c2.        ^cBThere is always something to do..."
+
+
+^P ## ## ## ##  Keen Dreams about Candies
+
+Now Keen's fantasy is stimulated. He vividly
+revels in imagining...
+^L 50,40
+...secret places...
+^L 60,60
+...hidden treasures...
+^L 70,80
+...alien creatures...
+^L 90,10
+and, of course,
+^L110,50
+glazed, yeast-raised,
+^L120,70
+cream-&-pudding-filled,
+^L130,90
+super-delicious donuts! 
+^L140,110
+Yummy, yummy, yum-yum!
+
+^L160,16
+^cB  "Young fellow?  Hello there, young fellow!?"
+
+
+^P ## ## ## ##  School Kiosk End Screen
+
+^B,13, 15,290,162,0
+^G 14, 16, 93     ##  School Kiosk
+^L 180,13
+^cB "Daydreaming?  What else can I do for you?"
+^E

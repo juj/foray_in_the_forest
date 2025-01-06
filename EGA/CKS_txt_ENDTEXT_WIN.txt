@@ -1,0 +1,501 @@
+^P = = = = = END STORY WIN = = = = =
+
+^B, 57,247, 50,66,0	## black box
+^B, 58,248, 48,62,f	## white box
+^G, 61,248, 48		## Keen
+^G, 87,248, 97		## small plushie Box + parent monitor
+^B,123,247, 60,60,2	## green box
+
+^L 60,24
+^cF "Oops!  What have I done now?"
+^L 80,24
+^cE Keen shouts in nervous tension.
+^L100,24
+^cF "Eightfold clones!  Sheesh... if
+^L110,24
+that doesn't cause any trouble."
+
+
+^P
+
+^L 20,80
+But to Keen's surprise ...
+
+^G 43, 80, 92	 ## Janitors gathering
+
+^L140, 16
+the Janitors seem to gather quite joyfully,
+^L150, 32
+discussing how to split up and proceed
+^L160, 80
+with their plan of action.
+
+
+^p
+^B,22, 15,50,66,0
+^G,23, 16,42		## Janitor
+
+^cB "If you take care of the more
+shadowy areas of this planet,"
+^cE states the Janitor clone no. four
+towards his double number seven,
+^cB "I'll go and check the functionality
+of the Photachyon Transmitter circuits."
+
+
+^B,115,255,50,66,0
+^G,116,256,43		## Janitor Mob
+
+^cB "Wise plan of action" ^cE replies the 5th
+^L 130, 13
+Janitor while checking the todo list.
+
+^L 150, 33
+^cB "Also someone better collect the
+^L 160, 56
+accumulators for that Oracle
+^L 170, 76
+thingy"  ^cE reminds no. eight.
+
+
+^p
+^;
+^I 13  # -------->  cloned some monsters
+^;
+^B, 12,255,50,66,0
+^G, 13,256,47		## Keen
+
+^L 20, 38
+^cF "How can one be so passionated
+^L 30, 42
+when it comes to  cleaning up?
+^L 40, 46
+Whereas, it's lucky that no fly
+^L 50, 53
+slipped in the multiplicator ..."
+^L 60, 72
+^cE mumbles Keen thoughtfully.
+
+
+^B,106, 15,50,66,0
+^G,107, 16,43		## Janitor Mob
+
+^cB "We should most definitly switch
+off this high-tech tower. Not to
+think  if someone would use the
+machine to clone those bothersome
+creatures many times over."
+^cE warns duplicate number two.
+
+
+^p
+
+^B, 57,191, 50,66,0	## black box
+^B, 58,192, 48,62,f	## white box
+^G, 61,192, 48    	## Keen
+^G, 87,192, 97    	## small plushie Box + parent monitor
+^B,123,191, 60,60,2	## green box
+
+^L 90, 92
+^cF "*cough*"
+
+
+^p
+^I 0  # |<--------
+^;
+^;
+^I 14  # --------> did NOT clone any monsters
+^;
+^B, 52,255,50,66,0
+^G, 53,256,47		## Keen
+
+^L 70, 38
+^cF "How can one be so passionated
+^L 80, 42
+when it comes to  cleaning up?
+^L 90, 56
+^cE mumbles Keen thoughtfully.
+
+
+^p
+^I 0  # |<--------
+
+^B,26, 15,50,66,0
+^G,27, 16,42		## Janitor Mob
+
+^cB "Besides, let us not forget to
+thank our young fellow for his
+great service." ^cE says one of the
+janitors  in  a  solemnly  tone.
+^cB "We owe you a great debt that
+we hope to repay one day."
+
+
+^B,103,255, 50,66,0
+^B,100,255, 50,66,0	## black box
+^B,101,256, 48,62,f	## white box
+^G,104,256, 48		## Keen
+^G,130,256, 97		## small plushie Box + parent monitor
+^B,166,255, 60,60,2	## green box
+^G,  8,312, 11		## border right
+^G,192,  8, 13		## border bottom
+
+^L 120,125
+^cF "Sure ... *ahem* ...
+^L 130, 57
+that was ... *um* ... my plan
+^L 140, 79
+right from the beginning."
+
+
+^p
+^;
+^I 4  # --------> no collectibles found
+^;
+^B, 11, 15,50,66,0
+^G, 12, 16,42		## Janitor
+
+^cB "...but I also took the opportunity
+to clean your spaceship.  What is
+with this sparking robot scrap?
+And how in the blazes did you get
+your hands on it?"
+
+
+^B, 72,255,50,66,0
+^G, 73,256,48		## Keen
+^G,117,256,41		## Thumbs up
+
+^L 90, 79
+^cF "Easy peazy!  All you need
+^L100, 70
+is a pair of vortex goggles
+^L110, 68
+and a time travel machine."
+
+^B,126, 15,50,66,0
+^G,127, 16,43		## Janitor Mob
+
+^L140, 72
+^cB"Sure. Time travel, huh?
+Why not go back and try again
+to pick up your cuddly toys?
+They're still all over the place."
+
+
+^P
+
+There is no point in arguing with the janitor.
+
+So Keen better heads back to planet Earth
+to charge the battery of his item detector
+overnight.
+
+Freshly rested & equipped with a true spirit
+of discovery, he will quickly return to rescue
+his friends,  who are still in the hands of a
+yet unknown evil scoundrel.
+
+Now that our interplanetary hero probably
+knows the main structure of Gnosticus #,
+he can explore every nook & cranny to find
+his desperately waiting kidnapped friends.
+
+
+^P
+
+^G 49, 80, 91     ## tumbling in the depth of space
+^B,49, 72, 172, 37,2	## green box
+
+^L,60,104
+To be continued...
+
+
+^E
+^I 0  # |<--------
+^;
+^I 3  # -------->  > 1 and < 6 collectibles found
+^;
+
+^B,12, 15,50,66,0
+^G,13, 16,43		## Janitor
+^cB "Didn't you actually want to find
+your plushies?" ^cE asks another one
+of the nonuplets.
+
+^B,60,255,50,66,0
+^G,61,256,47		## Keen
+
+^L, 80,100
+^cF "Intergalactic heroes!"
+^L, 90, 83
+^cE corrects Keen assertive.
+
+^B,111, 15,50,66,0
+^G,112, 16,42		## Janitor
+
+^cB "If you say so, sonny.
+Why don't you stay a
+little.  There are still
+tons of places to explore."
+
+
+^p
+
+Unfortunately, the park-o-meter has expired
+so Keen has to return to Earth sooner than
+expected.
+
+On board of his BwB - of course - are his
+intergalactic friends, which he successfully
+found and rescued so bravely.
+
+But there are still a few missing,  so our
+hero will have to come back soon.
+
+Determined, Keen has to hurry back to Earth
+to take a quick nap, swipe a few coins from
+Mom's purse,  and  immediately  return  to
+Gnosticus # to explore every nook & cranny
+to find his desperately waiting friends.
+
+
+^P
+
+^G 49, 80, 91     ## tumbling in the depth of space
+^B,49, 72, 172, 37,2	## green box
+
+^L,60,104
+To be continued...
+
+
+^E
+^I 0  # |<--------
+^;
+^I 2  # --------> all collectibles found
+^;
+^B,12, 15,50,66,0
+^G,13, 16,43		## Janitor
+
+^cB "Didn't you actually want to find
+your plushies?" ^cE asks another one
+of the nonuplets.
+
+^B,60,255,50,66,0
+^G,61,256,47		## Keen
+
+^L, 70,103
+^cF "Intergalactic heroes!"
+^L, 80, 87
+^cE corrects Keen assertive.
+^L, 90, 51
+^cF "They are intergalactic heroes
+^L,100, 62
+and we are finally reunited."
+
+
+^B,126, 15,50,66,0
+^G,127, 16,42		## Janitor
+
+^cB "Good for you, sonny.
+If you're into action figures,
+there are plenty of other things
+to discover that you might like ..."
+^p
+^I 0  # |<--------
+^;
+^I 5  #-------->  Lindsey Dialog Start
+
+^B,22, 15, 50,66,0
+^G 23, 16, 44     ## Lindsey
+^cB "Congratulations! With your unbridled
+craving for sugar, you have indeed
+found numerous sweets that I had
+hidden here, there & everywhere.
+But donut stop now. You're close to
+reaching  the  perfect  score  and
+receiving a terrific reward, that is
+guaranteed to sweep you off your feet!"
+
+^B109,255, 50,66,0
+^G110,256, 50     ## Keen donuts
+^L,120,180
+^cF "I go nuts
+^L,130,174
+for donuts!
+^L,150,166
+As they say,
+^L,160,113
+keepin' candy handy."
+
+^G 192, 10, 13    ## border bottom
+
+
+^P
+^I 0  # |<-------- Lindsay Dialog End
+^;
+^I 8  #-------->  All 17 Slug Cans Start
+
+^B,21, 15, 50,66,0
+^G 22, 16, 44     ## Lindsey
+^cB Also excellent job of tracking down
+the limited edition of all 17 hidden
+Slug-Slime-Sodas. They will certainly
+increase your cruising speed.
+Want to see something weird? Look
+at the  nutritional information  on
+the back panel."
+
+^B112,255, 50,66,0	# black
+^G 78,256, 52    	## Keen Slug Cans
+^B 78,255, 50,34,2	# green
+^B112,255, 50, 6,0	# black
+^B113,256, 48, 6,F	# white
+
+^B177,255, 50,20,0	# black
+^B178,255, 50,66,2	# green
+^B194,255, 50, 2,e	# yellow
+^B196,255, 50, 1,0	# black
+
+^L,110,126
+^cF "Wow. 100% of the
+^L,120,119
+daily  recommended
+^L,130,102
+allowance of caffeine.
+^L,150,55
+Hey look!  You can send away
+^L,160,48
+for a chocolate-frosted sugar
+^L,170,43
+bombs "Splemme Orbkeen" doll."
+
+
+^P
+^I 0  # |<--------  All 17 Slug Cans End
+^;
+^; ## ## ## ##  Parent Monitor
+^B, 57,255, 70, 66,0	## black box
+^G, 13,256, 94    	## small plushie Box
+^B, 13,256, 70, 51,2	## green box
+^B, 57,256, 49,  7,0	## black box
+^B, 58,256, 48,  6,f	## white box
+^G,  8,312, 11    	## border right
+
+All of a sudden, a vibration alarm goes off.
+It is Commander Keen's  battery powered
+portable-parent-monitoring-receiver that is
+been triggered.
+
+
+^cF"...fssshhhas anyone seen that clock
+radio I was going to fix brrzzz...
+
+^cB...try Billy's workshop... grrshh...
+
+^cFwhy on Earth would it be out there, Susan?
+
+^cB...half the time when I go looking ffrrrhhh...
+something, it's in Billy's workgrsshhhop..."
+
+
+^P
+
+^cEKeen is on alert!
+
+^G,46,250, 97    	## small plushie Box + parent monitor
+^B,16,248, 56, 66,2	## green box
+^G,  8,312, 11    	## border right
+
+^L 40,10
+It  is  high  time  to  return  to  earth
+before  his  folks  get  suspicious.
+
+
+Keen quickly buckles up his friends,
+adjusts the BwB engine to warp 6,
+waves  the janitors  goodbye,  and
+reminisces what he just typed up on
+his invisible typewriter, about what they
+whispered to him in chorus as they bid him
+farewell:
+
+
+^P ## ## ## ##  Janitor ToDo List
+
+^B,17, 15,50,66,0
+^G,18, 16,43		## Janitor+Mop
+^cB "On your foray through the forest
+you've discovered some adventurous
+things."  ^cE said  Janitor  number 3,
+^cB "While  sweeping  things  clean, I
+observed  you  have  mastered
+numerous challenges with bravura:
+
+^cA [<] you dealt with countless aliens shrewdly
+[<] and helped to collect tons of candy junk
+
+^I 11 # -------->  SLUG BUSTS lvl completed
+[<] you found a way to the Holy-Slug-Busts
+^I 9 ## ## ## ##  TARDIS lvl completed
+[<] and also discovered the TARDIS
+[<] plus travelled through space and time
+^I 0  # |<--------
+ 
+^c2 m m  m ^cB ...and so many more heroic tasks."
+
+
+^P
+
+^B,12, 15,50,66,0
+^G,13, 16,42		## Janitor
+^cB "But there is more,"
+^cE remarked Janitor no. 6 omniscient,
+^cB "At least I ... I mean,  WE  came
+across  some  very  interesting
+phenomena:
+
+
+
+^L 80,70
+^cA [ ] the Lifewater Oasis secret
+^L 90,70
+^cA [ ] a hall of Snowdome Villains
+^L 100,70
+^I 12 # -------->  SLUG BUSTS lvl NOT completed
+^cA [ ] the Busts-Gallery-of-Holy-Slugs
+^I 11 ## ## ## ##  SLUG BUSTS lvl completed
+^cA [ ] mysterious digging salamanders
+^I 0  # |<--------
+
+^L 120,70
+^cB and it is also worthwhile to:
+
+^L 140,70
+^I 10 # -------->  TARDIS lvl NOT completed
+^cA [ ] enter the TARDIS
+^L 150,70
+^cA [ ] observe a lemon shark
+^I 9 ## ## ## ##  TARDIS lvl completed
+^cA [ ] pass the Grand Obelisk
+^L 150,70
+^cA [ ] decipher the Memorial Stone
+^I 0  # |<--------
+^L 160,70
+^I 6 # -------->  BONUS lvl NOT completed
+^cA [ ] find out about Lindsey's pastime
+^I 7 ## ## ## ##  BONUS lvl completed but NOT all Slug Cans collectd
+^cA [ ] collect all Slug Slime Soda cans
+^I 8 ## ## ## ##  BONUS lvl completed and all Slug Cans collected
+^cA [ ] aim for the perfect score
+^I 0 # |<--------
+
+
+^P
+
+^G 49, 80, 91     ## tumbling in the depth of space
+^B,49, 72, 172, 37,2	## green box
+
+^L,60,104
+To be continued...
+^E

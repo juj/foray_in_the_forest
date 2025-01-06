@@ -1,0 +1,127 @@
+^p = = = = = COLLECT NOTHING = = = = =
+^;
+^B, 0,  0,320,200,18	## dark grey box
+^;
+^L, 20,109
+^cD Congratulations,
+^L, 40, 47
+you've managed to resist all those
+^L, 50, 32
+sticky & crusty flavoured temptations.
+^L, 60, 16
+Putting our sugar-addicted Commander Keen
+^L, 70, 20
+on a diet is a truly great challenge you've
+^L, 80, 68
+mastered with flying colors.
+^;
+^cA
+^L,100,112
+"Less is more" ^cD
+^L,110,84
+is not only your motto.
+^L,120,16
+You've proven that you're a true minimalist.
+^;
+^L,130,96
+But let's be honest: ^cA
+^L,140,95
+"
+^L,140,103
+C
+^L,140,111
+A
+^L,140,119
+N
+^L,140,128
+D
+^L,140,136
+Y is childhood,
+^L,150,63
+the best and bright moments
+^L,160,42
+you wish could have lasted forever" ^c1 ^D300
+^;
+^T,  8,  0, 10,300
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190,304,4036  	# bonbon red
+^S008
+^T,  8,  0, 10, 8
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190,  8,4033  	# drink green
+^g 190,288,4069  	# drink green
+^S008
+^T,  8,  0, 10, 8
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190, 24,4064  	# donut white
+^g 190,272,4065  	# donut blue
+^S008
+^T,  8,  0, 10, 8
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190, 40,4042  	# ice blue
+^g 190,256,4041  	# ice yellow
+^B,140,102, 8, 9,8	# grey box
+^S008
+^L,140,103
+C ^c0
+^T,  8,  0, 10, 8
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190, 56,4045  	# ice cone 2
+^g 188,240,4044  	# ice cone 1
+^B,140,110, 8, 9,8	# grey box
+^S008
+^L,140,111
+A ^c4
+^T,  8,  0, 10, 8
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190, 72, 212  	# pop pink
+^g 190,232, 213  	# pop red
+^B,140,118, 9, 9,8	# grey box
+^S008
+^L,140,119
+N ^c6
+^T,  8,  0, 10, 8
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190, 80,4034  	# jar
+^g 190,220,4035  	# bobon green
+^B,140,127, 8, 9,8	# grey box
+^S008
+^L,140,128
+D ^c7
+^T,  8,  0, 10, 8
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190, 96,4067  	# donut red
+^g 190,204,4066  	# donut pink
+^B,140,135, 8, 9,8	# grey box
+^S008
+^L,140,136
+Y
+^T,  8,  0, 10, 6
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190,112,4039  	# choco blue
+^g 190,186,4043  	# ice cyan
+^S008
+^T,  8,  0, 10, 6
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 190,120, 214  	# pop oragne
+^g 190,178,4040  	# mufin
+^S008
+^T,  8,  0, 10, 6
+^B,  0,  0,  8,220,8	# grey box
+^g 190,  0,4070  	# bonbon red
+^g 182,136, 383  	# flying donut
+^D10
+^S042
+^W
+^M37
+^E

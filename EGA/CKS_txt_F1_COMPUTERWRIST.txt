@@ -1,0 +1,253 @@
+^P
+^cF COMPUTERWRIST MAIN MENU
+
+^cE There are 9 choices in the Main Menu. They
+are:  ^cA New Game|Load Game|Save Game|
+Return to Game/Demo|End Game/View Scores
+Nibbles Nom Nom|Help+Info|Configure|Quit
+
+^cE The currently selected item will be high-
+lighted, and there will be a flashing dot
+beside it.  Items you cannot select will
+have an "X" by them.
+
+Use the ^cA arrow keys ^cE to move to the item
+you wish to select, then press ^cA Enter ^cE to
+choose that item.
+
+Let's look at each of the sections in order...
+
+
+^P
+^cF NEW GAME
+
+^cE You can choose to start a new game in ^cA easy
+normal, ^cE or ^cA hard ^cE modes.  These will determine
+a number of things, such as whether saving
+the game state costs lives or not. The main
+differences are:
+
+^L80,142
+easy
+^L80,186
+normal
+^L80,245
+hard
+^L90,38
+^cEjump height |  ^c7+++     ^c8++     ^c0++
+^L100,34
+^cEsaving costs |  ^c7non    ^c81life    ^c01life
+^L110,45
+^cEflask gains |  ^c71up    ^c82ups    ^c01up
+^L120,42
+^cElevel layout | ^c7basic  ^c8medium ^c0complex
+
+^cEIf you are in the middle of a game and have
+not saved it,  starting a new game will wipe
+out that old game forever. You will be asked
+for confirmation if you try to do this.
+
+
+^P
+^cF LOAD GAME
+
+^cE If you have saved a game previously, load
+game will allow you to load it in and play it.
+If you haven't saved a game (basically when
+you first get the game), the Load option will
+not be available.
+
+^cF SAVE GAME
+^cE You may save up to six different games.
+You can't save a game until you start one,
+of course.  Name them whatever you wish.
+If you leave the field blank, the current
+date & time will be entered automatically.
+Note that on normal and hard mode ^cA saving
+will cost a life. ^cE As an exception you can save
+on the worldmap without any losses.
+
+
+^p
+^cF LOAD/SAVE GAME - FUNCTION KEYS
+
+^cE To speed up the loading/saving process,
+there are now new function keys available.
+
+You can either access the "LOAD/SAVE" menu
+via the ^cA F2
+^L70,76
+^cE/ ^cA
+^L70,84
+F3 ^cE keys.
+
+Alternatively, you can also use the convenient
+quick-load/quick-save mechanism via a single
+^cA F5
+^L110,24
+^cE/ ^cA
+^L110,32
+F9 ^cE
+^L110,54
+keystroke.
+
+Note, however, that a confirmation dialog
+appears when you save your game.  This
+dialog can be disabled in the options menu.
+
+
+^P
+^cF RETURN TO GAME / DEMO
+
+^cE If you went to the ComputerWrist from a
+game, this option will get back to the action.
+If not, you can go back to the demo.
+
+^cF END GAME / VIEW SCORES
+
+^cE If you want to end your current game for
+whatever reason, this option will allow you
+to.  The scores will be shown again.
+
+When not in a game, this option turns into
+"VIEW SCORES". Here you can check your and
+your friends' achievements.
+
+
+^P
+^cF NIBBLES NOM NOM!
+
+^cE While Commander Keen was busy constructing
+his ComputerWrist,  he decided to put a
+simple  Snake  ^cE game  on  his ComputerWrist.
+He just finished  ^cA Nibbles Nom Nom!  ^cE by the
+time he read Mortimer's message.  He will
+probably get to other games later.
+
+^cF HELP + GAME INFO
+
+^cE Obviously the very section you are currently
+reading,  containing all the information you
+need regarding navigation, setup & gameplay.
+
+
+^P
+^cF CONFIGURE MENU
+
+^cE This menu provides sound options, control
+options, and game parameters you can change.
+
+Choices for Sound Effects are:
+^L80,20
+^cA no sound effects
+^L90,20
+PC Speaker sound effects
+^L100,20
+Adlib/Sound Blaster sound effects
+
+^cE Choices for Music are:
+^L130,20
+ ^cAnone
+^L140,20
+ Adlib/Sound Blaster
+
+
+^P
+^cF OPTIONS
+
+^cE You can choose whether you want to see
+the score box in the corner of the screen
+as you play.  It is nice to have there, but
+it can block your view sometimes!  And on
+slower systems, removing the score box is
+a very good idea.
+Just press ^cA Enter ^cE when playing to pull down
+the Status Window.
+
+You can also turn the score box on or off
+during the game without having to open the
+menu.  Simply  press  ^cA Backspace  ^cE on  your
+keyboard.
+
+
+^P
+^cF OPTIONS
+
+^cE The second item is Two-Button Firing. If you
+use a joystick, firing with the keyboard can
+be a pain.  Two-Button Firing  is an option
+that will fire your Stunner if both buttons
+are down.  This can make high pogo jumps
+more difficult, but it is okay once you get
+used to it.
+
+The third item is "Fix Jerky Motion".  If the
+screen movement jerks around a lot, choose
+this  option  to  fix  it.  See  the : section
+"Command Line Parameters" for another way
+to do this.
+
+
+^P
+^cF OPTIONS
+
+^cE The fourth item in the options menu is SVGA
+Compatibility. If you have an SVGA card and
+you  have  display  problems,  you  can
+turn compatibility mode on so your card will
+work with Keen.
+
+You  can  also  use  keyboard  or joystick
+control.  If you choose keyboard, you can
+redefine the control keys.  If you choose
+joystick one or two, follow the prompts for
+joystick calibration.  The current control
+mode is at the bottom of the menu window.
+
+
+^P
+^cF NOTE TO SUPER VGA OWNERS
+
+^cE If you own a Speedstar VGA card or other
+non-100% compatible SVGA card, you'll need
+to type "FITF /COMP" on the command line,
+instead of just "FITF".  This should fix all
+your problems.
+An alternate method is choosing Configure,
+then Options, then SVGA Compatibility in the
+ComputerWrist menu.
+
+
+^P
+^cF OTHER NEAT-O COMMAND LINE PARAMETERS
+
+^cE When some documentation tells you to type
+more than just the name of the program
+you want to run (like we did above), those
+extra  bits  are  called  "command  line
+parameters."  This is a fancy term for
+extra information you can give the program
+when you run it. Normally, you will never
+have to type these.  If the program is
+having trouble with your hardware, try the
+appropriate parameter.
+
+
+^P
+^cFQUIT
+^ce
+Quit, for lack of a better word, quits.
+
+
+
+^B89,255,50,66,0
+^G90,260,48
+^G134,260,41
+
+
+^cFCONCLUSION
+^ce
+Now go explore the ComputerWrist,
+and have fun exploring the source
+code mod ^cA "Foray in the Forest"
+^E

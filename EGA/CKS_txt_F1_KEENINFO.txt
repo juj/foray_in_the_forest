@@ -1,0 +1,208 @@
+^P
+^cF KEEN INFO
+
+^cE You are now playing the source code mod
+^cA"Foray in the Forest"
+
+^cE But there are many more Keen adventures
+out there for you to discover.  First and
+foremost there are seven official episodes
+of the Commander Keen saga.
+The legacy includes the Vorticons trilogy,
+Keen Dreams, the Goodbye, Galaxy episodes,
+and the adventures on Fribbulus Xax.
+
+On the following pages you will find a
+synopsis to every episode of the original
+Commander Keen series.
+
+
+^P
+^cF COMMANDER KEEN VORTICONS:
+
+^cE In Episode 1: ^cA"Marooned on Mars!" ^cEKeen must
+recover his stolen rocket parts from the
+claws of the evil Vorticons, all while fighting
+his way past malevolent Martian mobs!
+^G80,8,57
+
+
+^P
+^cF COMMANDER KEEN VORTICONS:
+
+^cE In Episode 2:  ^cA"The Earth Explodes!"  ^cEthe
+Vorticon  Mothership  hangs  over  Earth,
+waiting to blast it to atoms!  Keen must
+stop it, and learn a terrible secret along
+the way...
+^G80,8,58
+
+
+^P
+^cF COMMANDER KEEN VORTICONS:
+
+^cE In Episode 3:  ^cA"Keen Must Die!"  ^cEit is Keen's
+turn to invade the Vorticon homeworld and
+stop the genocidal Grand Intellect, and in the
+process meet an old foe!
+^G80,8,59
+
+
+^P
+^cF COMMANDER KEEN DREAMS:
+
+^cE In  this  lost  episode,  Keen  finds  himself
+trapped  in  the dream  world  of  Tuberia,
+where children have been enslaved by mutant
+vegetables.  Can  Keen  awaken  from  this
+nightmare?
+^G80,8,60
+
+
+^P
+^cF COMMANDER KEEN GALAXY:
+
+^cE In Episode 4: ^cA"Secret of the Oracle" ^cEKeen
+must rescue the council elders from their
+Badlands prison so he can use their Oracle
+to divine a new threat - the Shikadi.
+^G80,8,61
+
+
+^P
+^cF COMMANDER KEEN GALAXY:
+
+^cE In Episode 5: ^cA"The Armageddon Machine" ^cEKeen
+battles  the  shadowy  Shikadi  to  save
+the entire galaxy from destruction. Can he
+do so and be back in time for dinner?
+^G80,8,62
+
+
+^P
+^cF COMMANDER KEEN ALIENS ATE MY BABYSITTER:
+
+^cE In Episode 6, the ever-hungry Bloogs have
+kidnapped Keen's babysitter for a snack!
+Keen must visit their homeworld and rescue
+her, or his parents will never let him stay
+up late again!
+^G80,8,63
+
+
+^P
+^cE Besides the official thrilling adventures of
+our beloved eight-year-old child genius, there
+are even many more Keen adventures out
+there for you to discover.  Reams of fan
+games and mods were made by the creative
+heads of our vibrant Keen community. You
+can find all of them at ^cAkeenwiki.shikadi.net
+
+^cE If you want to make your own Commander
+Keen game or just want to get in contact
+with other Commander Keen fans, you are
+in luck!  Come visit us online at ^cApckf.com
+
+^cE In  the  meantime  you  can  see  on  the
+following  pages,  what  you  will  find  in
+additional mods made by the community...
+
+
+^P
+^cF BATTLE OF THE BRAINS:
+
+^cE Keen 9: The third and final episode of the
+unofficial  "The Universe is Toast"  trilogy.
+Keen  traverses  the  galaxy  to  stop
+Mortimer's evil plans and faces his nemesis
+in their most epic battle yet.
+^G80,8,64
+
+
+^P
+^cF MAROONED ON MARS 2.5D:
+
+^cE This splendid mod is the first full remade
+and merged conversion from the classic
+Commander Keen 1 game into the Galaxy
+engine. Excited? Now go and look for the
+lost vacuum cleaner...
+^G80,8,65
+
+
+^P
+^cF SUBURB SHENANIGANS:
+
+^cE This mod takes place on Earth, specifically in
+the suburbs of Keen's hometown - more
+specifically, in backyards, Keen's house, and
+a burger joint on the corner: "Macaroni &
+Cheese please!"
+^G80,8,66
+
+
+^P
+^cF ATROXIAN REALM:
+
+^cE Summoned by the Krile, which are in distress
+as the robotic Atroxians have invaded their
+planet  and  begun  to  inflict  a  dark
+terraforming program, Keen tries to fight
+his way to the fabled Great Ziggurat.
+^G80,8,67
+
+
+^P
+^cF THE RUIN OF ROIB:
+
+^cE Episode 58:  Our aged and disillusioned hero
+decides to save the universe one last time.
+Forgetting how he flew the damn ship, Keen
+eventually gets to Roib, but sees that he's
+too late.  Roib is destroyed.  Oops...
+^G80,8,68
+
+
+^P
+^cF MINKS PUZZLE:
+
+^cE In this mod, Keen's Neural Stunner spawns
+Keen clones. Controlling synced droids, Keen
+can reach otherwise unreachable places and
+solve impossible puzzles.  Will he be able to
+resist the confusion of his doppelgangers?
+^G80,8,69
+
+
+^P
+^cF PAK EEN:
+
+^cE Pak een is notable for being based largely on
+the behavior of the world map.  Gameplay
+revolves around collecting 'power pellets' to
+reach an exit circle and proceed to the next
+level.  Will Keen ever beat stage eleven?
+^G80,8,70
+
+
+^P
+These are just my favourite picks. But there
+are countless other neat mods out there!
+Just make sure to check out our Commander
+Keen  wiki  at  ^cAkeenwiki.shikadi.net  ^cEfor  a
+complete list of mods&fan made Keen games.
+
+If you are about to dive even deeper into
+the Keeniverse, come and visit our dedicated
+Commander Keen community at ^cApckf.com
+
+^cENow grab
+zap your
+and super
+a while
+the uni
+needs
+help!
+^G,106,50,88
+^E

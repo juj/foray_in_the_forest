@@ -1,0 +1,171 @@
+^p
+^cF THE KEYS TO EXCITEMENT
+
+^cE Let's cover the actions you can do in the
+game real quick:
+
+^L60,56
+  ^cECTRL:  ^cAJump
+^L70,63
+  ^cEALT:  ^cAPogo
+^L80,49
+  ^cESPACE:  ^cAShoot
+^L90,41
+  ^cEARROWS:  ^cAMove
+
+
+^cE These are the basics.  It's really not that hard!
+
+We've also added a few novelty features to
+improve the game experience. Read on...
+
+
+^p
+^cF THE KEYS TO EXCITEMENT
+
+^cE We've added some really neat quality-of-life
+features and mechanics that you'll love:
+
+^L60,72
+^cE F1:  ^cA Help Menu
+^L70,70
+^cE F2:  ^cA Save Menu
+^L80,70
+^cE F3:  ^cA Load Menu
+^L90,70
+^cE F5:  ^cA Quick-Save
+^L100,70
+^cE F9:  ^cA Quick-Load
+^L120,48
+^cE ENTER:  ^cA Status Window
+^L130,13
+^cE right SHIFT:  ^cA Item Detector Window
+^L140,20
+^cE BACKSPACE:  ^cA Score Box Toggle
+
+^cE You can even configure the shortcut-keys
+in the options menu to suit your own needs.
+
+
+^p
+^cF THE KEYS TO EXCITEMENT
+
+^cE Besides that you can do a lot of other fancy
+things.  Let's take a tour, shall we...
+
+You can  ^cAget things  ^cEsimply by walking into
+them.
+
+The ^cApogo stick ^cElets you jump higher, but it
+is harder to control. Press Alt again to stop
+using it.
+
+If you are standing in front of a door,
+pushing up will ^cAenter the door.
+
+
+^p
+^cF THE KEYS TO EXCITEMENT
+
+^cE To ^cAclimb a pole ^cEpress up or down when in
+front of it. Press up or down to shinny up
+or slide down the pole.  If you press the
+right or left, you will swing around to face
+that side.  You can get off the pole quickly
+by pressing Jump (Ctrl).
+
+You can ^cAgrab onto the edge ^cEof a surface if
+you miss your destination.  Press Up or the
+direction toward the surface you want to
+be upon (left or right) to pull yourself up.
+If  you  push  down  or  away  from  that 
+surface, you'll fall down.
+
+
+^p
+^cF THE KEYS TO EXCITEMENT
+
+^cE If you see a ^cAswitch ^cE(it will have a red or
+green light on it), just walk in front of it
+and push up. Switches may change the state
+of things around you, like oh say, bridges
+and platforms and such.
+
+If you are on a platform or narrow floor,
+you can ^cAdrop down ^cEby pressing the down
+arrow and jump.
+
+
+^p
+^cFTHE KEYS TO EXCITEMENT
+^cE
+Press the up or down arrow to ^cAsee more
+^cEof the level in that direction. This is VERY
+helpful  when  you  don't  think  there is
+anything to jump onto.  Some hidden things
+might be revealed by looking up or down.
+
+Doors need ^cAgem-shaped keys ^cEto be placed in
+their gem holders.  To place the gem in the
+holder, just get the gem and walk up to it.
+
+
+^p
+^cF ADVANCED MOVES
+
+^cE There are some moves that can get you to
+those "impossible-to-get-to" places.  Here
+they are:
+
+To perform the ^cAImpossible Pogo Trick ^cErun
+left or right, then quickly press Pogo and
+Jump in succession.  You will blast off at
+an angle.
+
+You can also pull out your pogo stick in the
+middle of a normal jump - known as ^cAMid-Air
+Pogo ^cE- giving you good control for that first
+jump.
+
+
+^P
+^cF ADVANCED MOVES
+
+^cE You can jump over a monster and ^cAshoot it
+from above ^cEby pressing the down arrow and
+firing.  And you can shoot upward or shoot
+while on a pole.
+
+You can ^cAclimb poles faster ^cEby holding down
+the up arrow, and pressing jump repeatedly.
+May take some practice, but it is worth it.
+
+In many places you will see a big arc of
+candy. These are usually set up so you can
+get them in one cool jump.
+
+There are other difficult moves, but we'll
+let you find them on your own.
+
+
+^P
+^cF FINISH A LEVEL
+
+^cE To ^cAfinish a level ^cEyou can leave the level at
+the Exit sign.
+
+But be sure to have a little chat with the
+Janitor, if he is around. He might give you
+some hints and clues along the way.
+
+And of course, take a look around
+before you finish a level. You might
+find goodies, sweets, tons of bonus
+items,  and secret rooms as well
+which are hidden in the game.
+
+^B99,255,50,66,0
+^G100,260,48
+^G144,260,41
+Explore!
+^E

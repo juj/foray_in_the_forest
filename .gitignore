@@ -1,0 +1,18 @@
+# Borland C++ installation directory
+BC30/*
+
+# Borland C++ config file of some sort
+TCCONFIG.TC
+# Borland C++ file backup
+*.BAK
+# Borland C++ Desktop layout file, that contains all open files, their positions etc.
+*.DSK
+# Borland C++ precompiled header file
+*.SYM
+# Borland C++ swap file
+*.SWP
+# Borland C++ object files
+*.OBJ
+
+# Commander Keen config and savegame files.
+*.CKS

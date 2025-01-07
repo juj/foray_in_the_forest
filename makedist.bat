@@ -1,0 +1,16 @@
+rem Make a distribution package in DIST/
+
+mkdir DIST
+del /Y DIST\*.*
+copy AUDIOHED.CKS DIST\
+copy AUDIOT.CKS DIST\
+copy COPYING.TXT DIST\
+copy EGAGRAPH.CKS DIST\
+copy EGAHEAD.CKS DIST\
+copy FITF.EXE DIST\
+copy GAMESTR.CKS DIST\
+copy HELPME.COM DIST\
+copy HINTS.COM DIST\
+copy MAPHEAD.CKS DIST\
+copy MAPTEMP.CKS DIST\
+copy FILE_ID.DIZ DIST\

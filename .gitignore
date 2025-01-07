@@ -16,3 +16,6 @@ TCCONFIG.TC
 
 # Commander Keen config and savegame files.
 *.CKS
+
+# Distributable work directory.
+DIST/*

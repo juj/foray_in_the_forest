@@ -267,8 +267,6 @@ done:
 
 void RunSnailas(void)
 {
-	void alOut(byte, byte);	// hack import for AdLib sound
-	
 	int i;
 	snailtype *snail;
 	unsigned lasttime = TimeCount;

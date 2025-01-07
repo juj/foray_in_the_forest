@@ -116,7 +116,7 @@ static	word			alBlock;
 static	longword		alLengthLeft;
 static	longword		alTimeCount;
 static	Instrument		alZeroInst;
-static	word			alPort = 0x388;	// K1n9_Duk3 addition: port is now a variable
+word			alPort = 0x388;	// K1n9_Duk3 addition: port is now a variable
 
 // This table maps channel numbers to carrier and modulator op cells
 /*
@@ -401,7 +401,7 @@ asm	popf
 //
 ///////////////////////////////////////////////////////////////////////////
 void
-alOut(byte n,byte b)
+alOut_original(byte n,byte b)
 {
 asm	pushf
 asm	cli
@@ -899,6 +899,10 @@ asm	out	dx,al
 		SDL_ALService();
 	}
 	soundcount += TimerDivisor;
+
+	// juj: Advance game time from CRT Terminator frame counter when available.
+	update_time_count_interrupts_disabled();
+
 	if (soundcount >= SOUNDDIVISOR)
 	{
 		soundcount -= SOUNDDIVISOR;
@@ -906,7 +910,7 @@ asm	out	dx,al
 		if (!(++count & 1))
 		{
 			//LocalTime++;
-			TimeCount++;
+			if (!crtt_detect()) TimeCount++; // juj: Advance game time when CRT Terminator is _not_ available.
 			if (SoundUserHook)
 				SoundUserHook();
 		}

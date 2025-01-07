@@ -1667,7 +1667,7 @@ void RF_CalcTics (void)
 //
 		oldtimecount = lasttimecount;
 		while (TimeCount<oldtimecount+DEMOTICS*2)
-		;
+			VWL_WaitVBL(); // juj: Wait for vblank here so that scrolling updates.
 		lasttimecount = oldtimecount + DEMOTICS;
 		TimeCount = lasttimecount + DEMOTICS;
 		tics = DEMOTICS;
@@ -1679,6 +1679,7 @@ void RF_CalcTics (void)
 //
 		do
 		{
+			VWL_WaitVBL(); // juj: Wait for vblank; updates scrolling and game time.
 			newtime = TimeCount;
 			tics = newtime-lasttimecount;
 		} while (tics<mintics);
@@ -2593,7 +2594,10 @@ void RF_Refresh (void)
 //
 // display the changed screen
 //
-	VW_SetScreen(bufferofs+panadjust,panx & xpanmask);
+// juj: Here Keen scrolls the game area pixel-by-pixel using hardware
+// scrolling. So this change needs to be delayed from taking effect,
+// to be synchronized to vertical refresh below (in RF_CalcTics()).
+	VW_SetScreenDelayed(bufferofs+panadjust,panx & xpanmask);
 
 //
 // prepare for next refresh

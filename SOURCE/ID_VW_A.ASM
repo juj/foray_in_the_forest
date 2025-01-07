@@ -250,33 +250,35 @@ ENDIF
 ; VW_WaitVBL (int number)
 ;
 ;========
-
-PROC	VW_WaitVBL number:WORD
-PUBLIC	VW_WaitVBL
-
-if WAITFORVBL				; skip wait if profiling
-
-	mov	dx,STATUS_REGISTER_1
-
-	mov	cx,[number]
-
-waitvbl1:
-	in	al,dx
-	test	al,00001000b	;look for vbl
-	jnz	waitvbl1
-
-waitvbl2:
-	in	al,dx
-	test	al,00001000b	;look for vbl
-	jz	waitvbl2
-
-	loop	waitvbl1
-
-endif
-
-	ret
-
-ENDP
+;
+; juj: This function has been disabled and replaced by code in SYNC.C.
+;
+;PROC	VW_WaitVBL number:WORD
+;PUBLIC	VW_WaitVBL
+;
+;if WAITFORVBL				; skip wait if profiling
+;
+;	mov	dx,STATUS_REGISTER_1
+;
+;	mov	cx,[number]
+;
+;waitvbl1:
+;	in	al,dx
+;	test	al,00001000b	;look for vbl
+;	jnz	waitvbl1
+;
+;waitvbl2:
+;	in	al,dx
+;	test	al,00001000b	;look for vbl
+;	jz	waitvbl2
+;
+;	loop	waitvbl1
+;
+;endif
+;
+;	ret
+;
+;ENDP
 
 
 ;===========================================================================

@@ -723,6 +723,11 @@ US_UpdateTextScreen(void)
 		//USL_ScreenDraw(5,10,"SVGA Compatibility Mode Enabled.",0x4f);
 		USL_ScreenDraw(5,10,SM_GetString(S_SVGACOMPENABLED),0x4f);
 
+	// juj: Detect presence of CRT Terminator.
+	USL_ScreenDraw(4,18,"CRT Terminator", 0x4f);
+	if (crtt_detect()) USL_ScreenDraw(20,18,"ûPresent",0x4f);
+	else               USL_ScreenDraw(21,18,"Not Detected",0x4d);
+
 	// Show input device info
 	USL_Show(60,7,8,true,true);
 	USL_Show(60,8,11,JoysPresent[0],true);

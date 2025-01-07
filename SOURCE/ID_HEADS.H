@@ -125,3 +125,9 @@ boolean SavingWillCost(void);		// K1n9_Duk3 addition for FITF
 void StopMusic(void);           // K1n9_Duk3 addition for FITF
 void HelpScreens(void);         // K1n9_Duk3 addition for FITF
 
+// juj: Additions for CRT Terminator support
+void VWL_WaitVBL(void);
+void VW_SetScreenDelayed(unsigned int crtc, unsigned int pel);
+int crtt_detect(void);
+void update_time_count_interrupts_disabled(void);
+extern void (*alOut)(byte n,byte b);

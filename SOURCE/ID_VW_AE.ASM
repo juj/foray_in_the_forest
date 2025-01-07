@@ -1445,114 +1445,119 @@ EXTRN TimeCount :WORD	; it's actually a DWORD, but that doesn't matter
 PUBLIC	latchpel
 
 CODESEG
-
-PROC VWL_WaitVBL NEAR
-	mov	bx, [TimeCount]	;remember old value
-	mov	dx,STATUS_REGISTER_1
-@@waitvbl:
-	sti     		;service interrupts
-	jmp	$+2
-	cli
-	in	al,dx
-	test	al,00001000b	;look for vertical retrace
-	jnz	@@done
-	mov	ax, [TimeCount] ;get current value
-	sub	ax, bx		;get difference from old value
-	cmp	ax, 1		;don't wait longer than 1 full cycle @ 70Hz
-	jbe	@@waitvbl
-@@done:
-	ret
-ENDP
-
-PROC	VW_SetScreen  crtc:WORD, pel:WORD
-PUBLIC	VW_SetScreen
-
-if waitforvbl
-
-	mov	dx,STATUS_REGISTER_1
-
+;
+; juj: These functions VWL_WaitVBL and VW_SetScreen have been disabled
+;      and replaced by functionality in SYNC.C.
+;
+;PROC VWL_WaitVBL NEAR
+;	mov	bx, [TimeCount]	;remember old value
+;	mov	dx,STATUS_REGISTER_1
+;@@waitvbl:
+;	sti     		;service interrupts
+;	jmp	$+2
+;	cli
+;	in	al,dx
+;	test	al,00001000b	;look for vertical retrace
+;	jnz	@@done
+;	mov	ax, [TimeCount] ;get current value
+;	sub	ax, bx		;get difference from old value
+;	cmp	ax, 1		;don't wait longer than 1 full cycle @ 70Hz
+;	jbe	@@waitvbl
+;@@done:
+;	ret
+;ENDP
+;
+;PROC	VW_SetScreen  crtc:WORD, pel:WORD
+;PUBLIC	VW_SetScreen
+;
+;if waitforvbl
+;
+;	mov	dx,STATUS_REGISTER_1
+;
 ;
 ; wait util the CRTC just starts scaning a diplayed line to set the CRTC start
 ;
-	cli
-
-@@waitnodisplay:
-	in	al,dx
-	test	al,1
-	jz	@@waitnodisplay
-
+;	cli
+;
+;@@waitnodisplay:
+;	in	al,dx
+;	test	al,1
+;	jz	@@waitnodisplay
+;
 ; the display is now disabled (in a HBL / VBL)
-
-@@waitdisplay:
-	in	al,dx
-	test	al,1	;1 = display is disabled (HBL / VBL)
-	jnz	@@waitdisplay
-
+;
+;@@waitdisplay:
+;	in	al,dx
+;	test	al,1	;1 = display is disabled (HBL / VBL)
+;	jnz	@@waitdisplay
+;
 ; the display was just enabled, so a full scan line is available for CRTC set
-
-endif
-
+;
+;endif
+;
+;
+;
 ;
 ; set CRTC start
 ;
 ; for some reason, my XT's EGA card doesn't like word outs to the CRTC
 ; index...
 ;
-	mov	cx,[crtc]
-	mov	dx,CRTC_INDEX
-	mov	al,0ch		;start address high register
-	out	dx,al
-	inc	dx
-	mov	al,ch
-	out	dx,al
-	dec	dx
-	mov	al,0dh		;start address low register
-	out	dx,al
-	mov	al,cl
-	inc	dx
-	out	dx,al
-
-	test	[latchpel], 1	; K1n9_Duk3 fix
-	jnz	@@setpan	; K1n9_Duk3 fix
-
-if waitforvbl
-
+;	mov	cx,[crtc]
+;	mov	dx,CRTC_INDEX
+;	mov	al,0ch		;start address high register
+;	out	dx,al
+;	inc	dx
+;	mov	al,ch
+;	out	dx,al
+;	dec	dx
+;	mov	al,0dh		;start address low register
+;	out	dx,al
+;	mov	al,cl
+;	inc	dx
+;	out	dx,al
+;
+;	test	[latchpel], 1	; K1n9_Duk3 fix
+;	jnz	@@setpan	; K1n9_Duk3 fix
+;
+;if waitforvbl
+;
 ;
 ; wait for a vertical retrace to set pel panning
 ;
-
-	call	VWL_WaitVBL
-
-
-endif
-
+;
+;	call	VWL_WaitVBL
+;
+;
+;endif
+;
 ;
 ; set horizontal panning
 ;
-
-@@setpan:			; K1n9_Duk3 fix
-
-	mov	dx,ATR_INDEX
-	mov	al,ATR_PELPAN or 20h
-	out	dx,al
-	jmp	$+2
-	mov	al,[BYTE pel]		;pel pan value
-	out	dx,al
-
-	test	[latchpel], 1	; K1n9_Duk3 fix
-	jz	@@done		; K1n9_Duk3 fix
+;
+;@@setpan:			; K1n9_Duk3 fix
+;
+;	mov	dx,ATR_INDEX
+;	mov	al,ATR_PELPAN or 20h
+;	out	dx,al
+;	jmp	$+2
+;	mov	al,[BYTE pel]		;pel pan value
+;	out	dx,al
+;
+;	test	[latchpel], 1	; K1n9_Duk3 fix
+;	jz	@@done		; K1n9_Duk3 fix
 ;
 ; wait for a vertical retrace to avoid flickering
 ;
-
-	call	VWL_WaitVBL	; K1n9_Duk3 fix
-
-@@done:
-	sti
-
-	ret
-
-ENDP
+;
+;	call	VWL_WaitVBL	; K1n9_Duk3 fix
+;
+;@@done:
+;	sti
+;
+;	ret
+;
+;ENDP
 
 
 if NUMFONT+NUMFONTM

@@ -7736,7 +7736,7 @@ void CK_DropNisasi(void)	// for Keen
 void CK_ObjDropNisasi(CK_object *ob)	// for other objects
 {
 	// Make Nisasi let go (if creature is grabbed by a Nisasi
-	if (ob->user4)
+	if (ob->user4 && ob->user4 != -1)
 	{
 		CK_object *n = (CK_object *)ob->user4;
 		if (n->type == CT_Nisasi && n->user1 == (int)ob)
